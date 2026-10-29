@@ -1,0 +1,84 @@
+{
+  "key": "access",
+  "title": "Access to HE",
+  "service": "access",
+  "passMark": 80,
+  "questions": [
+    {
+      "key": "equivalent",
+      "question": "One Access to HE Diploma is academically equivalent to what?",
+      "options": ["One A Level", "3 A Levels, in UCAS tariff points", "A degree"],
+      "answer": 1,
+      "explanation": "One diploma is academically equivalent to 3 A Levels in UCAS tariff points. It's not the same as A Levels.",
+      "page": "access-at-a-glance"
+    },
+    {
+      "key": "assessment",
+      "question": "How is the diploma assessed?",
+      "options": [
+        "Exams at a centre",
+        "A mix of exams and assignments",
+        "Fully by assignments: no exams"
+      ],
+      "answer": 2,
+      "explanation": "It's fully assignment-based, with no exams.",
+      "page": "access-at-a-glance"
+    },
+    {
+      "key": "regulator",
+      "question": "Who regulates the Access to HE Diploma?",
+      "options": ["Ofqual", "The QAA, through Open Awards", "Pearson"],
+      "answer": 1,
+      "explanation": "It's regulated by the QAA (the Access equivalent of Ofqual) through Open Awards, our awarding body.",
+      "page": "access-at-a-glance"
+    },
+    {
+      "key": "scotland",
+      "question": "Where isn't the diploma useful?",
+      "options": ["Scotland", "Wales", "Northern Ireland"],
+      "answer": 0,
+      "explanation": "The QAA scheme covers England, Wales and Northern Ireland, so it's not useful in Scotland.",
+      "page": "access-at-a-glance"
+    },
+    {
+      "key": "who",
+      "question": "Who is the diploma for?",
+      "options": [
+        "Anyone, of any age, anywhere",
+        "Under-16s preparing for A Levels",
+        "People 16 or over, living in the UK, with Level 2 maths and English or working towards it"
+      ],
+      "answer": 2,
+      "explanation": "Learners must be 16 or over, UK resident, and have Level 2 maths and English, or be working towards it alongside the diploma.",
+      "page": "access-at-a-glance"
+    },
+    {
+      "key": "hours",
+      "question": "Roughly how many hours of study does the diploma take?",
+      "options": ["About 100", "About 600", "About 1,500"],
+      "answer": 1,
+      "explanation": "It's essentially the equivalent of 3 A Levels: around 600 hours of study. Be honest about this.",
+      "page": "access-at-a-glance"
+    },
+    {
+      "key": "price",
+      "question": "What does a diploma cost, before any discount?",
+      "options": ["£999", "£1,199.20", "£1,500"],
+      "answer": 1,
+      "explanation": "£1,199.20 for every diploma: normally £1,500, with the current 20% sale. There's nothing further to pay.",
+      "page": "access-prices"
+    },
+    {
+      "key": "refund",
+      "question": "Is a refund due after the learner's start date?",
+      "options": [
+        "Yes, within 14 days",
+        "No: they're registered with Open Awards and we've paid the fees",
+        "Yes, if they haven't submitted anything"
+      ],
+      "answer": 1,
+      "explanation": "After the start date no refund is due, because we can't withdraw them and we've paid the fees. A rejected application is refunded.",
+      "page": "access-prices"
+    }
+  ]
+}

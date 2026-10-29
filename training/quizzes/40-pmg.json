@@ -1,0 +1,88 @@
+{
+  "key": "pmg",
+  "title": "Pass GCSE",
+  "service": "pmg",
+  "passMark": 80,
+  "questions": [
+    {
+      "key": "fs-first",
+      "question": "When should you still advise Functional Skills to a Pass GCSE caller?",
+      "options": [
+        "Never: they asked for a GCSE",
+        "Whenever it suits them. Only go for GCSE when Functional Skills isn't right",
+        "Only for English"
+      ],
+      "answer": 1,
+      "explanation": "Still advise Functional Skills to anyone it suits. Only go for GCSE when Functional Skills isn't right for them.",
+      "page": "pmg-at-a-glance"
+    },
+    {
+      "key": "where",
+      "question": "Where and when are Pass GCSE exams sat?",
+      "options": [
+        "Online at home, any day",
+        "At our office",
+        "In person at an exam centre, on set dates"
+      ],
+      "answer": 2,
+      "explanation": "Exams are sat in person at an exam centre near the learner, on set dates: May, and November for resits.",
+      "page": "pmg-exams"
+    },
+    {
+      "key": "november",
+      "question": "Who can sit in the November series?",
+      "options": [
+        "Learners 16 or over, resits only (except IGCSE)",
+        "Anyone, any subject",
+        "Under-16s only"
+      ],
+      "answer": 0,
+      "explanation": "In November learners must be 16 or over, and it's resits only except IGCSE, generally just maths and English.",
+      "page": "pmg-exams"
+    },
+    {
+      "key": "maths-board",
+      "question": "A maths learner doesn't know their exam board. Which do you use?",
+      "options": ["AQA", "OCR", "Edexcel", "WJEC"],
+      "answer": 2,
+      "explanation": "For maths, if they don't know, use Edexcel, the most common.",
+      "page": "pmg-exams"
+    },
+    {
+      "key": "english-board",
+      "question": "An English learner doesn't know their exam board. Which do you use?",
+      "options": ["AQA", "Edexcel", "OCR"],
+      "answer": 0,
+      "explanation": "For English, if they don't know, use AQA.",
+      "page": "pmg-exams"
+    },
+    {
+      "key": "centre-confirm",
+      "question": "Once we offer a centre, how long does the learner have to confirm or decline it?",
+      "options": ["24 hours", "1 week", "1 month"],
+      "answer": 1,
+      "explanation": "Admin emails to check they're happy, and they must confirm or decline within 1 week. They get a reminder if not.",
+      "page": "pmg-exams"
+    },
+    {
+      "key": "exam-discount",
+      "question": "Can you discount an exam-only Pass GCSE booking?",
+      "options": [
+        "Yes, 10%",
+        "Only if the learner asks",
+        "No, never: no exceptions"
+      ],
+      "answer": 2,
+      "explanation": "No discount on exam-only bookings at all. The only discount is 10% off the course.",
+      "page": "pmg-prices"
+    },
+    {
+      "key": "hours",
+      "question": "How many hours of study per subject do we recommend on a Pass GCSE course?",
+      "options": ["About 50", "About 100", "About 600"],
+      "answer": 1,
+      "explanation": "We recommend around 100 hours of study per subject.",
+      "page": "pmg-at-a-glance"
+    }
+  ]
+}

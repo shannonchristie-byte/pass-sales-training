@@ -1,0 +1,96 @@
+{
+  "key": "rules",
+  "title": "Sales rules and fair play",
+  "passMark": 80,
+  "questions": [
+    {
+      "key": "facebook-calls",
+      "question": "How many calls does a Facebook lead get before it's dead-leaded?",
+      "options": ["1", "2", "3", "5"],
+      "answer": 0,
+      "explanation": "Facebook leads get 1 call, then are dead-leaded (the automatic email still goes). All other leads get 3 calls.",
+      "page": "rules-sales-rules"
+    },
+    {
+      "key": "other-calls",
+      "question": "How many calls do other leads (not from Facebook) get?",
+      "options": ["1", "2", "Until they answer", "3"],
+      "answer": 3,
+      "explanation": "All leads other than Facebook leads get 3 calls.",
+      "page": "rules-sales-rules"
+    },
+    {
+      "key": "deposit",
+      "question": "When can you offer the deposit route?",
+      "options": [
+        "As soon as the price comes up",
+        "Whenever they ask how to pay",
+        "Only once they've made it clear they can't pay in full",
+        "Never"
+      ],
+      "answer": 2,
+      "explanation": "Pay in full is rule 4. Get as much paid upfront as possible, and never offer the deposit route until they've made it clear they can't pay in full.",
+      "page": "rules-sales-rules"
+    },
+    {
+      "key": "transfers",
+      "question": "How do you transfer a caller to admin?",
+      "options": [
+        "Always a warm transfer, never cold",
+        "A cold transfer, so admin can pick up when they're free",
+        "Don't transfer: give them the admin email"
+      ],
+      "answer": 0,
+      "explanation": "Since 20 Aug 2026, transfers to admin are always warm, never cold.",
+      "page": "rules-sales-rules"
+    },
+    {
+      "key": "refund",
+      "question": "A learner asks you for a refund on the phone. What do you do?",
+      "options": [
+        "Promise it if they're within 14 days",
+        "Process it yourself",
+        "Never promise a refund: they email in, and admin confirms or declines it"
+      ],
+      "answer": 2,
+      "explanation": "Never promise a refund on the phone. The learner emails in, and admin confirms or declines it.",
+      "page": "rules-sales-rules"
+    },
+    {
+      "key": "discounts",
+      "question": "When should you offer a discount?",
+      "options": [
+        "Only if you need to, to make the sale",
+        "On every call, to close faster",
+        "Only to learners who have bought before"
+      ],
+      "answer": 0,
+      "explanation": "Rule 5: only offer a discount if you need to, to make the sale.",
+      "page": "rules-sales-rules"
+    },
+    {
+      "key": "unnamed",
+      "question": "A learner says they've already spoken to someone else, but can't say who. Whose sale is it?",
+      "options": [
+        "Whoever has been on shift longest",
+        "Split evenly across the team",
+        "Yours"
+      ],
+      "answer": 2,
+      "explanation": "Ask for the name. If they can name them, pass it over. If not, it's your sale.",
+      "page": "rules-fair-play"
+    },
+    {
+      "key": "report",
+      "question": "You think someone has broken the fair play rules. What do you do?",
+      "options": [
+        "Raise it with them in the office",
+        "Slack Shannon discreetly",
+        "Post it in the team channel"
+      ],
+      "answer": 1,
+      "explanation": "Handle it professionally, assuming an innocent mistake. Slack Shannon discreetly, and don't talk about it openly in the office.",
+      "page": "rules-fair-play"
+    }
+  ]
+}

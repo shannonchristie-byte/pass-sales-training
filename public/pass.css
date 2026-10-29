@@ -1,0 +1,276 @@
+/* ------------------------------------------------------------------ */
+/* Pass design system — the token layer                                */
+/*                                                                     */
+/* Copied from the Pass design system's colors_and_type.css, trimmed to */
+/* what this app uses. Loaded before styles.css, which maps the app's   */
+/* own variables onto these.                                           */
+/*                                                                     */
+/* Two deliberate departures, both noted where they happen:            */
+/*                                                                     */
+/*  1. Green as small text uses --pass-green-700 rather than 600. The   */
+/*     brand primary #0FBC0F only manages about 2:1 against white, and  */
+/*     this app is read all day by people checking pay figures. Large   */
+/*     figures, buttons and fills use the brand primary as specified.   */
+/*                                                                     */
+/*  2. A dark scheme. The design system ships one for its Tailwind      */
+/*     layer but not this browser layer, and the app had dark mode      */
+/*     before the redesign, so it is derived from the same palette      */
+/*     rather than dropped.                                            */
+/* ------------------------------------------------------------------ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+  /* ───── Brand (Pass Green) ───── */
+  --pass-green-50:  #F0FEEF;
+  --pass-green-100: #DBFEDA;
+  --pass-green-200: #B8FBB7;
+  --pass-green-300: #81F580;
+  --pass-green-400: #42E741;
+  --pass-green-500: #18CF18;
+  --pass-green-600: #0FBC0F;  /* PRIMARY */
+  --pass-green-700: #0F8610;  /* hover, and green text */
+  --pass-green-800: #116A12;  /* press */
+  --pass-green-900: #105712;
+  --pass-green-950: #033005;
+
+  --color-primary:       var(--pass-green-600);
+  --color-primary-hover: var(--pass-green-700);
+  --color-primary-press: var(--pass-green-800);
+  --color-primary-bg:    var(--pass-green-50);
+  --color-link:          var(--pass-green-700);
+
+  /* ───── Neutrals ───── */
+  --color-gray-25:  #FCFCFD;
+  --color-gray-50:  #F9FAFB;
+  --color-gray-100: #F3F4F6;
+  --color-gray-200: #E5E7EB;
+  --color-gray-300: #D1D5DB;
+  --color-gray-400: #98A2B3;
+  --color-gray-500: #6A7282;
+  --color-gray-600: #4A5565;
+  --color-gray-700: #344054;
+  --color-gray-800: #1F2937;
+  --color-gray-900: #101828;
+
+  --fg-1: #101828;
+  --fg-2: #344054;
+  --fg-3: #4A5565;
+  --fg-4: #6A7282;
+  --fg-5: #98A2B3;
+  --fg-inverse: #FFFFFF;
+
+  --bg-page:    #F9FAFB;
+  --bg-surface: #FFFFFF;
+  --bg-raised:  #F3F4F6;
+  --bg-sunken:  #F9FAFB;
+
+  --border-default: #E5E7EB;
+  --border-strong:  #D1D5DB;
+
+  /* ───── Semantic state ───── */
+  --color-success:     #0E9F6E;
+  --color-success-700: #047857;
+  --color-success-bg:  #ECFDF5;
+  --color-warning:     #D97706;
+  --color-warning-700: #92400E;
+  --color-warning-bg:  #FFF7ED;
+  --color-danger:      #C70036;
+  --color-danger-700:  #9B1C1C;
+  --color-danger-bg:   #FDF2F2;
+  --color-info:        #1C64F2;
+  --color-info-700:    #1447E6;
+  --color-info-bg:     #EEF6FF;
+
+  /* ───── Gold — the bonus ─────
+   *
+   * Not a core Pass colour. It is the amber the system already uses for
+   * "premium" in the Pass Revise sub-brand (#F5B301), borrowed here for the
+   * one thing that genuinely warrants it: the bonus a person is building up.
+   * The deep shade is for the figure itself, which needs to stay readable.
+   */
+  --gold:      #F5B301;
+  --gold-ink:  #A16207;
+  --gold-soft: #FFFBEB;
+  --gold-edge: #FDE68A;
+
+  /* ───── Typography ───── */
+  --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+  --fw-extrabold: 800;
+
+  --text-xs: 12px;
+  --text-sm: 14px;
+  --text-base: 16px;
+  --text-lg: 18px;
+  --text-xl: 20px;
+  --text-2xl: 24px;
+  --text-3xl: 30px;
+  --text-4xl: 36px;
+
+  --leading-tight: 1.2;
+  --leading-snug: 1.35;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.625;
+
+  --tracking-tight: -0.025em;
+  --tracking-wide: 0.025em;
+
+  /* ───── Radius — 12px default, 6px on badges ───── */
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-full: 9999px;
+
+  /* ───── Shadows — Pass prefers borders. These are for overlays. ───── */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, .05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, .1), 0 2px 4px -2px rgba(0, 0, 0, .1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, .1), 0 4px 6px -4px rgba(0, 0, 0, .1);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, .1), 0 8px 10px -6px rgba(0, 0, 0, .1);
+  --shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, .05);
+  --shadow-focus: 0 0 0 3px rgba(15, 188, 15, .25);
+
+  /* ───── Spacing (4px base) ───── */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+
+  /* ───── Motion ───── */
+  --ease-in-out: cubic-bezier(.4, 0, .2, 1);
+  --ease-out: cubic-bezier(0, 0, .2, 1);
+  --dur-hover: 150ms;
+  --dur-small: 200ms;
+  --dur-panel: 300ms;
+}
+
+/* ------------------------------------------------------------------ */
+/* Dark scheme                                                         */
+/*                                                                     */
+/* Derived from the same palette rather than invented: the neutrals    */
+/* invert through the grey ramp, and green lifts to the 400/500 end so */
+/* it stays brand-recognisable without glowing.                        */
+/* ------------------------------------------------------------------ */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --fg-1: #F9FAFB;
+    --fg-2: #E5E7EB;
+    --fg-3: #D1D5DB;
+    --fg-4: #98A2B3;
+    --fg-5: #6A7282;
+    --fg-inverse: #101828;
+
+    --bg-page:    #0D1117;
+    --bg-surface: #161B22;
+    --bg-raised:  #21262D;
+    --bg-sunken:  #0D1117;
+
+    --border-default: #2A3138;
+    --border-strong:  #3A424B;
+
+    --color-primary:       var(--pass-green-500);
+    --color-primary-hover: var(--pass-green-400);
+    --color-primary-press: var(--pass-green-600);
+    --color-primary-bg:    #0E2A12;
+    --color-link:          var(--pass-green-400);
+
+    --color-success:     #34D399;
+    --color-success-700: #6EE7B7;
+    --color-success-bg:  #052E22;
+    --color-warning:     #FBBF24;
+    --color-warning-700: #FCD34D;
+    --color-warning-bg:  #2B1D05;
+    --color-danger:      #FB7185;
+    --color-danger-700:  #FDA4AF;
+    --color-danger-bg:   #2C0B14;
+    --color-info:        #60A5FA;
+    --color-info-700:    #93C5FD;
+    --color-info-bg:     #0A1B33;
+
+    --gold:      #F5B301;
+    --gold-ink:  #FBBF24;
+    --gold-soft: #2A1F05;
+    --gold-edge: #6B4E06;
+
+    --shadow-focus: 0 0 0 3px rgba(24, 207, 24, .3);
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* Base                                                                */
+/* ------------------------------------------------------------------ */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body {
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  color: var(--fg-1);
+  background: var(--bg-page);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ------------------------------------------------------------------ */
+/* Type                                                                */
+/* ------------------------------------------------------------------ */
+
+.pass-eyebrow {
+  font-weight: var(--fw-semibold);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--fg-4);
+}
+
+/**
+ * A Pass idiom worth keeping: a product page title carries a green-tint
+ * highlight behind the words, like a marker pen over the heading.
+ */
+.page-head h1 .mark,
+h1 .mark {
+  background: var(--color-primary-bg);
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+/* ------------------------------------------------------------------ */
+/* Icons                                                               */
+/*                                                                     */
+/* SVG, 24×24, inheriting currentColor. The design system is explicit  */
+/* that emoji are never used in Pass UI, which is why the old nav       */
+/* glyphs have all gone.                                               */
+/* ------------------------------------------------------------------ */
+
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  width: 18px;
+  height: 18px;
+}
+
+.icon svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.icon-sm { width: 14px; height: 14px; }
+.icon-lg { width: 22px; height: 22px; }

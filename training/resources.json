@@ -1,0 +1,278 @@
+{
+  "source": "PASS independent training day (Google Doc 15VMMyhcYEK6K-CmZYYCxPDO6qvBDHxmdindm9vMdlL4), the Sales Training Presentation and the ProProfs course list, 29 Oct 2026. No sign-in details: people use their own.",
+  "resources": [
+    {
+      "key": "presentation",
+      "title": "Sales Training Presentation",
+      "kind": "slides",
+      "url": "https://docs.google.com/presentation/d/1f9VCJstcrPZIU6oYz-pvDIYPoAGfn7GCm8zpKkimqe0/edit",
+      "note": "Sales structure, the team, star levels and PFS. Where its weeks 1 to 6 roadmap differs from your training plan here, the plan here is the one to follow."
+    },
+    {
+      "key": "kb-rules",
+      "title": "The sales rules and fair play",
+      "kind": "kb",
+      "url": "#/kb/s?key=rules",
+      "note": "The 6 sales rules, the rules added since, whose lead is whose, and how to work leads in the Sales CRM."
+    },
+    {
+      "key": "kb-scripts",
+      "title": "Lead types and call scripts",
+      "kind": "kb",
+      "url": "#/kb/p?slug=scripts-lead-types",
+      "note": "Which script to use for each kind of lead."
+    },
+    {
+      "key": "kb-objections",
+      "title": "Objection handling",
+      "kind": "kb",
+      "url": "#/kb/s?key=objections"
+    },
+    {
+      "key": "proprofs-pre-interview",
+      "title": "ProProfs: Pre-Interview Foundation",
+      "kind": "proprofs",
+      "url": "https://www.proprofstraining.com/app/mytrainings/",
+      "note": "Done before interview. Use the same email for every ProProfs course."
+    },
+    {
+      "key": "proprofs-cross-service",
+      "title": "ProProfs: Course 6, Cross Service Routing",
+      "kind": "proprofs",
+      "url": "https://www.proprofstraining.com/app/mytrainings/",
+      "note": "Which service suits which learner."
+    },
+    {
+      "key": "proprofs-sales-skills",
+      "title": "ProProfs: Course 7, Sales Skills (recordings and situational judgement)",
+      "kind": "proprofs",
+      "url": "https://www.proprofstraining.com/app/mytrainings/"
+    },
+
+    {
+      "key": "pfs-kb",
+      "title": "Read the PFS pages",
+      "kind": "kb",
+      "url": "#/kb/s?key=pfs",
+      "service": "pfs",
+      "note": "Everything on Pass Functional Skills. Note anything you'd like to go over with John or Lucy."
+    },
+    {
+      "key": "pfs-supademo",
+      "title": "PFS course walkthrough (Supademo)",
+      "kind": "demo",
+      "url": "https://app.supademo.com/demo/cmd37vg3i3kl9c4kjjvwlgdl3",
+      "service": "pfs",
+      "note": "How the course works and the kind of revision material in it."
+    },
+    {
+      "key": "pfs-web-maths",
+      "title": "PFS website: Maths Level 2",
+      "kind": "web",
+      "url": "https://passfunctionalskills.co.uk/shop/exams/functional-skills-maths-level-2-online-exam/",
+      "service": "pfs",
+      "note": "Get to know the prices, how the page works and the FAQs."
+    },
+    {
+      "key": "pfs-web-english",
+      "title": "PFS website: English Level 2",
+      "kind": "web",
+      "url": "https://passfunctionalskills.co.uk/shop/exams/functional-skills-english-level-2-online-exam/",
+      "service": "pfs"
+    },
+    {
+      "key": "pfs-proprofs-1",
+      "title": "ProProfs: PFS Part 1, Product Knowledge",
+      "kind": "proprofs",
+      "url": "https://www.proprofstraining.com/app/course/?title=untitled-course_6a218626c47b2_4149742",
+      "service": "pfs"
+    },
+    {
+      "key": "pfs-proprofs-2",
+      "title": "ProProfs: PFS Part 2, Selling PFS",
+      "kind": "proprofs",
+      "url": "https://www.proprofstraining.com/app/course/?title=untitled-course_6a2a7bd28b3f0_4150125",
+      "service": "pfs"
+    },
+    {
+      "key": "pfs-call-guide",
+      "title": "B2C interview day call guide (PFS learning platform call)",
+      "kind": "doc",
+      "url": "https://docs.google.com/document/d/1pBQ3WaQO4We1Xv28za6lQXaN0R4qhQCQ3GS2YkKkpsU/edit",
+      "service": "pfs",
+      "note": "The shape of a call. The scripts in the knowledge base cover the rest."
+    },
+    {
+      "key": "pfs-recording-1",
+      "title": "PFS call recording 1",
+      "kind": "recording",
+      "url": "https://drive.google.com/file/d/1T0kbzZnpBxtoZaCqKInMWp-RHdnAIf05/view",
+      "service": "pfs"
+    },
+    {
+      "key": "pfs-recording-2",
+      "title": "PFS call recording 2",
+      "kind": "recording",
+      "url": "https://drive.google.com/file/d/1xliCqKE4-ag7QvJPbrrp303BghkJ8qqt/view",
+      "service": "pfs"
+    },
+
+    {
+      "key": "astar-kb",
+      "title": "Read the A Star pages",
+      "kind": "kb",
+      "url": "#/kb/s?key=astar",
+      "service": "astar",
+      "note": "Note anything you're unsure about."
+    },
+    {
+      "key": "astar-web-maths",
+      "title": "A Star website: Maths",
+      "kind": "web",
+      "url": "https://astarequivalency.co.uk/shop/exams/gcse-maths-equivalency-test/",
+      "service": "astar",
+      "note": "Read everything on each subject page, including the FAQs and exam information: they differ between subjects."
+    },
+    {
+      "key": "astar-web-english",
+      "title": "A Star website: English",
+      "kind": "web",
+      "url": "https://astarequivalency.co.uk/shop/exams/gcse-english-equivalency-test/",
+      "service": "astar"
+    },
+    {
+      "key": "astar-web-biology",
+      "title": "A Star website: Biology",
+      "kind": "web",
+      "url": "https://astarequivalency.co.uk/shop/exams/gcse-biology-equivalency-test/",
+      "service": "astar"
+    },
+    {
+      "key": "astar-proprofs",
+      "title": "ProProfs: Course 4, In-Depth A Star Equivalency",
+      "kind": "proprofs",
+      "url": "https://www.proprofstraining.com/app/course/?title=untitled-course_6a3271f5e60f6_4150513",
+      "service": "astar"
+    },
+    {
+      "key": "astar-script",
+      "title": "A Star learning platform call script",
+      "kind": "doc",
+      "url": "https://docs.google.com/document/d/1PgBtsOGmnVegrnGoIdLBYOO2_wutX8FzjGjz7RvVCs0/edit",
+      "service": "astar"
+    },
+    {
+      "key": "astar-recording",
+      "title": "An ideal A Star call (recording)",
+      "kind": "recording",
+      "url": "https://drive.google.com/file/d/1qswVMx21zqyhS8FD07XOy8mmcqtwQcFe/view",
+      "service": "astar"
+    },
+
+    {
+      "key": "pmg-kb",
+      "title": "Read the Pass GCSE pages",
+      "kind": "kb",
+      "url": "#/kb/s?key=pmg",
+      "service": "pmg"
+    },
+    {
+      "key": "pmg-proprofs",
+      "title": "ProProfs: Course 5, In-Depth Pass GCSE",
+      "kind": "proprofs",
+      "url": "https://www.proprofstraining.com/app/course/?title=untitled-course_6a3b93dac591a_4151003",
+      "service": "pmg"
+    },
+    {
+      "key": "pmg-web-maths",
+      "title": "Pass GCSE website: Maths",
+      "kind": "web",
+      "url": "https://passmygcse.co.uk/shop/exams/gcse-maths-resit/",
+      "service": "pmg",
+      "note": "Read how booking works, the exam sections and the FAQs. Just maths, English and a science to start."
+    },
+    {
+      "key": "pmg-web-english",
+      "title": "Pass GCSE website: English",
+      "kind": "web",
+      "url": "https://passmygcse.co.uk/shop/exams/gcse-english-resit/",
+      "service": "pmg"
+    },
+    {
+      "key": "pmg-web-science",
+      "title": "Pass GCSE website: Combined Science",
+      "kind": "web",
+      "url": "https://passmygcse.co.uk/shop/exams/gcse-science-resit/",
+      "service": "pmg"
+    },
+    {
+      "key": "pmg-script",
+      "title": "Pass GCSE call script",
+      "kind": "doc",
+      "url": "https://docs.google.com/document/d/16rgVF9W5oq3eRat20Cvrny3BU1lfJOIy7TWMl8gzQ9E/edit",
+      "service": "pmg"
+    },
+    {
+      "key": "pmg-recording",
+      "title": "An ideal Pass GCSE call (recording)",
+      "kind": "recording",
+      "url": "https://drive.google.com/file/d/14hDHJpWEZaD5bW56BflIHs-3lxUGhgzf/view",
+      "service": "pmg"
+    },
+
+    {
+      "key": "alevel-kb",
+      "title": "Read the Pass A Level pages",
+      "kind": "kb",
+      "url": "#/kb/s?key=alevel",
+      "service": "alevel",
+      "note": "There's no ProProfs course for Pass A Level yet."
+    },
+    {
+      "key": "alevel-call-guide",
+      "title": "Pass A Level call guide",
+      "kind": "kb",
+      "url": "#/kb/p?slug=alevel-call-guide",
+      "service": "alevel"
+    },
+
+    {
+      "key": "access-kb",
+      "title": "Read the Access to HE pages",
+      "kind": "kb",
+      "url": "#/kb/s?key=access",
+      "service": "access"
+    },
+    {
+      "key": "access-proprofs",
+      "title": "ProProfs: Access to HE, courses 1 to 4",
+      "kind": "proprofs",
+      "url": "https://www.proprofstraining.com/app/mytrainings/",
+      "service": "access"
+    },
+    {
+      "key": "access-call-guide",
+      "title": "Access to HE call guide",
+      "kind": "kb",
+      "url": "#/kb/p?slug=access-call-guide",
+      "service": "access"
+    },
+
+    {
+      "key": "exams-kb",
+      "title": "Read the online exams pages",
+      "kind": "kb",
+      "url": "#/kb/s?key=exams",
+      "service": "exams",
+      "note": "Start with the pitch, then the qualifying checklist. There's no ProProfs course for the online exams yet."
+    },
+    {
+      "key": "exams-guide",
+      "title": "Alex's online exams sales guide",
+      "kind": "web",
+      "url": "https://claude.ai/artifact/5QZQ5fvYE1ReAeCj6DekFS",
+      "service": "exams",
+      "note": "Where the online exams pages came from. Questions about it go to Alex."
+    }
+  ]
+}

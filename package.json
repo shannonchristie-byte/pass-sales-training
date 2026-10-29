@@ -1,0 +1,18 @@
+{
+  "name": "pass-sales-training",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Sales training and knowledge base for the B2C sales team: a knowledge base the same for everyone, and training and development personal to each person",
+  "type": "module",
+  "engines": { "node": ">=22.5.0" },
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "test": "node --test \"test/*.test.js\"",
+    "seed:dev": "node src/seed-dev.js",
+    "try": "node src/try-local.js"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}

@@ -1,0 +1,102 @@
+{
+  "key": "pfs",
+  "title": "Pass Functional Skills",
+  "service": "pfs",
+  "passMark": 80,
+  "questions": [
+    {
+      "key": "level-2",
+      "question": "Functional Skills Level 2 is equivalent to which GCSE grade?",
+      "options": ["Grade 3 (D)", "Grade 4 (C)", "Grade 6", "Grade 9"],
+      "answer": 1,
+      "explanation": "Level 2 is equivalent to a GCSE grade C, or grade 4 on the new scale.",
+      "page": "pfs-at-a-glance"
+    },
+    {
+      "key": "pass-rate",
+      "question": "What is our 93% pass rate based on?",
+      "options": [
+        "Every learner who books an exam",
+        "Learners who complete the course",
+        "Learners who sit with Open Awards",
+        "It's guaranteed for everyone"
+      ],
+      "answer": 1,
+      "explanation": "The 93% pass rate is for learners who complete the course.",
+      "page": "pfs-at-a-glance"
+    },
+    {
+      "key": "board",
+      "question": "Which exam board do we strongly advise?",
+      "options": ["Open Awards", "City and Guilds", "VQA (TQUK)"],
+      "answer": 2,
+      "explanation": "Strongly advise VQA (TQUK), our main board, with the fastest results. Open Awards, and City and Guilds if needed, are also offered.",
+      "page": "pfs-exams"
+    },
+    {
+      "key": "english-resit",
+      "question": "A learner failed one English component. What do they resit?",
+      "options": [
+        "Only the component they failed",
+        "All three components",
+        "Reading and writing only"
+      ],
+      "answer": 0,
+      "explanation": "For English, only the failed components are resat. For maths, the whole exam is resat.",
+      "page": "pfs-access-resits"
+    },
+    {
+      "key": "discount",
+      "question": "What can a PFS discount be taken off?",
+      "options": [
+        "The exam",
+        "Anything in the basket",
+        "The course, or the course part of a bundle"
+      ],
+      "answer": 2,
+      "explanation": "Discounts only ever apply to course only, or the course part of a bundle, and the most is 10%.",
+      "page": "pfs-discounts"
+    },
+    {
+      "key": "payl8r",
+      "question": "Which of these can you say about Payl8r?",
+      "options": [
+        "\"It would only be about £30 a month.\"",
+        "\"I'd recommend spreading it with Payl8r.\"",
+        "\"We're partnered with Payl8r. You can see the cost breakdown with the calculator on our website.\"",
+        "\"I'll fill in the application with you now.\""
+      ],
+      "answer": 2,
+      "explanation": "Payl8r is credit. Only say it's an option and point them to the calculator. Never advise it, quote amounts, help them apply or suggest they'll be approved.",
+      "page": "pfs-payment"
+    },
+    {
+      "key": "clearpay",
+      "question": "How does Clearpay split the payment?",
+      "options": [
+        "4 equal payments, every 2 weeks",
+        "3 equal monthly payments",
+        "Over 6 to 24 months, with interest"
+      ],
+      "answer": 0,
+      "explanation": "Clearpay is 4 equal interest-free payments every 2 weeks, the first on the day they register.",
+      "page": "pfs-payment"
+    },
+    {
+      "key": "letter",
+      "question": "What does a provider letter cost a learner under time pressure who books with us?",
+      "options": ["£25", "Nothing: it's free", "£50"],
+      "answer": 1,
+      "explanation": "Provider letters are free for anyone under time pressure who books with us.",
+      "page": "pfs-access-resits"
+    },
+    {
+      "key": "premium-price",
+      "question": "What is the full price of a Level 2 premium bundle, booked now with the date chosen later?",
+      "options": ["£399.20", "£441.60", "£499.20", "£553.00"],
+      "answer": 2,
+      "explanation": "£499.20 per subject, which can be discounted to £470.80 with 10% off the course part.",
+      "page": "pfs-prices"
+    }
+  ]
+}

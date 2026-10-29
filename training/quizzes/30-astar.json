@@ -1,0 +1,100 @@
+{
+  "key": "astar",
+  "title": "A Star Equivalency",
+  "service": "astar",
+  "passMark": 80,
+  "questions": [
+    {
+      "key": "who",
+      "question": "Who is A Star Equivalency mainly for?",
+      "options": [
+        "Apprentices",
+        "People going into teaching, especially on a PGCE",
+        "School pupils under 16"
+      ],
+      "answer": 1,
+      "explanation": "A Star's equivalency tests are built for learners going into teaching (PGCE, QTLS), and sometimes healthcare. Teaching usually doesn't accept Functional Skills Level 2.",
+      "page": "astar-at-a-glance"
+    },
+    {
+      "key": "primary",
+      "question": "Someone on the PGCE route into primary teaching needs a science. Which is usually best?",
+      "options": ["Combined Science", "Biology", "Either: it makes no difference"],
+      "answer": 0,
+      "explanation": "Combined Science is usually best for primary teaching, Biology for secondary.",
+      "page": "astar-at-a-glance"
+    },
+    {
+      "key": "apprenticeship",
+      "question": "What's the best option for someone on a teaching apprenticeship?",
+      "options": ["A Star equivalency", "A full GCSE", "Functional Skills (PFS)"],
+      "answer": 2,
+      "explanation": "For a teaching apprenticeship, Functional Skills is the best option: equivalency isn't usually accepted.",
+      "page": "astar-at-a-glance"
+    },
+    {
+      "key": "results",
+      "question": "How long do A Star results take?",
+      "options": [
+        "Same day",
+        "Up to 10 working days, or 2 with fast track",
+        "Up to 6 weeks"
+      ],
+      "answer": 1,
+      "explanation": "Results take up to 10 working days for every subject, or 2 working days with fast track (an extra fee per exam).",
+      "page": "astar-exams"
+    },
+    {
+      "key": "tier",
+      "question": "A learner needs a grade 4 or 5 in maths. Which tier do you advise?",
+      "options": ["Higher", "Foundation"],
+      "answer": 1,
+      "explanation": "Advise foundation for a grade 4 or 5: it's shorter with much higher pass rates. Higher is for grade 6 and above, such as teaching in Wales.",
+      "page": "astar-exams"
+    },
+    {
+      "key": "extra-time",
+      "question": "Which exam slots can 25% extra time be applied to?",
+      "options": [
+        "Any slot",
+        "Weekend slots only",
+        "Only the 10am and 2pm weekday slots"
+      ],
+      "answer": 2,
+      "explanation": "25% extra time can only be applied to the 10am and 2pm weekday slots, and we need at least 48 hours to set it up.",
+      "page": "astar-exams"
+    },
+    {
+      "key": "paper-clock",
+      "question": "For a paper-based exam, when does the results clock start?",
+      "options": [
+        "When the paper reaches our office",
+        "When they sit the exam",
+        "When they post the paper back"
+      ],
+      "answer": 0,
+      "explanation": "The results clock starts when the paper reaches our office, for standard and fast track.",
+      "page": "astar-exams"
+    },
+    {
+      "key": "exam-price",
+      "question": "What does an A Star exam on its own cost, booked now with the date chosen later?",
+      "options": ["£149", "£199", "£259", "£388"],
+      "answer": 1,
+      "explanation": "Exam only (BNCDL) is £199 for any subject. A chosen date can bring it down from £149.",
+      "page": "astar-prices"
+    },
+    {
+      "key": "early-result",
+      "question": "An A Star learner asks if you can tell them their result before it's released. What do you say?",
+      "options": [
+        "Tell them if it's a pass",
+        "Never tell them before it's released",
+        "Tell them if they've booked another attempt"
+      ],
+      "answer": 1,
+      "explanation": "Never tell an A Star learner a result before it's released.",
+      "page": "rules-sales-rules"
+    }
+  ]
+}

@@ -1,0 +1,92 @@
+{
+  "source": "Shannon's new starter expectations (28 Oct 2026). Where they differ from the Sales Training Presentation's weeks 1 to 6 roadmap, or the KPI section of the general sales policy, this plan wins (decision 4a).",
+  "stages": [
+    {
+      "key": "day-1",
+      "title": "Day 1",
+      "fromDay": 1,
+      "expectation": "Training, shadowing and call listening.",
+      "activities": [
+        "First training session with John or Lucy, using the Sales Training Presentation",
+        "Shadow members of the team on live calls",
+        "Listen to call recordings",
+        "Read the knowledge base pages for your first service"
+      ]
+    },
+    {
+      "key": "day-2",
+      "title": "Day 2",
+      "fromDay": 2,
+      "expectation": "Final call training, then half a day on the phone. No sales expected.",
+      "activities": [
+        "Final call training with John or Lucy",
+        "Half a day taking calls"
+      ]
+    },
+    {
+      "key": "day-3",
+      "title": "Day 3",
+      "fromDay": 3,
+      "expectation": "A full day on the phone. No sales expected, but good calls.",
+      "activities": [
+        "A full day taking calls",
+        "Use the call scripts and objection handling in the knowledge base"
+      ]
+    },
+    {
+      "key": "days-4-5",
+      "title": "Days 4 and 5",
+      "fromDay": 4,
+      "expectation": "Full days on the phone, with a first sale of any size.",
+      "activities": [
+        "Full days taking calls",
+        "Make your first sale"
+      ]
+    },
+    {
+      "key": "week-2",
+      "title": "Week 2",
+      "fromDay": 6,
+      "expectation": "A sale every day, and some consistency.",
+      "activities": [
+        "Aim for a sale every day"
+      ]
+    },
+    {
+      "key": "week-3",
+      "title": "Week 3",
+      "fromDay": 11,
+      "expectation": "Building to an average of 5 stars a day.",
+      "activities": [
+        "Build towards 5 stars a day on average"
+      ]
+    },
+    {
+      "key": "week-4",
+      "title": "Week 4",
+      "fromDay": 16,
+      "expectation": "Approaching target 1 a day.",
+      "activities": [
+        "Get close to target 1 each day"
+      ]
+    },
+    {
+      "key": "month-2",
+      "title": "Month 2",
+      "fromDay": 21,
+      "expectation": "As close to your own target 1 as possible.",
+      "activities": [
+        "From your 21st working day you count towards your team's average stars"
+      ]
+    },
+    {
+      "key": "month-3",
+      "title": "Month 3",
+      "fromDay": 41,
+      "expectation": "Hitting target 1, or on track for it.",
+      "activities": [
+        "Hit target 1, or be on track for it"
+      ]
+    }
+  ]
+}

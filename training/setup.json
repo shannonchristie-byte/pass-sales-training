@@ -1,0 +1,16 @@
+{
+  "source": "A starting list from the tools the sales team uses (29 Oct 2026). Shannon or Poppy change it in the app to match the Sales team new starter set-up doc. Only whether each thing is done is kept here: never the sign-in details.",
+  "items": [
+    { "key": "email", "title": "Pass email account" },
+    { "key": "slack", "title": "Slack, and added to the sales channels" },
+    { "key": "b2c-app", "title": "B2C Sales app login" },
+    { "key": "training-app", "title": "Training app: start date set and first service switched on" },
+    { "key": "sales-crm", "title": "Sales CRM (Airtable) access" },
+    { "key": "aircall", "title": "Aircall" },
+    { "key": "tawk", "title": "Tawk live chat" },
+    { "key": "hubspot", "title": "HubSpot" },
+    { "key": "appointedd", "title": "Appointedd" },
+    { "key": "proprofs", "title": "ProProfs courses assigned" },
+    { "key": "rota", "title": "Added to the rota" }
+  ]
+}

@@ -1,0 +1,109 @@
+{
+  "key": "exams",
+  "title": "Online international exams",
+  "service": "exams",
+  "passMark": 80,
+  "questions": [
+    {
+      "key": "which",
+      "question": "Which exams can learners sit online from home with us?",
+      "options": [
+        "Any GCSE or A Level",
+        "Pearson Edexcel International GCSE and International A Level",
+        "Cambridge IGCSEs",
+        "AQA and OCR GCSEs"
+      ],
+      "answer": 1,
+      "explanation": "Only Pearson Edexcel's International GCSE and International A Level can be sat online. UK GCSEs, A Levels and every Cambridge exam need a centre.",
+      "page": "exams-at-a-glance"
+    },
+    {
+      "key": "never-say",
+      "question": "Which of these must you never say about the online exams?",
+      "options": [
+        "\"It's an internationally recognised qualification.\"",
+        "\"UK universities accept International A Levels grade for grade.\"",
+        "\"It's Ofqual regulated.\""
+      ],
+      "answer": 2,
+      "explanation": "It isn't Ofqual regulated. Say internationally recognised instead.",
+      "page": "exams-at-a-glance"
+    },
+    {
+      "key": "centre",
+      "question": "The learner can get to an exam centre. What do you do?",
+      "options": [
+        "Offer the centre exam: it's cheaper",
+        "Sell the online exam anyway",
+        "Tell them online isn't for them"
+      ],
+      "answer": 0,
+      "explanation": "If the learner can get to a centre, the centre exam is cheaper: always offer it.",
+      "page": "exams-at-a-glance"
+    },
+    {
+      "key": "igcse-price",
+      "question": "What does an online International GCSE cost?",
+      "options": ["£527 per subject", "£750 per subject", "£937.50 per subject"],
+      "answer": 1,
+      "explanation": "£750 per subject (£937.50 struck through), the same for every series.",
+      "page": "exams-prices"
+    },
+    {
+      "key": "partial",
+      "question": "A learner only needs to resit some International A Level papers. How do you quote it?",
+      "options": [
+        "The full subject price",
+        "£175 per paper",
+        "£527 plus £175 for each paper they sit"
+      ],
+      "answer": 2,
+      "explanation": "Partial resits are £527 plus £175 for each paper (unit) they sit.",
+      "page": "exams-prices"
+    },
+    {
+      "key": "deadline",
+      "question": "What's the last day to book for Summer 2027 without access arrangements?",
+      "options": ["13 Dec 2026", "25 Jan 2027", "1 Feb 2027"],
+      "answer": 1,
+      "explanation": "25 Jan 2027, or 13 Dec 2026 with access arrangements. 1 Feb is Tutors & Exams' date: never quote theirs.",
+      "page": "exams-dates"
+    },
+    {
+      "key": "adult",
+      "question": "Who has to be at home for every exam?",
+      "options": [
+        "Any adult over 18 who isn't their tutor or teacher, whatever the learner's age",
+        "A parent, for under-18s only",
+        "Nobody: the invigilator is enough"
+      ],
+      "answer": 0,
+      "explanation": "An adult over 18, not their tutor or teacher, for every exam. Adult learners need one too.",
+      "page": "exams-qualify"
+    },
+    {
+      "key": "familiarisation",
+      "question": "How does Pearson's familiarisation work?",
+      "options": [
+        "We do a tech call with the learner",
+        "It's optional if they've used it before",
+        "It's compulsory, and the learner does it at home in their own time within Pearson's window"
+      ],
+      "answer": 2,
+      "explanation": "It's compulsory every series, learner-led, between 23 Feb and 3 Mar 2027. Never offer a tech call.",
+      "page": "exams-after-booking"
+    },
+    {
+      "key": "refund",
+      "question": "Is a refund due once we've made the entry with the exam centre?",
+      "options": [
+        "Yes, within the 14-day cooling-off period",
+        "No, even inside the 14-day cooling-off period",
+        "Yes, if they miss familiarisation"
+      ],
+      "answer": 1,
+      "explanation": "Once the entry is made, no refund is due, even inside the 14-day cooling-off period. Missing familiarisation means the entry is removed with no refund.",
+      "page": "exams-faqs"
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "key": "alevel",
+  "title": "Pass A Level",
+  "service": "alevel",
+  "passMark": 80,
+  "questions": [
+    {
+      "key": "where",
+      "question": "Where are all A Levels booked now?",
+      "options": ["The Pass A Level site", "The Pass Learn site", "By phone only"],
+      "answer": 1,
+      "explanation": "All A Levels are now booked through the Pass Learn site.",
+      "page": "alevel-at-a-glance"
+    },
+    {
+      "key": "entry",
+      "question": "What are the entry requirements for sitting an A Level with us?",
+      "options": [
+        "There are no official entry requirements",
+        "A GCSE grade 4 in a related subject",
+        "Five GCSEs at grade 4 or above"
+      ],
+      "answer": 0,
+      "explanation": "There are no official entry requirements. A GCSE grade 4 in a related subject helps but isn't essential.",
+      "page": "alevel-at-a-glance"
+    },
+    {
+      "key": "access",
+      "question": "When should you raise the Access to HE Diploma with an A Level caller?",
+      "options": [
+        "When they're under 16",
+        "When they want to apply to universities outside the UK",
+        "When they're an adult whose goal is a specific degree"
+      ],
+      "answer": 2,
+      "explanation": "Suggest Access to HE for an adult whose goal is a specific degree, especially if they want a faster route or are anxious about exams.",
+      "page": "alevel-at-a-glance"
+    },
+    {
+      "key": "late-fees",
+      "question": "When are A Level late fees added?",
+      "options": [
+        "Around the end of January, and again at the end of February",
+        "In April",
+        "There are no late fees"
+      ],
+      "answer": 0,
+      "explanation": "Late fees are added around the end of January and again at the end of February, and they increase the price dramatically.",
+      "page": "alevel-prices"
+    },
+    {
+      "key": "maths-price",
+      "question": "What does an exam-only A Level in maths, a science, psychology or sociology cost before late fees?",
+      "options": ["£487.20", "£527.20", "£679.20", "£703.20"],
+      "answer": 1,
+      "explanation": "£527.20, after the 20% sales plug-in and before any late fees, practicals or coursework.",
+      "page": "alevel-prices"
+    },
+    {
+      "key": "partially",
+      "question": "What happens to stars when a learner pays with Partial.ly?",
+      "options": ["Nothing changes", "They're doubled", "They're halved"],
+      "answer": 2,
+      "explanation": "Stars are halved with Partial.ly, which has a minimum spend of £999.",
+      "page": "alevel-prices"
+    },
+    {
+      "key": "ucas",
+      "question": "Who can buy UCAS predicted grades and an academic reference?",
+      "options": ["Anyone booking an exam", "Course buyers only", "Nobody: we don't offer it"],
+      "answer": 1,
+      "explanation": "UCAS predicted grades and an academic reference are £50, for course buyers only.",
+      "page": "alevel-prices"
+    }
+  ]
+}

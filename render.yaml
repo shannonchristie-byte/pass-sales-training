@@ -1,0 +1,46 @@
+# Render Blueprint — how the app is hosted.
+#
+# The same set-up as the B2C Sales app: one small service in Frankfurt with a
+# disk, because the database is one SQLite file and Render wipes anything not
+# on a disk at every deploy. One instance only, for the same reason.
+#
+# Deploying (with Shannon's go-ahead and Alex's OK on the cost):
+#   1. Render, Pass Team workspace: New, then Blueprint, then pick this repo.
+#   2. Render makes HANDOFF_KEY itself (generateValue) and tells the app its
+#      own address (RENDER_EXTERNAL_URL), so nothing secret is typed here.
+#   3. In the B2C Sales app's Environment tab, add HANDOFF_KEY (copied from
+#      this service's Environment tab) and TRAINING_RETURN_URL
+#      (<this service's address>/auth/callback). See docs/HANDOFF.md.
+
+services:
+  - name: sales-training
+    type: web
+    runtime: node
+    region: frankfurt
+    plan: 0.5c-512mb
+
+    buildCommand: npm ci
+    startCommand: npm start
+    healthCheckPath: /api/health
+
+    disk:
+      name: data
+      mountPath: /var/data
+      sizeGB: 1
+
+    envVars:
+      - key: NODE_VERSION
+        value: "24"
+      - key: NODE_ENV
+        value: production
+      - key: HOST
+        value: 0.0.0.0
+      - key: TRAINING_DB
+        value: /var/data/training.db
+      - key: SECURE_COOKIE
+        value: "1"
+      - key: B2C_URL
+        value: https://b2c-sales.onrender.com
+      # The secret shared with the B2C Sales app. Render makes a random one.
+      - key: HANDOFF_KEY
+        generateValue: true
