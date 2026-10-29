@@ -66,9 +66,14 @@ its second tab).
   both teams side by side on Team, and stars against what each stage of the
   plan expects join "Needs a look". Tested together locally with made-up
   people. 51 tests pass here, 503 in bonus-app.
-- Next: phase 5 (pilot and launch): commit and push bonus-app, set
-  HANDOFF_KEY and TRAINING_RETURN_URL on Render, create the training app on
-  Render, and pilot with John and Lucy. Each step needs Shannon's go-ahead.
+- **Phase 5 (going live), planned 29 Oct 2026** in the plan doc. Decided:
+  this repo goes on GitHub as a public repo, like bonus-app; Shannon creates
+  the Render service once Alex OKs the cost; it opens to the whole team from
+  day one; Render work happens on a weekday evening after 8:30pm. Stage 1 done
+  29 Oct: Render makes HANDOFF_KEY (`generateValue`) and the app uses
+  `RENDER_EXTERNAL_URL` for its own address; both repos committed locally
+  (this one on `main`, bonus-app on `training-link`), nothing pushed. Next:
+  stage 2, pushing to GitHub, which needs Shannon to sign in to GitHub.
   Content added to `content\` or `training\` after a database exists only reaches it if new;
   additions to existing pages (such as the online exams links added to the
   Pass GCSE and A Level "at a glance" pages) need making in the app.
