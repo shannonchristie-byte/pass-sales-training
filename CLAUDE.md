@@ -72,8 +72,12 @@ its second tab).
   day one; Render work happens on a weekday evening after 8:30pm. Stage 1 done
   29 Oct: Render makes HANDOFF_KEY (`generateValue`) and the app uses
   `RENDER_EXTERNAL_URL` for its own address; both repos committed locally
-  (this one on `main`, bonus-app on `training-link`), nothing pushed. Next:
-  stage 2, pushing to GitHub, which needs Shannon to sign in to GitHub.
+  (this one on `main`, bonus-app on `training-link`). Stage 2 done 29 Oct:
+  this repo is public at github.com/shannonchristie-byte/pass-sales-training,
+  and bonus-app's `training-link` branch is on GitHub, not merged (its `main`
+  is unchanged at a83d17e, so the live B2C Sales app is untouched). Next:
+  stage 3, merging that branch into bonus-app's main on a weekday evening
+  after 8:30pm, which redeploys the B2C Sales app on Render.
   Content added to `content\` or `training\` after a database exists only reaches it if new;
   additions to existing pages (such as the online exams links added to the
   Pass GCSE and A Level "at a glance" pages) need making in the app.
