@@ -75,9 +75,13 @@ its second tab).
   (this one on `main`, bonus-app on `training-link`). Stage 2 done 29 Oct:
   this repo is public at github.com/shannonchristie-byte/pass-sales-training,
   and bonus-app's `training-link` branch is on GitHub, not merged (its `main`
-  is unchanged at a83d17e, so the live B2C Sales app is untouched). Next:
-  stage 3, merging that branch into bonus-app's main on a weekday evening
-  after 8:30pm, which redeploys the B2C Sales app on Render.
+  was then unchanged). Stage 3 done 29 Oct at 4:27pm (Shannon chose to go
+  ahead in opening hours): `training-link` merged into bonus-app's main
+  (f327025) and Render redeployed it; offline for under a minute, back at
+  4:28pm, health check fine, and the link answers "not set up" as it should
+  until stage 4. Next: stage 4, once Alex OKs the cost: Shannon creates this
+  service from `render.yaml` in Pass Team, then adds HANDOFF_KEY (copied from
+  this service's Environment tab) and TRAINING_RETURN_URL to the B2C Sales app.
   Content added to `content\` or `training\` after a database exists only reaches it if new;
   additions to existing pages (such as the online exams links added to the
   Pass GCSE and A Level "at a glance" pages) need making in the app.
