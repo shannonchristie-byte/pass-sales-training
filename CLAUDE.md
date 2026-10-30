@@ -95,6 +95,21 @@ its second tab).
   Source docs are listed under "Sales team" in
   `C:\dev\pass-hq\context\learned.md`. Pages in `content\` only seed new pages:
   once a page is in the database, edits happen in the app.
+- **30 Oct 2026 changes (live):** trainers (John and Lucy) publish page edits
+  and add sections; Online International Exams sit under Pass Learn; brand
+  logos (hot-linked from the brand sites, `src\services.js`); "Ask a question"
+  (`src\kb-chat.js`: finds matching parts, then Claude Haiku 5.5 writes the
+  answer if `ANTHROPIC_API_KEY` is set in Render, otherwise shows the parts;
+  nothing stored); "Bring in the team from the B2C Sales app" on People and
+  access (only people the feed shows in their first four weeks go on the new
+  starter plan); a trained-on date per service; courses (`training\courses\`,
+  `src\routes\courses.js`: sections, then multiple-choice questions checked
+  on the server with feedback; a pass at 80% is recorded with its date).
+  `10-pfs-part-1.json` is ProProfs course 4149742 (PFS Part 1) copied 30 Oct:
+  15 sections, 95 questions (module knowledge checks, then end of course
+  assessment parts A to C). Ordering, matching and pick-all questions were
+  rewritten as single-answer questions, and obvious typos fixed. Other
+  ProProfs courses follow once Shannon has reviewed this one.
 
 ## Working on it
 
