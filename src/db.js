@@ -251,6 +251,47 @@ CREATE TABLE IF NOT EXISTS setup_done (
   PRIMARY KEY (person_id, item_id)
 );
 
+-- Training courses built in the app, to replace ProProfs (Shannon, 30 Oct
+-- 2026). A course is information sections, then multiple-choice questions
+-- with feedback after each answer. Content starts from training/courses/.
+CREATE TABLE IF NOT EXISTS courses (
+  key             TEXT PRIMARY KEY,
+  title           TEXT NOT NULL,
+  service         TEXT,                           -- a key from services.js; NULL is for everyone
+  description     TEXT NOT NULL DEFAULT '',
+  pass_mark       INTEGER NOT NULL DEFAULT 80,    -- per cent
+  position        INTEGER NOT NULL DEFAULT 0,
+  source          TEXT
+);
+
+CREATE TABLE IF NOT EXISTS course_items (
+  id              INTEGER PRIMARY KEY,
+  key             TEXT UNIQUE,                    -- set for ones that came from training/courses
+  course_key      TEXT NOT NULL REFERENCES courses(key) ON DELETE CASCADE,
+  position        INTEGER NOT NULL DEFAULT 0,
+  kind            TEXT NOT NULL CHECK (kind IN ('section', 'question')),
+  title           TEXT NOT NULL DEFAULT '',
+  body            TEXT NOT NULL DEFAULT '',       -- a section's text, markdown
+  question        TEXT,
+  options         TEXT,                           -- JSON array
+  answer          INTEGER,                        -- index into options
+  feedback        TEXT NOT NULL DEFAULT ''        -- shown after answering, right or wrong
+);
+
+-- One row per go at a course. Answers are checked one at a time on the
+-- server, so the right answers never reach the page before they're given.
+CREATE TABLE IF NOT EXISTS course_attempts (
+  id              INTEGER PRIMARY KEY,
+  course_key      TEXT NOT NULL REFERENCES courses(key) ON DELETE CASCADE,
+  person_id       INTEGER NOT NULL REFERENCES people(id) ON DELETE CASCADE,
+  started_at      TEXT NOT NULL DEFAULT (datetime('now')),
+  finished_at     TEXT,
+  answers         TEXT NOT NULL DEFAULT '{}',     -- JSON: { itemId: chosen }
+  score           INTEGER,
+  total           INTEGER,
+  passed          INTEGER
+);
+
 CREATE TABLE IF NOT EXISTS audit_log (
   id              INTEGER PRIMARY KEY,
   at              TEXT NOT NULL DEFAULT (datetime('now')),
@@ -268,6 +309,11 @@ export function openDb(path = DEFAULT_DB_PATH) {
   db.exec('PRAGMA foreign_keys = ON');
   db.exec(SCHEMA);
   addColumn(db, 'people', 'start_date', 'TEXT'); // first day on the sales team, YYYY-MM-DD
+  /* Whether they see the new starter plan. Everybody already on the team when
+     the app started doesn't need it (Shannon, 30 Oct 2026); new starters do. */
+  addColumn(db, 'people', 'on_plan', 'INTEGER NOT NULL DEFAULT 1');
+  /* When somebody finished their training on a service. */
+  addColumn(db, 'person_services', 'trained_on', 'TEXT');
   return db;
 }
 
@@ -293,10 +339,12 @@ export function servicesFor(db, personId) {
 /** Everyone, with their switched-on services, for the People screen. */
 export function allPeople(db) {
   const people = db.prepare('SELECT * FROM people ORDER BY status, name COLLATE NOCASE').all();
-  const services = db.prepare('SELECT person_id, service FROM person_services').all();
+  const services = db.prepare('SELECT person_id, service, trained_on FROM person_services').all();
   return people.map((p) => ({
     ...p,
     services: services.filter((s) => s.person_id === p.id).map((s) => s.service),
+    trained: Object.fromEntries(services.filter((s) => s.person_id === p.id && s.trained_on).map((s) => [s.service, s.trained_on])),
+    signedIn: !!p.last_seen_at,
   }));
 }
 

@@ -8,9 +8,9 @@ import { createSession, COOKIE_NAME } from '../src/auth.js';
 export const READY = { b2cUrl: 'https://b2c.example.test', publicUrl: 'https://training.example.test', key: 'test-key', ready: true };
 export const NOT_READY = { b2cUrl: '', publicUrl: '', key: '', ready: false };
 
-export async function startApp({ config = NOT_READY, devLogin = false, redeem, feed } = {}) {
+export async function startApp({ config = NOT_READY, devLogin = false, redeem, feed, askModel } = {}) {
   const db = openDb(':memory:');
-  const app = createApp({ db, config, devLogin, redeem, feed, quiet: true });
+  const app = createApp({ db, config, devLogin, redeem, feed, askModel, quiet: true });
   const server = await new Promise((resolve) => {
     const s = app.listen(0, '127.0.0.1', () => resolve(s));
   });

@@ -182,7 +182,7 @@ export function coachingRoutes(db) {
     res.json({
       services: SERVICES,
       people: people.map((p) => {
-        const on = db.prepare('SELECT service, switched_on_at FROM person_services WHERE person_id = ?').all(p.id);
+        const on = db.prepare('SELECT service, switched_on_at, trained_on FROM person_services WHERE person_id = ?').all(p.id);
         const done = new Set(db.prepare('SELECT resource_id FROM resource_done WHERE person_id = ?').all(p.id).map((r) => r.resource_id));
         const best = db.prepare('SELECT quiz_key, MAX(score * 100 / total) AS pct, MAX(passed) AS passed FROM quiz_attempts WHERE person_id = ? GROUP BY quiz_key').all(p.id);
         const last = db.prepare(`SELECT session_date, kind FROM sessions_log WHERE person_id = ? AND status = 'done' ORDER BY session_date DESC, id DESC LIMIT 1`).get(p.id);
@@ -202,6 +202,7 @@ export function coachingRoutes(db) {
               key: s.key,
               on: !!sw,
               since: sw?.switched_on_at ?? null,
+              trainedOn: sw?.trained_on ?? null,
               resourcesDone: mine.filter((r) => done.has(r.id)).length,
               resourcesTotal: mine.length,
               quiz: quiz ? (b ? { pct: b.pct, passed: !!b.passed } : { pct: null, passed: false }) : null,

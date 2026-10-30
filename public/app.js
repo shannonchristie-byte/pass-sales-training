@@ -19,11 +19,14 @@ const ROUTES = {
   '/kb/s': { part: 'kb', title: 'Knowledge base', view: kbService },
   '/kb/p': { part: 'kb', title: 'Knowledge base', view: kbArticle },
   '/kb/search': { part: 'kb', title: 'Search', view: kbSearch },
+  '/kb/ask': { part: 'kb', title: 'Ask a question', view: kbAsk },
   '/kb/edit': { part: 'kb', title: 'Edit page', view: kbEdit, trainer: true },
+  '/kb/new': { part: 'kb', title: 'Add a section', view: kbNew, trainer: true },
   '/kb/history': { part: 'kb', title: 'Page history', view: kbHistory, trainer: true },
   '/kb/suggestions': { part: 'kb', title: 'Suggested changes', view: kbSuggestions, manager: true },
   '/training': { part: 'training', title: 'My training', view: myTraining },
   '/training/quiz': { part: 'training', title: 'Quiz', view: takeQuiz },
+  '/training/course': { part: 'training', title: 'Course', view: takeCourse },
   '/training/team': { part: 'training', title: 'Team', view: team, trainer: true },
   '/training/person': { part: 'training', title: 'Training record', view: personTraining, trainer: true },
   '/training/tracker': { part: 'training', title: 'Tracker', view: tracker, trainer: true },
@@ -160,6 +163,7 @@ function shell(r, path) {
               <input type="search" name="q" placeholder="Search everything" aria-label="Search the knowledge base" value="${path === '/kb/search' ? parseHash().params.get('q') || '' : ''}">
             </form>
             ${navLink('/kb', 'Home', 'home', path === '/kb' ? path : '')}
+            ${navLink('/kb/ask', 'Ask a question', 'message-circle', path)}
             <div class="nav-heading">Services</div>
             ${(state.kb?.services || []).map((s) => {
               const here = path.startsWith('/kb/') && (parseHash().params.get('key') === s.key || state.kb.pages.find((p) => p.slug === parseHash().params.get('slug'))?.service === s.key);
@@ -234,17 +238,29 @@ function checkedBadge(p) {
 
 async function kbHome(main) {
   const kb = await kbIndex();
-  const tile = (href, title, detail, count) => html`
+  bind(main, {
+    'ask-home': (form) => {
+      const q = new FormData(form).get('q').trim();
+      if (q) location.hash = `#/kb/ask?q=${encodeURIComponent(q)}`;
+    },
+  });
+  const tile = (href, title, detail, count, logo) => html`
     <a class="tile ${count ? '' : 'soon'}" href="${href}">
+      ${logo ? html`<img class="tile-logo" src="${logo}" alt="" loading="lazy">` : ''}
       <div class="tile-title">${title}</div>
       <div class="muted small">${count ? `${count} page${count === 1 ? '' : 's'}` : 'Coming soon'}${detail ? ` · ${detail}` : ''}</div>
     </a>`;
   main.innerHTML = html`
     <h1>Knowledge base</h1>
     <p class="lead">Everything on every service, the same for everyone. Come back here any time to check a price, a policy or a script.</p>
+    <form class="card ask-box" data-submit="ask-home">
+      <label for="ask-home-q"><strong>Ask a question</strong> <span class="muted small">Answers come from these pages, as they are now.</span></label>
+      <div class="ask-row"><input id="ask-home-q" name="q" placeholder="For example: can I offer a discount on a PFS exam?" maxlength="1000" required>
+      <button class="btn primary" type="submit">Ask</button></div>
+    </form>
     <h2>Services</h2>
     <div class="tiles">
-      ${kb.services.map((s) => tile(`#/kb/s?key=${s.key}`, s.name, '', pagesFor(kb, 'service', s.key).length))}
+      ${kb.services.map((s) => tile(`#/kb/s?key=${s.key}`, s.name, s.detail || '', pagesFor(kb, 'service', s.key).length, s.logo))}
     </div>
     <h2>For every service</h2>
     <div class="tiles">
@@ -264,7 +280,9 @@ async function kbService(main, { params }) {
 
   main.innerHTML = html`
     <p class="crumbs"><a href="#/kb">Knowledge base</a></p>
+    ${item.logo ? html`<img class="service-logo" src="${item.logo}" alt="${item.name} logo">` : ''}
     <h1 id="kb-top">${item.name}</h1>
+    ${item.detail ? html`<p class="lead">${item.detail}</p>` : ''}
     ${pages.length ? html`
       <nav class="card jump-list" aria-label="On this page">
         <div class="muted small">Jump to</div>
@@ -277,8 +295,7 @@ async function kbService(main, { params }) {
           <div class="page-head">
             <h2>${p.title}</h2>
             <div class="page-actions">
-              ${isManager() ? html`<a class="btn small" href="#/kb/edit?slug=${p.slug}">${raw(icon('file-text', { size: 'sm' }))} Edit</a>` : ''}
-              ${isTrainer() && !isManager() ? html`<a class="btn small" href="#/kb/edit?slug=${p.slug}">${raw(icon('message-circle', { size: 'sm' }))} Suggest a change</a>` : ''}
+              ${isTrainer() ? html`<a class="btn small" href="#/kb/edit?slug=${p.slug}">${raw(icon('file-text', { size: 'sm' }))} Edit</a>` : ''}
               ${isTrainer() ? html`<button class="btn small" data-action="checked" data-slug="${p.slug}">${raw(icon('check-circle', { size: 'sm' }))} Mark as checked</button>` : ''}
             </div>
           </div>
@@ -291,7 +308,8 @@ async function kbService(main, { params }) {
           <article class="prose">${raw(renderMarkdown(p.body))}</article>
           ${p.source ? html`<p class="muted small source">Moved across from: ${p.source}</p>` : ''}
           <p class="to-top small"><a href="#/kb/s?key=${key}" data-action="top">Back to the top</a></p>
-        </section>`)}` : html`<div class="card empty"><p>These pages haven't been moved across from the Google Docs yet.</p></div>`}`;
+        </section>`)}` : html`<div class="card empty"><p>Nothing here yet.</p></div>`}
+    ${isTrainer() ? html`<p class="add-part"><a class="btn" href="#/kb/new?key=${key}">${raw(icon('plus', { size: 'sm' }))} Add a section</a></p>` : ''}`;
 
   /* Jumping moves down the page without redrawing it, and keeps the address
      pointing at the part, so a copied link or a refresh lands in the same place. */
@@ -351,8 +369,7 @@ async function kbArticleAlone(main, { params }) {
     <div class="page-head">
       <h1>${page.title}</h1>
       <div class="page-actions">
-        ${isManager() ? html`<a class="btn small" href="#/kb/edit?slug=${page.slug}">${raw(icon('file-text', { size: 'sm' }))} Edit</a>` : ''}
-        ${isTrainer() && !isManager() ? html`<a class="btn small" href="#/kb/edit?slug=${page.slug}">${raw(icon('message-circle', { size: 'sm' }))} Suggest a change</a>` : ''}
+        ${isTrainer() ? html`<a class="btn small" href="#/kb/edit?slug=${page.slug}">${raw(icon('file-text', { size: 'sm' }))} Edit</a>` : ''}
         ${isTrainer() ? html`<button class="btn small" data-action="checked">${raw(icon('check-circle', { size: 'sm' }))} Mark as checked</button>` : ''}
       </div>
     </div>
@@ -381,6 +398,84 @@ async function kbArticleAlone(main, { params }) {
   });
 }
 
+/**
+ * Ask a question. The conversation lives only on this page: nothing is kept.
+ * Each answer comes back with the pages it used, so the person can check it.
+ */
+const chat = { turns: [] };
+
+async function kbAsk(main, { params }) {
+  const first = params.get('q');
+  if (first) history.replaceState(null, '', '#/kb/ask');
+
+  const draw = () => {
+    main.innerHTML = html`
+      <h1>Ask a question</h1>
+      <p class="lead">Ask anything about our services, prices, policies or scripts. Answers come only from the knowledge base as it is right now, with links to the pages they used.</p>
+      <p class="muted small">Don't type learners' names or details. If an answer looks wrong, tell John or Lucy so the page gets fixed.</p>
+      <div class="chat">
+        ${chat.turns.map((t) => html`
+          <div class="chat-q"><div class="bubble">${t.q}</div></div>
+          <div class="chat-a">
+            ${t.pending ? html`<div class="bubble muted">Looking that up…</div>` : chatAnswer(t)}
+          </div>`)}
+      </div>
+      <form class="ask-box sticky" data-submit="ask">
+        <div class="ask-row">
+          <input name="q" placeholder="${chat.turns.length ? 'Ask a follow-up' : 'Type your question'}" maxlength="1000" required autocomplete="off">
+          <button class="btn primary" type="submit">Ask</button>
+        </div>
+        ${chat.turns.length ? html`<button class="btn small" data-action="clear">Start again</button>` : ''}
+      </form>`;
+    main.querySelector('input[name="q"]')?.focus();
+    const last = main.querySelector('.chat-a:last-of-type');
+    if (last) last.scrollIntoView({ block: 'nearest' });
+  };
+
+  const ask = async (q) => {
+    const turn = { q, pending: true };
+    const history = chat.turns.filter((t) => t.answer).slice(-3).map((t) => ({ q: t.q, a: t.answer }));
+    chat.turns.push(turn);
+    draw();
+    try {
+      Object.assign(turn, await post('/knowledge/ask', { question: q, history }), { pending: false });
+    } catch (err) {
+      Object.assign(turn, { pending: false, error: err.message, sources: [], parts: [] });
+    }
+    draw();
+  };
+
+  bind(main, {
+    ask: (form) => {
+      const q = new FormData(form).get('q').trim();
+      if (q) ask(q);
+    },
+    clear: () => { chat.turns = []; draw(); },
+  });
+
+  draw();
+  if (first) ask(first);
+}
+
+function chatAnswer(t) {
+  const pageLink = (s) => html`<a class="chip" href="#/kb/p?slug=${s.slug}">${s.title}</a>`;
+  if (t.answer) {
+    return html`<div class="bubble"><article class="prose">${raw(renderMarkdown(t.answer))}</article></div>
+      ${t.sources?.length ? html`<div class="chat-sources"><span class="muted small">Pages it looked at:</span> ${t.sources.map(pageLink)}</div>` : ''}`;
+  }
+  return html`<div class="bubble">
+    ${t.error ? html`<p class="notice bad small">${t.error}</p>` : ''}
+    ${t.parts?.length ? html`
+      <p class="small muted">The parts of the knowledge base that best match your question:</p>
+      ${t.parts.map((p) => html`
+        <div class="chat-part">
+          <div><a href="#/kb/p?slug=${p.slug}"><strong>${p.title}</strong></a>${p.heading ? html` <span class="muted small">· ${p.heading}</span>` : ''}</div>
+          <article class="prose">${raw(renderMarkdown(p.text.replace(/^## .*\n?/, '')))}</article>
+        </div>`)}`
+      : html`<p>Nothing in the knowledge base matches that. Try other words, or ask John or Lucy.</p>`}
+  </div>`;
+}
+
 async function kbSearch(main, { params }) {
   const q = params.get('q') || '';
   const { results } = await get(`/knowledge/search?q=${encodeURIComponent(q)}`);
@@ -396,10 +491,52 @@ async function kbSearch(main, { params }) {
     </div>`;
 }
 
-/** Managers edit and publish; trainers write a suggestion that waits for a manager. */
+/** A new section at the end of a service or section, written and published in one go. */
+async function kbNew(main, { params }) {
+  const key = params.get('key');
+  const kb = await kbIndex();
+  const item = kb.services.find((x) => x.key === key) || kb.sections.find((x) => x.key === key);
+  if (!item) throw new Error('No such service.');
+  main.innerHTML = html`
+    <p class="crumbs"><a href="#/kb/s?key=${key}">${item.name}</a></p>
+    <h1>Add a section to ${item.name}</h1>
+    <p class="muted">It goes at the end of the page and in the jump list, live for everyone when you publish. You can change it any time, and every version is kept.</p>
+    <form class="editor" data-submit="add">
+      <label>Title <input name="title" required maxlength="120" placeholder="For example: Learner FAQs"></label>
+      <div class="editor-panes">
+        <label>Section <span class="muted small">## heading, - bullet, | table |, **bold**, [link](https://…), > a line to say</span>
+          <textarea name="body" rows="24" required></textarea>
+        </label>
+        <div><div class="muted small">Preview</div><article class="prose preview"></article></div>
+      </div>
+      <div class="form-actions">
+        <button class="btn primary" type="submit">Publish</button>
+        <a class="btn" href="#/kb/s?key=${key}">Cancel</a>
+      </div>
+    </form>`;
+
+  const textarea = main.querySelector('textarea');
+  textarea.addEventListener('input', () => {
+    main.querySelector('.preview').innerHTML = renderMarkdown(textarea.value);
+  });
+
+  bind(main, {
+    add: async (form) => {
+      const d = Object.fromEntries(new FormData(form));
+      try {
+        const { page } = await post('/knowledge/pages', { key, title: d.title, body: d.body });
+        await kbIndex({ fresh: true });
+        toast('Published.');
+        location.hash = `#/kb/s?key=${key}&at=${page.slug}`;
+      } catch (err) { notifyError(err); }
+    },
+  });
+}
+
+/** John, Lucy, Shannon and Poppy edit and publish. */
 async function kbEdit(main, { params }) {
   const { page } = await get(`/knowledge/pages/${encodeURIComponent(params.get('slug'))}`);
-  const publishing = isManager();
+  const publishing = isTrainer();
   document.title = `${publishing ? 'Edit page' : 'Suggest a change'} · Sales training`;
   main.innerHTML = html`
     <p class="crumbs"><a href="#/kb/p?slug=${page.slug}">${page.title}</a></p>
@@ -546,8 +683,48 @@ function whereNow(rec, self) {
     </div>`;
 }
 
+/** One resource with its tick box. */
+const resourceRow = (r, personId) => html`
+  <div class="res-row ${r.done ? 'done' : ''}">
+    <label class="res-tick" title="${r.done ? `Done ${fmtDate(r.done.at)}${r.done.by_name ? `, ticked by ${r.done.by_name}` : ''}` : 'Tick when done'}">
+      <input type="checkbox" data-change="done" data-id="${r.id}" ${personId ? raw(`data-person="${personId}"`) : ''} ${r.done ? raw('checked') : ''} aria-label="Done: ${r.title}">
+    </label>
+    <div class="res-body">
+      <div>${resourceLink(r)} <span class="badge kind">${KIND_LABEL[r.kind]}</span></div>
+      ${r.note ? html`<div class="muted small">${r.note}</div>` : ''}
+    </div>
+  </div>`;
+
+/**
+ * Training courses: the ones built into the app first, then the ones still
+ * on ProProfs until they move across.
+ */
+function coursesCard(rec, courses, { self, personId = null } = {}) {
+  const proprofs = rec.resources.filter((r) => r.kind === 'proprofs');
+  const svcName = (key) => (key ? rec.services.find((x) => x.key === key)?.short : 'Everyone');
+  return html`
+    <h2>Training courses</h2>
+    ${courses.length ? html`
+      <div class="course-cards">${courses.map((c) => html`
+        <div class="card course-card ${c.passedAt ? 'passed' : ''}">
+          <div class="muted small">${svcName(c.service)} · ${c.sections} section${c.sections === 1 ? '' : 's'}, ${c.questions} question${c.questions === 1 ? '' : 's'}</div>
+          <h3>${c.title}</h3>
+          ${c.description ? html`<p class="small">${c.description}</p>` : ''}
+          <div class="small">${c.passedAt
+            ? html`<span class="badge ok">Passed ${fmtDate(c.passedAt)}</span>${c.best ? html` <span class="muted">best ${c.best.score} / ${c.best.total}</span>` : ''}`
+            : c.best ? html`<span class="badge warn">Not passed yet</span> <span class="muted">best ${c.best.score} / ${c.best.total}, pass mark ${c.pass_mark}%</span>`
+            : c.inProgress ? html`<span class="badge">In progress</span>` : html`<span class="muted">Not started</span>`}</div>
+          ${self ? html`<a class="btn small ${c.passedAt ? '' : 'primary'}" href="#/training/course?key=${c.key}">${c.inProgress ? 'Carry on' : c.best ? 'Take it again' : 'Start'}</a>` : ''}
+        </div>`)}
+      </div>` : html`<p class="muted small">No courses in the app for ${self ? 'your' : 'their'} services yet.</p>`}
+    ${proprofs.length ? html`
+      <h3 class="group-head">Still on ProProfs</h3>
+      <div class="res-list">${proprofs.map((r) => resourceRow(r, personId))}</div>` : ''}`;
+}
+
 function resourcesCard(rec, { personId = null } = {}) {
   const groups = [{ key: null, name: 'For everyone' }, ...rec.services.filter((s) => s.on)];
+  rec = { ...rec, resources: rec.resources.filter((r) => r.kind !== 'proprofs') };
   const total = rec.resources.length;
   const done = rec.resources.filter((r) => r.done).length;
   return html`
@@ -558,16 +735,7 @@ function resourcesCard(rec, { personId = null } = {}) {
       return html`
         <h3 class="group-head">${g.name}</h3>
         <div class="res-list">
-          ${list.map((r) => html`
-            <div class="res-row ${r.done ? 'done' : ''}">
-              <label class="res-tick" title="${r.done ? `Done ${fmtDate(r.done.at)}${r.done.by_name ? `, ticked by ${r.done.by_name}` : ''}` : 'Tick when done'}">
-                <input type="checkbox" data-change="done" data-id="${r.id}" ${personId ? raw(`data-person="${personId}"`) : ''} ${r.done ? raw('checked') : ''} aria-label="Done: ${r.title}">
-              </label>
-              <div class="res-body">
-                <div>${resourceLink(r)} <span class="badge kind">${KIND_LABEL[r.kind]}</span></div>
-                ${r.note ? html`<div class="muted small">${r.note}</div>` : ''}
-              </div>
-            </div>`)}
+          ${list.map((r) => resourceRow(r, personId))}
         </div>`;
     })}
     ${rec.services.some((s) => s.on) ? '' : html`<p class="muted small">Resources for each service appear once Shannon or Poppy switch the service on.</p>`}`;
@@ -593,23 +761,23 @@ function quizzesCard(rec, { self }) {
 
 async function myTraining(main) {
   const rec = await get('/training/me');
-  const [{ sessions }, { requests }] = await Promise.all([
+  const [{ sessions }, { requests }, { courses }] = await Promise.all([
     get(`/coaching/person/${rec.person.id}/sessions`),
     get('/coaching/help'),
+    get('/courses'),
   ]);
   const mine = requests.filter((h) => h.person_id === rec.person.id);
   const on = rec.services.filter((s) => s.on);
   main.innerHTML = html`
     <h1>My training</h1>
     <p class="lead">Your new starter plan, the resources and quizzes for the services you're training on, and what you've done so far.</p>
-    ${whereNow(rec, true)}
-    <h2>Your plan</h2>
-    ${flowChart(rec)}
+    ${rec.person.on_plan ? html`${whereNow(rec, true)}<h2>Your plan</h2>${flowChart(rec)}` : ''}
     <h2>Services you're training on</h2>
     ${on.length
       ? html`<div class="chips">${on.map((s) => html`<span class="chip on">${s.name}</span>`)}</div>`
       : html`<p class="muted">None switched on yet. Shannon or Poppy switch each service on when your training on it starts.</p>`}
     ${sessionsCard(sessions, { self: true })}
+    ${coursesCard(rec, courses, { self: true })}
     ${resourcesCard(rec)}
     ${quizzesCard(rec, { self: true })}
     <h2 id="help">Ask John or Lucy for help</h2>
@@ -751,7 +919,7 @@ function helpList(requests, { self = false, showName = false } = {}) {
 async function personTraining(main, { params }) {
   const id = Number(params.get('id'));
   const editing = Number(params.get('edit')) || null;
-  const [rec, { attempts }, { sessions }, { requests }, { kinds }, manager] = await Promise.all([
+  const [rec, { attempts }, { sessions }, { requests }, { kinds }, manager, { courses }] = await Promise.all([
     get(`/training/person/${id}`),
     get(`/training/person/${id}/attempts`),
     get(`/coaching/person/${id}/sessions`),
@@ -760,6 +928,7 @@ async function personTraining(main, { params }) {
     isManager()
       ? Promise.all([get(`/coaching/person/${id}/notes`), get(`/coaching/person/${id}/setup`)]).then(([n, s]) => ({ notes: n.notes, setup: s.items }))
       : null,
+    get(`/courses/person/${id}`),
   ]);
   const services = state.kb?.services || [];
   document.title = `${rec.person.name} · Sales training`;
@@ -768,11 +937,21 @@ async function personTraining(main, { params }) {
     <h1>${rec.person.name}</h1>
     ${whereNow(rec, false)}
     <p class="jump small"><a href="#" data-action="jump" data-to="sessions">Sessions</a> · <a href="#" data-action="jump" data-to="help">Help requests</a>${manager ? html` · <a href="#" data-action="jump" data-to="manager">Manager notes and set-up</a>` : ''}</p>
-    <h2>New starter plan</h2>
-    <p class="muted small">Sign off each stage once they've done what it asks.</p>
-    ${flowChart(rec, { canSign: true })}
+    ${rec.person.on_plan ? html`
+      <h2>New starter plan</h2>
+      <p class="muted small">Sign off each stage once they've done what it asks.</p>
+      ${flowChart(rec, { canSign: true })}` : html`<p class="muted small">Not on the new starter plan. Shannon or Poppy can switch it on in People and access.</p>`}
     <h2>Services</h2>
-    <div class="chips">${rec.services.map((s) => html`<span class="chip ${s.on ? 'on' : ''}">${s.name}${s.on ? '' : ' (off)'}</span>`)}</div>
+    <p class="muted small">Put in the date they finished their training on a service. It shows on the tracker.</p>
+    <div class="table-wrap"><table class="svc">
+      <thead><tr><th>Service</th><th>Training</th><th>Trained on</th></tr></thead>
+      <tbody>${rec.services.map((s) => html`<tr>
+        <td>${s.name}</td>
+        <td>${s.on ? html`<span class="badge ok">On</span> <span class="muted small">since ${fmtDate(s.since)}</span>` : html`<span class="muted small">Off</span>`}</td>
+        <td><input type="date" data-change="trained" data-service="${s.key}" value="${s.trained_on || ''}" aria-label="Date ${rec.person.name} finished training on ${s.name}"></td>
+      </tr>`)}</tbody>
+    </table></div>
+    ${coursesCard(rec, courses, { self: false, personId: id })}
     ${resourcesCard(rec, { personId: id })}
     ${quizzesCard(rec, { self: false })}
     ${attempts.length ? html`
@@ -859,7 +1038,127 @@ async function personTraining(main, { params }) {
       catch (err) { notifyError(err); }
       redraw();
     },
+    trained: async (el) => {
+      try {
+        await put(`/training/person/${id}/services/${el.dataset.service}/trained`, { date: el.value || null });
+        toast(el.value ? 'Training date saved.' : 'Training date cleared.');
+      } catch (err) { notifyError(err); }
+      redraw();
+    },
   });
+}
+
+/**
+ * Working through a course: each section, then each question. An answer is
+ * checked on the server as it's given and the feedback shows straight away;
+ * the end shows the score and every question's feedback again.
+ */
+async function takeCourse(main, { params }) {
+  const key = params.get('key');
+  const [{ course, items }, start] = await Promise.all([
+    get(`/courses/${encodeURIComponent(key)}`),
+    post(`/courses/${encodeURIComponent(key)}/start`, {}),
+  ]);
+  const checked = new Map(start.answered.map((a) => [a.id, a]));
+  const firstOpen = items.findIndex((it) => it.kind === 'question' && !checked.has(it.id));
+  const st = { at: checked.size && firstOpen > 0 ? firstOpen : 0, attemptId: start.attemptId, result: null };
+  document.title = `${course.title} · Sales training`;
+
+  const draw = () => {
+    if (st.result) return drawResult();
+    const it = items[st.at];
+    const fb = it.kind === 'question' ? checked.get(it.id) : null;
+    const last = st.at === items.length - 1;
+    main.innerHTML = html`
+      <p class="crumbs"><a href="#/training">My training</a></p>
+      <h1>${course.title}</h1>
+      <div class="course-progress" aria-label="Step ${st.at + 1} of ${items.length}">
+        <span style="width:${Math.round(((st.at + 1) / items.length) * 100)}%"></span>
+      </div>
+      <p class="muted small">Step ${st.at + 1} of ${items.length} · ${it.kind === 'section' ? 'Read' : 'Question'}</p>
+      ${it.kind === 'section' ? html`
+        <div class="card course-step">
+          <h2>${it.title}</h2>
+          <article class="prose">${raw(renderMarkdown(it.body))}</article>
+        </div>` : html`
+        <form class="card course-step" data-submit="answer">
+          ${it.title ? html`<div class="muted small">${it.title}</div>` : ''}
+          <h2 class="course-q">${it.question}</h2>
+          <div class="course-opts">${it.options.map((o, j) => html`
+            <label class="opt ${fb ? (j === fb.answer ? 'answer' : j === fb.chosen ? 'chosen' : '') : ''}">
+              <input type="radio" name="opt" value="${j}" ${fb ? raw('disabled') : raw('required')} ${fb && j === fb.chosen ? raw('checked') : ''}>
+              <span>${o}</span>
+            </label>`)}</div>
+          ${fb ? html`
+            <div class="course-feedback ${fb.right ? 'right' : 'wrong'}">
+              <strong>${fb.right ? 'Correct.' : 'Not quite.'}</strong>
+              ${fb.feedback ? html`<div>${raw(renderMarkdown(fb.feedback))}</div>` : ''}
+            </div>` : html`<div class="form-actions"><button class="btn primary" type="submit">Check my answer</button></div>`}
+        </form>`}
+      <div class="form-actions course-nav">
+        ${st.at > 0 ? html`<button class="btn" data-action="back">Back</button>` : ''}
+        ${it.kind === 'question' && !fb ? '' : last
+          ? html`<button class="btn primary" data-action="finish">Finish and see my score</button>`
+          : html`<button class="btn primary" data-action="next">Next</button>`}
+      </div>`;
+    window.scrollTo(0, 0);
+  };
+
+  const drawResult = () => {
+    const r = st.result;
+    main.innerHTML = html`
+      <p class="crumbs"><a href="#/training">My training</a></p>
+      <h1>${course.title}</h1>
+      <div class="card score ${r.passed ? 'pass' : 'fail'}">
+        <div class="score-big">${r.score} out of ${r.total}</div>
+        <div>${r.passed ? 'Passed. Well done: it’s on your training record.' : `Not passed yet. You need ${r.pass_mark}%. Go back over the sections and try again.`}</div>
+      </div>
+      <h2>Your answers</h2>
+      ${r.results.map((q, i) => html`
+        <div class="card marked ${q.right ? 'right' : 'wrong'}">
+          <div class="marked-head"><span class="muted">${i + 1}.</span> ${q.question}
+            ${q.right ? html`<span class="badge ok">Right</span>` : html`<span class="badge warn">${q.chosen === null ? 'Not answered' : 'Not quite'}</span>`}</div>
+          <ul class="opts">${q.options.map((o, j) => html`
+            <li class="${j === q.answer ? 'answer' : ''} ${j === q.chosen && !q.right ? 'chosen' : ''}">${j === q.answer ? raw(icon('check', { size: 'sm' })) : ''}${o}${j === q.chosen ? html` <span class="muted small">(your answer)</span>` : ''}</li>`)}</ul>
+          ${q.feedback ? html`<div class="small">${raw(renderMarkdown(q.feedback))}</div>` : ''}
+        </div>`)}
+      <div class="form-actions">
+        <button class="btn" data-action="again">Take it again</button>
+        <a class="btn primary" href="#/training">Back to my training</a>
+      </div>`;
+    window.scrollTo(0, 0);
+  };
+
+  bind(main, {
+    next: () => { st.at = Math.min(items.length - 1, st.at + 1); draw(); },
+    back: () => { st.at = Math.max(0, st.at - 1); draw(); },
+    answer: async (form) => {
+      const picked = form.querySelector('input[name="opt"]:checked');
+      if (!picked) return;
+      try {
+        const res = await post(`/courses/${encodeURIComponent(key)}/answer`, { attemptId: st.attemptId, itemId: items[st.at].id, chosen: Number(picked.value) });
+        checked.set(res.id, res);
+        draw();
+      } catch (err) { notifyError(err); }
+    },
+    finish: async () => {
+      const open = items.filter((it) => it.kind === 'question' && !checked.has(it.id)).length;
+      if (open && !confirm(`${open} question${open === 1 ? ' isn’t' : 's aren’t'} answered yet and will count as wrong. Finish anyway?`)) return;
+      try {
+        st.result = await post(`/courses/${encodeURIComponent(key)}/finish`, { attemptId: st.attemptId });
+        drawResult();
+      } catch (err) { notifyError(err); }
+    },
+    again: async () => {
+      try {
+        const fresh = await post(`/courses/${encodeURIComponent(key)}/start`, { fresh: true });
+        Object.assign(st, { at: 0, attemptId: fresh.attemptId, result: null });
+        checked.clear();
+        draw();
+      } catch (err) { notifyError(err); }
+    },
+  });
+  draw();
 }
 
 /**
@@ -965,7 +1264,7 @@ async function team(main, { params }) {
         <tbody>
           ${people.map((p) => html`<tr>
             <td><a href="#/training/person?id=${p.id}">${p.name}</a></td>
-            <td>${p.stage ? html`${p.stage} <span class="muted small">· day ${p.day}</span>` : html`<span class="muted small">${p.start_date ? `Starts ${isoToUk(p.start_date)}` : 'No start date'}</span>`}</td>
+            <td>${!p.on_plan ? html`<span class="muted small">Not on the plan</span>` : p.stage ? html`${p.stage} <span class="muted small">· day ${p.day}</span>` : html`<span class="muted small">${p.start_date ? `Starts ${isoToUk(p.start_date)}` : 'No start date'}</span>`}</td>
             <td>${p.stagesSignedOff} / ${p.stagesTotal}</td>
             <td>${p.resourcesDone} / ${p.resourcesTotal}</td>
             <td>${p.quizzesTotal ? `${p.quizzesPassed} / ${p.quizzesTotal}` : html`<span class="muted small">None yet</span>`}</td>
@@ -1030,7 +1329,7 @@ async function tracker(main) {
   const cell = (s) => {
     if (!s.on) return html`<td class="off"><span class="muted small">Off</span></td>`;
     return html`<td>
-      <div class="small">Since ${fmtDate(s.since)}</div>
+      ${s.trainedOn ? html`<div class="small"><span class="badge ok">Trained ${isoToUk(s.trainedOn)}</span></div>` : html`<div class="small">Since ${fmtDate(s.since)}</div>`}
       <div class="small">${s.resourcesDone} / ${s.resourcesTotal} resources</div>
       <div class="small">${!s.quiz ? html`<span class="muted">No quiz yet</span>`
         : s.quiz.pct === null ? html`<span class="muted">Quiz not taken</span>`
@@ -1333,15 +1632,17 @@ async function managePeople(main) {
   const [{ people }, { services }] = await Promise.all([get('/people'), get('/knowledge')]);
   main.innerHTML = html`
     <h1>People and access</h1>
-    <p class="lead">People appear here the first time they sign in with their B2C Sales login. Set their role and start date, switch on each service as their training on it starts, or switch their access off.</p>
+    <p class="lead">Everyone on John's and Lucy's teams can be brought in from the B2C Sales app, before they've signed in. Set each person's role and start date, whether they follow the new starter plan, and switch on each service as their training on it starts.</p>
+    <p><button class="btn" data-action="import">${raw(icon('users', { size: 'sm' }))} Bring in the team from the B2C Sales app</button>
+      <span class="muted small">Adds anybody not here yet. Nobody already here is changed.</span></p>
     <div class="table-wrap"><table class="people">
       <thead><tr>
-        <th>Name</th><th>Role</th><th>Access</th><th title="First day on the sales team. It places them on the new starter plan.">Start date</th>
+        <th>Name</th><th>Role</th><th>Access</th><th title="First day on the sales team. It places them on the new starter plan.">Start date</th><th title="Whether they see the new starter plan">New starter plan</th>
         ${services.map((s) => html`<th title="${s.name}">${s.short}</th>`)}
       </tr></thead>
       <tbody>
         ${people.map((p) => html`<tr class="${p.status === 'inactive' ? 'off' : ''}">
-          <td><div>${p.name}</div><div class="muted small">${p.email}</div></td>
+          <td><div>${p.name}</div><div class="muted small">${p.signedIn ? p.email : 'Not signed in yet'}</div></td>
           <td>
             <select data-change="role" data-id="${p.id}" aria-label="Role for ${p.name}">
               ${Object.entries(ROLE_LABEL).map(([k, v]) => html`<option value="${k}" ${p.role === k ? raw('selected') : ''}>${v}</option>`)}
@@ -1351,6 +1652,7 @@ async function managePeople(main) {
             <label class="switch"><input type="checkbox" data-change="status" data-id="${p.id}" ${p.status === 'active' ? raw('checked') : ''}> <span>${p.status === 'active' ? 'On' : 'Off'}</span></label>
           </td>
           <td><input type="date" data-change="start" data-id="${p.id}" value="${p.start_date || ''}" aria-label="Start date for ${p.name}"></td>
+          <td><input type="checkbox" data-change="plan" data-id="${p.id}" aria-label="New starter plan for ${p.name}" ${p.on_plan ? raw('checked') : ''}></td>
           ${services.map((s) => html`<td>
             <input type="checkbox" data-change="service" data-id="${p.id}" data-service="${s.key}" aria-label="${s.name} for ${p.name}" ${p.services.includes(s.key) ? raw('checked') : ''}>
           </td>`)}
@@ -1377,6 +1679,18 @@ async function managePeople(main) {
     start: async (el) => {
       try { await put(`/people/${el.dataset.id}/start-date`, { date: el.value || null }); toast(el.value ? 'Start date saved.' : 'Start date cleared.'); }
       catch (err) { notifyError(err); redraw(); }
+    },
+    plan: async (el) => {
+      try { await put(`/people/${el.dataset.id}/plan`, { on: el.checked }); toast(el.checked ? 'On the new starter plan.' : 'Off the new starter plan.'); }
+      catch (err) { notifyError(err); redraw(); }
+    },
+    import: async (el) => {
+      el.disabled = true;
+      try {
+        const { added } = await post('/people/import-from-b2c');
+        toast(added ? `${added} brought in from the B2C Sales app.` : 'Everyone is already here.');
+      } catch (err) { notifyError(err); }
+      redraw();
     },
   });
 }

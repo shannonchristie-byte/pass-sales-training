@@ -4,7 +4,9 @@
   "private": true,
   "description": "Sales training and knowledge base for the B2C sales team: a knowledge base the same for everyone, and training and development personal to each person",
   "type": "module",
-  "engines": { "node": ">=22.5.0" },
+  "engines": {
+    "node": ">=22.5.0"
+  },
   "scripts": {
     "start": "node server.js",
     "dev": "node --watch server.js",
@@ -13,6 +15,7 @@
     "try": "node src/try-local.js"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^1.3.0",
     "express": "^5.1.0"
   }
 }

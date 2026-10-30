@@ -17,6 +17,7 @@ import { trainingRoutes } from './routes/training.js';
 import { knowledgeRoutes } from './routes/knowledge.js';
 import { coachingRoutes } from './routes/coaching.js';
 import { performanceRoutes } from './routes/performance.js';
+import { courseRoutes } from './routes/courses.js';
 import { b2cFeed } from './b2c-feed.js';
 
 const here = dirname(fileURLToPath(import.meta.url));
@@ -27,6 +28,7 @@ export function createApp({
   devLogin = devLoginEnabled(),
   redeem = redeemWithB2C,
   feed = b2cFeed(config),
+  askModel,
   quiet = false,
 } = {}) {
   const app = express();
@@ -49,11 +51,12 @@ export function createApp({
 
   app.use('/auth', handoffRoutes(db, { config, redeem }));
   app.use('/api/auth', authApi(db, { config, devLogin }));
-  app.use('/api/people', peopleRoutes(db));
+  app.use('/api/people', peopleRoutes(db, { feed }));
   app.use('/api/training', trainingRoutes(db));
-  app.use('/api/knowledge', knowledgeRoutes(db));
+  app.use('/api/knowledge', knowledgeRoutes(db, askModel ? { askModel } : {}));
   app.use('/api/coaching', coachingRoutes(db));
   app.use('/api/performance', performanceRoutes(db, { feed }));
+  app.use('/api/courses', courseRoutes(db));
 
   app.get('/api/health', (req, res) => {
     res.json({

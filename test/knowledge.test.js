@@ -84,6 +84,7 @@ test('a sales executive cannot edit, suggest or mark pages checked', async () =>
     const exec = t.person('Exec A');
     const tries = [
       ['PUT', '/api/knowledge/pages/pfs-prices', { body: 'x' }],
+      ['POST', '/api/knowledge/pages', { key: 'pfs', title: 'x', body: 'x' }],
       ['POST', '/api/knowledge/pages/pfs-prices/suggestions', { body: 'x' }],
       ['POST', '/api/knowledge/pages/pfs-prices/checked'],
       ['GET', '/api/knowledge/pages/pfs-prices/versions'],
@@ -95,14 +96,14 @@ test('a sales executive cannot edit, suggest or mark pages checked', async () =>
   } finally { await t.close(); }
 });
 
-test('a trainer suggests, and only a manager publishes', async () => {
+test('a suggestion waiting from before is still published by a manager', async () => {
   const t = await withPages();
   try {
     const trainer = t.person('Trainer A', 'trainer');
     const mgr = t.person('Manager A', 'manager');
     const before = (await (await t.call('/api/knowledge/pages/pfs-discounts', { as: trainer.token })).json()).page.body;
 
-    assert.equal((await t.call('/api/knowledge/pages/pfs-discounts', { as: trainer.token, method: 'PUT', body: { body: 'Mine' } })).status, 403);
+    assert.equal((await t.call('/api/knowledge/pages/pfs-discounts', { as: trainer.token, method: 'PUT', body: { body: ' ' } })).status, 400, 'nobody publishes an empty page');
 
     let res = await t.call('/api/knowledge/pages/pfs-discounts/suggestions', { as: trainer.token, method: 'POST', body: { body: `${before}\nNew line.`, note: 'Added a line' } });
     assert.equal(res.status, 201);
@@ -197,5 +198,31 @@ test('a whole service comes back as one page, in order, for everyone', async () 
     assert.ok(section.pages.length >= 9, 'sections work the same way');
     assert.equal((await t.call('/api/knowledge/all/mme', { as: exec.token })).status, 404);
     assert.equal((await t.call('/api/knowledge/all/pfs')).status, 401, 'signed in only');
+  } finally { await t.close(); }
+});
+
+test('trainers edit any page and add sections, kept as versions', async () => {
+  const t = await withPages();
+  try {
+    const trainer = t.person('Trainer A', 'trainer');
+    let res = await t.call('/api/knowledge/pages/pfs-demos', { as: trainer.token, method: 'PUT', body: { body: 'Trainer edit', note: 'tidy' } });
+    assert.equal(res.status, 200);
+    const { versions } = await (await t.call('/api/knowledge/pages/pfs-demos/versions', { as: trainer.token })).json();
+    assert.equal(versions.length, 2, 'the original is kept');
+
+    res = await t.call('/api/knowledge/pages', { as: trainer.token, method: 'POST', body: { key: 'pfs', title: 'Learner FAQs', body: '## Q\nA' } });
+    assert.equal(res.status, 201);
+    const { page } = await res.json();
+    assert.equal(page.slug, 'pfs-learner-faqs');
+    assert.equal(page.service, 'pfs');
+    const again = await (await t.call('/api/knowledge/pages', { as: trainer.token, method: 'POST', body: { key: 'pfs', title: 'Learner FAQs', body: 'B' } })).json();
+    assert.equal(again.page.slug, 'pfs-learner-faqs-2', 'a second section with the same title gets its own address');
+
+    const all = await (await t.call('/api/knowledge/all/pfs', { as: trainer.token })).json();
+    assert.equal(all.pages.at(-1).slug, 'pfs-learner-faqs-2', 'new sections go at the end');
+
+    const sec = await t.call('/api/knowledge/pages', { as: trainer.token, method: 'POST', body: { key: 'objections', title: 'It takes too long', body: 'x' } });
+    assert.equal((await sec.json()).page.section, 'objections');
+    assert.equal((await t.call('/api/knowledge/pages', { as: trainer.token, method: 'POST', body: { key: 'mme', title: 'x', body: 'x' } })).status, 400);
   } finally { await t.close(); }
 });

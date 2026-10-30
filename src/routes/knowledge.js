@@ -5,18 +5,20 @@
  * them in training (decided 28 Oct 2026): once someone is trained, this is
  * where they come back to.
  *
- * Changing a page has two doors, so there is one approved version of every
- * price and policy:
- *   trainers (John, Lucy) suggest a change, which waits for a manager;
- *   managers (Shannon, Poppy) publish, either their own edit or a suggestion.
- * Every publish is kept as a version, and trainers can mark a page as checked
- * once they have read it against how things really work.
+ * John, Lucy, Shannon and Poppy edit and publish any page, and add new
+ * sections to any service (Shannon, 30 Oct 2026: trainers edit too). Every
+ * publish is kept as a version, so nothing anybody wrote is ever lost, and
+ * trainers mark a page as checked once they have read it against how things
+ * really work. The suggestion route stays for anything already waiting.
  */
 
 import express from 'express';
 import { requireSignedIn, requireTrainer, requireManager } from '../auth.js';
 import { SERVICES } from '../services.js';
 import { audit } from '../db.js';
+import { bestParts, claudeAnswer, chatErrorMessage } from '../kb-chat.js';
+
+const ASKS_PER_HOUR = 60;
 
 /** The sections that sit beside the service pages. */
 export const SECTIONS = [
@@ -44,9 +46,46 @@ function snippet(body, q) {
   return (from > 0 ? '…' : '') + plain.slice(from, at + q.length + 90) + '…';
 }
 
-export function knowledgeRoutes(db) {
+export function knowledgeRoutes(db, { askModel = claudeAnswer } = {}) {
   const router = express.Router();
   router.use(requireSignedIn);
+
+  /**
+   * Ask a question. The answer is built from the pages as they are now, so it
+   * changes as soon as a page does. A few questions an hour per person keeps
+   * the API bill predictable.
+   */
+  const asked = new Map();
+  router.post('/ask', async (req, res) => {
+    const question = String(req.body?.question || '').trim().slice(0, 1000);
+    if (!question) return res.status(400).json({ error: 'Type a question.' });
+    const now = Date.now();
+    const recent = (asked.get(req.person.id) || []).filter((t) => now - t < 3600000);
+    if (recent.length >= ASKS_PER_HOUR) return res.status(429).json({ error: 'That’s a lot of questions in an hour. Try again a little later.' });
+    asked.set(req.person.id, [...recent, now]);
+
+    const history = Array.isArray(req.body?.history) ? req.body.history.filter((h) => h && h.q && h.a).slice(-3) : [];
+    const pages = db.prepare('SELECT slug, title, service, section, body FROM kb_pages').all();
+    /* A follow-up leans on the question before it to find the right pages. */
+    const parts = bestParts(pages, history.length ? `${history.at(-1).q} ${question}` : question);
+    const sources = [...new Map(parts.map((p) => [p.slug, { slug: p.slug, title: p.title, service: p.service, section: p.section }])).values()];
+
+    let answer = null;
+    let error = null;
+    try {
+      answer = await askModel(question, parts, history);
+    } catch (err) {
+      error = chatErrorMessage(err);
+      console.warn('  Chat answer failed:', err?.status ?? '', err?.message ?? err);
+    }
+    res.json({
+      mode: answer ? 'ai' : 'search',
+      answer,
+      error,
+      sources,
+      parts: answer ? [] : parts.slice(0, 5).map((p) => ({ slug: p.slug, title: p.title, heading: p.heading, text: p.text.slice(0, 1500) })),
+    });
+  });
 
   const pageBySlug = (slug) => db.prepare('SELECT * FROM kb_pages WHERE slug = ?').get(String(slug)) ?? null;
 
@@ -113,7 +152,7 @@ export function knowledgeRoutes(db) {
 
   /* ------------------------- managers publish ------------------------- */
 
-  router.put('/pages/:slug', requireManager, (req, res) => {
+  router.put('/pages/:slug', requireTrainer, (req, res) => {
     const page = pageBySlug(req.params.slug);
     if (!page) return res.status(404).json({ error: 'No such page.' });
     const { title = page.title, body, note } = req.body || {};
@@ -122,6 +161,33 @@ export function knowledgeRoutes(db) {
     publish(page, { title: String(title).trim(), body, note, by: req.person.id });
     audit(db, req.person.id, 'kb.publish', null, { slug: page.slug });
     res.json({ page: pageBySlug(page.slug) });
+  });
+
+  /**
+   * A new section at the end of a service or section. Its address comes from
+   * its title, made unique if it has to be.
+   */
+  router.post('/pages', requireTrainer, (req, res) => {
+    const { key, title, body } = req.body || {};
+    const isService = SERVICES.some((x) => x.key === key);
+    const isSection = SECTIONS.some((x) => x.key === key);
+    if (!isService && !isSection) return res.status(400).json({ error: 'Pick where the section goes.' });
+    const name = String(title || '').trim().slice(0, 120);
+    if (!name) return res.status(400).json({ error: 'Give the section a title.' });
+    if (!validBody(body)) return res.status(400).json({ error: 'The section cannot be empty.' });
+
+    const base = `${key}-${name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 60)}` || key;
+    let slug = base;
+    for (let n = 2; pageBySlug(slug); n++) slug = `${base}-${n}`;
+    const position = (db.prepare('SELECT MAX(position) AS m FROM kb_pages WHERE service = ? OR section = ?').get(key, key).m || 0) + 10;
+
+    const { lastInsertRowid } = db.prepare(
+      'INSERT INTO kb_pages (slug, service, section, title, position, body, source, updated_by) VALUES (?, ?, ?, ?, ?, ?, ?, ?)'
+    ).run(slug, isService ? key : null, isSection ? key : null, name, position, body, null, req.person.id);
+    db.prepare("INSERT INTO kb_versions (page_id, title, body, saved_by, note) VALUES (?, ?, ?, ?, 'New section')")
+      .run(lastInsertRowid, name, body, req.person.id);
+    audit(db, req.person.id, 'kb.add', null, { slug });
+    res.status(201).json({ page: pageBySlug(slug) });
   });
 
   router.get('/suggestions', requireManager, (req, res) => {

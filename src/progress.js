@@ -23,15 +23,17 @@ export function needsLook(db, person, record, today = ukToday()) {
   const openHelp = db.prepare("SELECT COUNT(*) AS n FROM help_requests WHERE person_id = ? AND status = 'open'").get(person.id).n;
   if (openHelp) reasons.push(`${openHelp} help request${openHelp === 1 ? '' : 's'} waiting`);
 
+  /* The plan and the quiet-spell check are for new starters on the plan only. */
+  const onPlan = person.on_plan === undefined ? true : !!person.on_plan;
   const at = record.plan.findIndex((s) => s.key === record.stage);
-  const behind = record.plan.slice(0, Math.max(at, 0)).find((s) => !s.signedOff);
+  const behind = onPlan ? record.plan.slice(0, Math.max(at, 0)).find((s) => !s.signedOff) : null;
   if (behind) reasons.push(`${behind.title} not signed off`);
 
   for (const q of record.quizzes) {
     if (q.attempts && !q.best?.passed) reasons.push(`${q.title} quiz not passed yet`);
   }
 
-  if (person.start_date && record.day >= 1) {
+  if (onPlan && person.start_date && record.day >= 1) {
     const last = db.prepare("SELECT MAX(session_date) AS d FROM sessions_log WHERE person_id = ? AND status = 'done'").get(person.id).d;
     const since = last || person.start_date;
     if (daysBetween(since, today) >= QUIET_DAYS) reasons.push(last ? `No session logged since ${last}` : 'No session logged yet');

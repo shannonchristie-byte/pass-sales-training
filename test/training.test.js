@@ -94,7 +94,7 @@ test('loading training content twice adds it once, and never undoes an edit', as
     t.db.prepare("UPDATE plan_stages SET expectation = 'Edited' WHERE key = 'day-1'").run();
     t.db.prepare("UPDATE quiz_questions SET status = 'approved' WHERE key = 'pfs-level-2'").run();
     const again = loadTrainingContent(t.db);
-    assert.deepEqual(again, { stages: 0, resources: 0, quizzes: 0, questions: 0, setup: 0 });
+    assert.deepEqual(again, { stages: 0, resources: 0, quizzes: 0, questions: 0, setup: 0, courses: 0 });
     assert.equal(t.db.prepare("SELECT expectation FROM plan_stages WHERE key = 'day-1'").get().expectation, 'Edited');
     assert.equal(t.db.prepare("SELECT status FROM quiz_questions WHERE key = 'pfs-level-2'").get().status, 'approved');
     assert.equal(t.db.prepare("SELECT COUNT(*) AS n FROM quiz_questions WHERE status = 'draft'").get().n > 0, true, 'questions arrive as drafts');

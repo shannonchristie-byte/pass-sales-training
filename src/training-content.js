@@ -11,6 +11,7 @@
  *   training/resources.json   links to ProProfs, docs, demos and recordings
  *   training/quizzes/*.json   one quiz per file, its questions as drafts
  *   training/setup.json       the new starter set-up checklist
+ *   training/courses/*.json   one in-app course per file: sections, then questions
  */
 
 import { readdirSync, readFileSync, existsSync } from 'node:fs';
@@ -30,7 +31,7 @@ export function quizFiles(dir = TRAINING_DIR) {
 
 /** Add whatever isn't in the database yet. Returns how many of each were added. */
 export function loadTrainingContent(db, dir = TRAINING_DIR) {
-  const added = { stages: 0, resources: 0, quizzes: 0, questions: 0, setup: 0 };
+  const added = { stages: 0, resources: 0, quizzes: 0, questions: 0, setup: 0, courses: 0 };
 
   const setupFile = join(dir, 'setup.json');
   if (existsSync(setupFile)) {
@@ -73,6 +74,23 @@ export function loadTrainingContent(db, dir = TRAINING_DIR) {
       ).changes;
     });
   });
+
+  /* A course comes in whole the first time; after that it's edited in the app. */
+  const cdir = join(dir, 'courses');
+  if (existsSync(cdir)) {
+    const insertCourse = db.prepare('INSERT OR IGNORE INTO courses (key, title, service, description, pass_mark, position, source) VALUES (?, ?, ?, ?, ?, ?, ?)');
+    const insertItem = db.prepare(`INSERT INTO course_items (key, course_key, position, kind, title, body, question, options, answer, feedback)
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`);
+    readdirSync(cdir).filter((f) => f.endsWith('.json')).sort().forEach((f, ci) => {
+      const c = readJson(join(cdir, f));
+      if (!insertCourse.run(c.key, c.title, c.service || null, c.description || '', c.passMark ?? 80, (ci + 1) * 10, c.source || null).changes) return;
+      added.courses++;
+      c.items.forEach((it, i) => {
+        insertItem.run(`${c.key}-${i + 1}`, c.key, (i + 1) * 10, it.kind, it.title || '', it.body || '',
+          it.question || null, it.options ? JSON.stringify(it.options) : null, it.answer ?? null, it.feedback || '');
+      });
+    });
+  }
 
   return added;
 }

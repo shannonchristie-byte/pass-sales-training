@@ -45,7 +45,7 @@ export function performanceRoutes(db, { feed }) {
       const trainer = byStaff.get(t.trainerStaffId);
       const people = (t.people || []).map((p) => {
         const person = byStaff.get(p.staffId);
-        const stage = person?.start_date ? stageFor(stages, workingDay(person.start_date)) : null;
+        const stage = person?.on_plan && person.start_date ? stageFor(stages, workingDay(person.start_date)) : null;
         const row = {
           personId: person?.id ?? null,
           name: person?.name ?? p.name ?? 'Not signed in here yet',

@@ -15,7 +15,7 @@ import express from 'express';
 import { requireSignedIn, requireTrainer, requireManager, canSeePerson, isTrainer } from '../auth.js';
 import { personById, servicesFor, audit } from '../db.js';
 import { SERVICES, isService } from '../services.js';
-import { workingDay, stageFor } from '../plan.js';
+import { workingDay, stageFor, isIsoDate } from '../plan.js';
 import { needsLook } from '../progress.js';
 
 const KINDS = ['proprofs', 'doc', 'slides', 'demo', 'recording', 'web', 'kb'];
@@ -36,7 +36,9 @@ export function trainingRoutes(db) {
 
   function record(person) {
     const on = servicesFor(db, person.id);
-    const day = workingDay(person.start_date);
+    const svc = db.prepare('SELECT service, switched_on_at, trained_on FROM person_services WHERE person_id = ?').all(person.id);
+    /* Off the new starter plan, there's no stage to be on. */
+    const day = person.on_plan ? workingDay(person.start_date) : null;
     const plan = stages();
     const current = stageFor(plan, day);
     const signoffs = db.prepare(`
@@ -48,8 +50,11 @@ export function trainingRoutes(db) {
     const attempts = db.prepare('SELECT * FROM quiz_attempts WHERE person_id = ? ORDER BY taken_at DESC, id DESC').all(person.id);
 
     return {
-      person: { id: person.id, name: person.name, role: person.role, start_date: person.start_date },
-      services: SERVICES.map((s) => ({ ...s, on: on.includes(s.key) })),
+      person: { id: person.id, name: person.name, role: person.role, start_date: person.start_date, on_plan: !!person.on_plan },
+      services: SERVICES.map((s) => {
+        const row = svc.find((x) => x.service === s.key);
+        return { ...s, on: !!row, since: row?.switched_on_at ?? null, trained_on: row?.trained_on ?? null };
+      }),
       day,
       stage: current?.key ?? null,
       plan: plan.map((s) => {
@@ -83,6 +88,7 @@ export function trainingRoutes(db) {
     return {
       id: person.id, name: person.name, start_date: person.start_date, day: r.day,
       stage: r.plan.find((s) => s.key === r.stage)?.title ?? null,
+      on_plan: !!person.on_plan,
       stagesSignedOff: r.plan.filter((s) => s.signedOff).length, stagesTotal: r.plan.length,
       resourcesDone: r.resources.filter((x) => x.done).length, resourcesTotal: r.resources.length,
       quizzesPassed: r.quizzes.filter((q) => q.best?.passed).length, quizzesTotal: r.quizzes.length,
@@ -122,6 +128,26 @@ export function trainingRoutes(db) {
   router.get('/person/:id', requireSignedIn, (req, res) => {
     const person = subject(req, res, req.params.id);
     if (person) res.json(record(person));
+  });
+
+  /**
+   * The date somebody finished their training on a service, or empty to
+   * clear it. Recording it switches the service on if it wasn't, since
+   * they've been trained on it.
+   */
+  router.put('/person/:id/services/:service/trained', requireTrainer, (req, res) => {
+    const person = subject(req, res, req.params.id);
+    if (!person) return;
+    const { service } = req.params;
+    if (!isService(service)) return res.status(400).json({ error: 'Not a service this app knows.' });
+    const date = req.body?.date || null;
+    if (date !== null && !isIsoDate(date)) return res.status(400).json({ error: 'That isn’t a date.' });
+    if (date) {
+      db.prepare('INSERT OR IGNORE INTO person_services (person_id, service, switched_on_by) VALUES (?, ?, ?)').run(person.id, service, req.person.id);
+    }
+    db.prepare('UPDATE person_services SET trained_on = ? WHERE person_id = ? AND service = ?').run(date, person.id, service);
+    audit(db, req.person.id, 'service.trained', person.id, { service, date });
+    res.json(record(person));
   });
 
   /** A trainer or manager signs off a stage of the plan, or takes it back. */

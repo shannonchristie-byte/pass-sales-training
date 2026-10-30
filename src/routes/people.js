@@ -1,19 +1,24 @@
 /**
  * routes/people.js — roles and service switches. Shannon and Poppy only.
  *
- * People are not added here: they appear the first time they sign in with
- * their B2C Sales login, with a starting role read from that app. What can be
- * changed here is this app's own record — their role, whether they can get in
- * at all, and which services' training is switched on for them.
+ * People appear the first time they sign in with their B2C Sales login, or
+ * when Shannon or Poppy bring the whole team in from the B2C Sales app's team
+ * figures, so the tracker shows everyone before they've signed in. Somebody
+ * brought in has a placeholder email until they first sign in; their B2C
+ * staff id is what joins the two up then. What can be changed here is this
+ * app's own record: role, access, start date, whether they see the new
+ * starter plan, and which services' training is switched on.
  */
 
 import express from 'express';
 import { requireManager } from '../auth.js';
 import { ROLES, allPeople, personById, activeManagerCount, audit } from '../db.js';
 import { isService } from '../services.js';
-import { isIsoDate } from '../plan.js';
+import { isIsoDate, ukToday } from '../plan.js';
 
-export function peopleRoutes(db) {
+export const PLACEHOLDER_DOMAIN = 'not-signed-in.invalid';
+
+export function peopleRoutes(db, { feed } = {}) {
   const router = express.Router();
   router.use(requireManager);
 
@@ -65,6 +70,49 @@ export function peopleRoutes(db) {
     db.prepare('UPDATE people SET start_date = ? WHERE id = ?').run(date, person.id);
     audit(db, req.person.id, 'person.start_date', person.id, { from: person.start_date, to: date });
     res.json({ person: personById(db, person.id) });
+  });
+
+  /**
+   * Everybody on John's and Lucy's teams this month, from the B2C Sales app,
+   * added if they aren't here yet. Sales executives come in off the new
+   * starter plan, except anybody the B2C Sales app says is still inside their
+   * first four weeks. Nobody already here is changed.
+   */
+  router.post('/import-from-b2c', async (req, res) => {
+    if (!feed) return res.status(503).json({ error: 'The link to the B2C Sales app is not set up.' });
+    let data;
+    try {
+      data = await feed(ukToday().slice(0, 7));
+    } catch (err) {
+      return res.status(502).json({ error: err.message });
+    }
+    if (!data || data.notOut) return res.status(503).json({ error: 'The B2C Sales app had no team figures to read.' });
+
+    const found = db.prepare('SELECT id FROM people WHERE b2c_staff_id = ?');
+    const insert = db.prepare(
+      'INSERT INTO people (b2c_staff_id, email, name, role, on_plan) VALUES (?, ?, ?, ?, ?)'
+    );
+    const added = [];
+    const add = (staffId, name, role, onPlan) => {
+      if (!staffId || !name || found.get(staffId)) return;
+      insert.run(staffId, `b2c-staff-${staffId}@${PLACEHOLDER_DOMAIN}`, name, role, onPlan ? 1 : 0);
+      added.push(name);
+    };
+    for (const team of data.teams || []) {
+      add(team.trainerStaffId, team.trainerName, 'trainer', false);
+      for (const p of team.people || []) add(p.staffId, p.name, 'exec', p.counted === false && /first four weeks/i.test(p.reason || ''));
+    }
+    audit(db, req.person.id, 'people.imported', null, { count: added.length });
+    res.json({ added: added.length });
+  });
+
+  router.put('/:id/plan', (req, res) => {
+    const person = personById(db, req.params.id);
+    if (!person) return res.status(404).json({ error: 'No such person.' });
+    const on = req.body?.on === true;
+    db.prepare('UPDATE people SET on_plan = ? WHERE id = ?').run(on ? 1 : 0, person.id);
+    audit(db, req.person.id, 'person.plan', person.id, { on });
+    res.json({ ok: true });
   });
 
   router.put('/:id/services/:service', (req, res) => {
