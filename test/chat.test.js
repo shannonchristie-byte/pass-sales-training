@@ -61,9 +61,9 @@ test('if Claude fails, the person still gets the matching parts and a plain mess
   } finally { await t.close(); }
 });
 
-test('the request to Claude: cached instructions, the extracts, fallbacks, and refusals handled', async () => {
+test('the request to Claude: Haiku, cached instructions, the extracts, and refusals handled', async () => {
   const calls = [];
-  const fake = (reply) => ({ beta: { messages: { create: async (req) => { calls.push(req); return reply; } } } });
+  const fake = (reply) => ({ messages: { create: async (req) => { calls.push(req); return reply; } } });
   const parts = [{ slug: 'pfs-payment', title: 'Payment options', heading: 'Payl8r', text: '## Payl8r\nOnly say it is an option.' }];
 
   const answer = await claudeAnswer('Payl8r?', parts, [{ q: 'Hi', a: 'Hello' }], {
@@ -73,8 +73,7 @@ test('the request to Claude: cached instructions, the extracts, fallbacks, and r
   const req = calls[0];
   assert.equal(req.model, CHAT_MODEL);
   assert.equal(req.system[0].cache_control.type, 'ephemeral');
-  assert.equal(req.fallbacks, 'default');
-  assert.deepEqual(req.betas, ['server-side-fallback-2026-07-01']);
+  assert.equal(req.model, 'claude-haiku-5-5');
   assert.equal(req.messages.length, 3, 'one earlier question and answer, then this one');
   assert.match(req.messages[2].content, /slug="pfs-payment"/);
   assert.match(req.messages[2].content, /Question: Payl8r\?/);

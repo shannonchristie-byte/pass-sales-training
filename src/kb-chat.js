@@ -63,7 +63,8 @@ export function bestParts(pages, question, limit = 8) {
   return scored.filter((s) => s.score > 0).sort((a, b) => b.score - a.score).slice(0, limit);
 }
 
-export const CHAT_MODEL = process.env.CHAT_MODEL || 'claude-opus-5-5';
+/** Claude Haiku 5.5: well under 1p a question (Shannon, 30 Oct 2026). CHAT_MODEL in Render can change it. */
+export const CHAT_MODEL = process.env.CHAT_MODEL || 'claude-haiku-5-5';
 
 const SYSTEM = `You answer questions from Pass's B2C sales team (sales executives, trainers and managers) about Pass's services, prices, policies, scripts and processes.
 
@@ -104,14 +105,10 @@ export async function claudeAnswer(question, parts, history = [], { client } = {
     content: `Knowledge base extracts for this question:\n\n${extractsBlock(parts) || '(none matched)'}\n\nQuestion: ${question}`,
   });
 
-  const response = await anthropic.beta.messages.create({
+  const response = await anthropic.messages.create({
     model: CHAT_MODEL,
     max_tokens: 4000,
     output_config: { effort: 'low' },
-    /* If Claude's safety checks decline a question, the API re-runs it on its
-       recommended fallback model rather than returning nothing. */
-    betas: ['server-side-fallback-2026-07-01'],
-    fallbacks: 'default',
     system: [{ type: 'text', text: SYSTEM, cache_control: { type: 'ephemeral' } }],
     messages,
   });

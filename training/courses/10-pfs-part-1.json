@@ -1,0 +1,1318 @@
+{
+  "key": "pfs-part-1",
+  "title": "PFS Part 1: Product Knowledge",
+  "service": "pfs",
+  "description": "What Pass Functional Skills is, who it's for, the 10 selling points, how the course works, the exam boards, access arrangements, resits, Entry Level 3 and Digital Skills. Each module ends with a knowledge check, then there's an end of course assessment.",
+  "passMark": 80,
+  "source": "ProProfs, Course 2: PFS Part 1 - Product Knowledge (course 4149742), copied 30 Oct 2026. Text as written there; the template filler lines ProProfs left in (\"This is a paragraph with heading on top...\", \"Happy Editing\") are left out, \"27/4\" is corrected to \"24/7\", and the pictures are not copied.",
+  "items": [
+    {
+      "kind": "section",
+      "title": "Before you begin",
+      "body": "Learn about Pass Functional Skills (PFS): what it is, who it's for, and how the product actually works.\n\nBefore you begin, take a few minutes to explore this [interactive, step-by-step walkthrough](https://app.supademo.com/demo/cmd37vg3i3kl9c4kjjvwlgdl3?step=1) of the Pass Functional Skills Maths Level 2 online course. It will give you a useful overview of the platform and help you become familiar with how the course works. Don't worry about exploring everything in detail at this stage, as Module 4 covers the course structure more thoroughly. For now, just use it to gain some initial context before starting your learning journey."
+    },
+    {
+      "kind": "section",
+      "title": "Module 1: Introduction to Pass Functional Skills (PFS)",
+      "body": "**Some of this will be familiar from the Pre-Interview Foundations course. This first module is a quick refresher and introduction to Pass Functional Skills (PFS).**\n\n## What is PFS?\n\nPass Functional Skills (PFS) offers Functional Skills qualifications in maths and English. We offer Entry Level 3, Level 1, and Level 2. It is regulated by Ofqual, so it is accredited and recognised by universities, apprenticeship providers, training providers, and employers.\n\n## The levels: Entry Level 3 up to Level 2\n\nPFS offers Functional Skills maths and English across three levels: Entry Level 3, Level 1, and Level 2. Entry Level 3 is foundational, below GCSE. Level 1 is roughly old GCSE grades 1–3 (D–G). Level 2 is the top and equivalent to a GCSE grade 4 (grade C) — what most customers need, as it's the level nurses, universities, and apprenticeships usually ask for. Always confirm the level a learner's route actually requires rather than assuming Level 2.\n\n## Subjects we offer\n\nFunctional Skills exists in three subjects only: maths, English, and digital skills. PFS provides the full end-to-end service (course + exam) for maths and English, from Entry Level 3 up to Level 2. For Digital Skills we offer a course-only option at Level 1.\n\n## How it's delivered\n\nThe course is studied online from home, at the learner's own pace. The exam is also sat online; there is no paper-based option; and exams run 24/7, 365 days a year. For maths and English, the course and exam can be purchased together or separately; digital skills is course-only.\n\n## Functional Skills vs. a real GCSE\n\nMany learners assume they need a full GCSE when they don't. For maths or English, we usually recommend Functional Skills instead: it's online, from home, available 24/7/365, lower in cost, and uses practical, real-world content. A real GCSE is sat in person at an exam centre on set dates only, costs more, and covers more academic content. We still offer the real GCSE through our sister brand Pass GCSE (PMG) for learners whose university or employer specifically requires it."
+    },
+    {
+      "kind": "question",
+      "question": "What is Functional Skills Level 2 equivalent to?",
+      "options": [
+        "A GCSE grade 6 (old grade B)",
+        "A GCSE grade 9 (old grade A*)",
+        "A GCSE grade 4 (old grade C)",
+        "An unregulated online certificate"
+      ],
+      "answer": 2,
+      "feedback": "Functional Skills Level 2 is a GCSE equivalent of a grade 4 (grade C).",
+      "title": "Module 1 knowledge check, question 1"
+    },
+    {
+      "kind": "question",
+      "question": "Which body regulates Functional Skills?",
+      "options": [
+        "AQA",
+        "JCQ",
+        "Ofqual",
+        "The Department of Education"
+      ],
+      "answer": 2,
+      "feedback": "Ofqual regulation means the qualification is accredited and recognised by courses, universities, and employers.",
+      "title": "Module 1 knowledge check, question 2"
+    },
+    {
+      "kind": "question",
+      "question": "Which shows the levels in order from lowest to highest?",
+      "options": [
+        "Entry Level 3, Level 1, Level 2",
+        "Level 1, Entry Level 3, Level 2",
+        "Level 1, Level 2, Level 3",
+        "Level 2, Level 1, Entry Level 3"
+      ],
+      "answer": 0,
+      "feedback": "Entry Level 3 is foundational (below GCSE), Level 1 is roughly old GCSE grades 1–3 (D–G), and Level 2 is the top, equivalent to grade 4/C. There is no \"Level 3\" in Functional Skills.",
+      "title": "Module 1 knowledge check, question 3"
+    },
+    {
+      "kind": "question",
+      "question": "Which subjects exist within Functional Skills?",
+      "options": [
+        "Maths and English only",
+        "Every GCSE subject",
+        "Maths, English, and science",
+        "Maths, English, and digital skills"
+      ],
+      "answer": 3,
+      "feedback": "Functional Skills only exist in maths, English, and digital skills.",
+      "title": "Module 1 knowledge check, question 4"
+    },
+    {
+      "kind": "question",
+      "question": "Which subject is offered as course-only (with no exam option)?",
+      "options": [
+        "Entry Level 3 Maths",
+        "Level 1 Digital Skills",
+        "Level 1 English",
+        "Entry Level 3 Digital Skills"
+      ],
+      "answer": 1,
+      "feedback": "We provide the full course + exam service for maths and English (Entry Level 3 to Level 2), but Digital Skills is course-only at Level 1 — there's no exam attached to it. We don't offer an Entry Level 3 Digital Skills.",
+      "title": "Module 1 knowledge check, question 5"
+    },
+    {
+      "kind": "question",
+      "question": "A learner needs maths quickly, can study from home, and their employer accepts Functional Skills. Why advise PFS over a real GCSE?",
+      "options": [
+        "It is sat in person on fixed dates",
+        "It is the most prestigious option available",
+        "It is sat online from home, faster, easier content, and significantly cheaper",
+        "A GCSE is never accepted by employers"
+      ],
+      "answer": 2,
+      "feedback": "Versus a real GCSE, FS is online, flexible, easier, and cheaper, which suits this learner.",
+      "title": "Module 1 knowledge check, question 6"
+    },
+    {
+      "kind": "section",
+      "title": "Module 2: Who Needs PFS - The Audience",
+      "body": "**Learn the five main customer types, what each needs PFS for, their buying motivation, and their most likely objection.**\n\nPFS suits anyone who needs a recognised maths or English qualification and whose university, employer or training provider accepts Functional Skills. Five customer types make up the bulk of who we sell to, and each comes to us for slightly different reasons.\n\n## Nursing & healthcare applicant\n\nNurses & other healthcare applicants are our biggest group by far. They typically need Level 2 maths or English to complete a nursing or healthcare application, and they need it quickly; a placement or course start date is usually driving them. The question they almost always ask is whether their university or employer will actually accept Functional Skills. Don't assume: some healthcare employers specifically ask for equivalency instead, so check the exact requirement before recommending PFS.\n\n## University applicants\n\nThese learners need a maths or English qualification to meet a university entry requirement, where the institution accepts Functional Skills in place of a GCSE. They're often working to a UCAS or course deadline, which adds urgency. The main tension is acceptance: they're rarely certain FS will be recognised. We can help them check the requirement and confirm it's likely, but always be clear that the final decision rests with the university — we never guarantee acceptance, so encourage them to confirm directly with the institution before booking.\n\n## Apprenticeship applicants\n\nFor apprentices aged 16–18, English and maths is a mandatory part of completing the apprenticeship if they don't already hold a suitable equivalent — the required level depends on the apprenticeship (often a minimum of Level 1, up to Level 2). For those aged 19+, it's optional and at the employer's discretion (since Feb 2025), so always confirm what the apprentice actually needs before selling. Functional Skills is the fastest and cheapest is the route to meet these qualifications. PMG is more expensive, takes longer, and may be overkill. Equivalency may not be accepted.\n\n## Career changers\n\nThese learners are moving into a new role or sector and need a recognised maths or English qualification, often having left education some time ago. Their priorities are speed and cost: they want to qualify quickly, around work, without paying over the odds. This is usually a straightforward conversation, because PFS is the cheapest and quickest route we offer — online, from home, with the exam included. Lead with speed and value, and reassure them it's Ofqual regulated and recognised, since some worry a faster route means a lesser one.\n\n## Home-educated learners and parents\n\nHome-educated learners and parents want something recognised, flexible and done from home. A common question parents ask is whether holding our qualification means their child counts as being in full-time education. It doesn't, by itself — for that to be the case they must apply to their local authority for sign-off. What we can do is provide evidence that the learner is enrolled on the course to support that application."
+    },
+    {
+      "kind": "question",
+      "question": "Which sector is the single biggest source of PFS customers?",
+      "options": [
+        "Apprenticeship candidates",
+        "Home-educated learners",
+        "Nurses and other healthcare applicants",
+        "Career changers"
+      ],
+      "answer": 2,
+      "feedback": "Nursing & healthcare is our largest audience. Many nursing and healthcare applications require Level 2 maths and English, and Functional Skills is the fastest, cheapest way to get there.",
+      "title": "Module 2 knowledge check, question 1"
+    },
+    {
+      "kind": "question",
+      "question": "What is a career changer's most likely buying motivation?",
+      "options": [
+        "A placement or course start date",
+        "Meeting a university entry requirement before a UCAS deadline",
+        "A mandatory part of completing their apprenticeship",
+        "Qualifying quickly, around work, without paying over the odds"
+      ],
+      "answer": 3,
+      "feedback": "Each group buys for a different reason. Spotting the motivation early lets you lead with the selling point that matters most to them. Career changers want speed and value.",
+      "title": "Module 2 knowledge check, question 2"
+    },
+    {
+      "kind": "question",
+      "question": "A 17-year-old starting an apprenticeship needs maths and English but doesn't have a grade 4/C GCSE. Which route is correct?",
+      "options": [
+        "GCSE equivalency (A Star)",
+        "Functional Skills (PFS)",
+        "A real GCSE (PMG)",
+        "Qualification is not always needed - ask the employer"
+      ],
+      "answer": 1,
+      "feedback": "Functional Skills is the recognised route for apprenticeships — it's Ofqual regulated and accepted by apprenticeship providers. Level 2 maths and English (or a GCSE equivalent) are a mandatory exit requirement for apprentices aged 16–18 — they can't complete the apprenticeship without them. For apprentices aged 19 and over, these are optional and entirely at the employer's discretion. So always check the apprentice's age and what their employer requires.",
+      "title": "Module 2 knowledge check, question 3"
+    },
+    {
+      "kind": "question",
+      "question": "A university applicant asks if Functional Skills will be accepted. What's the right approach?",
+      "options": [
+        "Guarantee it will be accepted everywhere",
+        "Tell them universities never accept Functional Skills",
+        "Confirm their specific institution accepts Functional Skills before recommending it",
+        "Tell them to do a real GCSE to be safe"
+      ],
+      "answer": 2,
+      "feedback": "Acceptance varies by institution. Many universities accept Functional Skills, but you should never guarantee it — check the learner's specific destination so you don't over-promise.",
+      "title": "Module 2 knowledge check, question 4"
+    },
+    {
+      "kind": "question",
+      "question": "A home-educated learner's parent is considering PFS. Which point is most important to raise?",
+      "options": [
+        "They must attend an exam centre in person",
+        "Functional Skills isn't available to home-educated learners",
+        "They can only sit exams in May and November",
+        "The local-authority full-time education requirement for the learner's age"
+      ],
+      "answer": 3,
+      "feedback": "Home-ed cases carry a local-authority full-time education consideration depending on the learner's age — flag it early; full-time education status is decided by the local authority, not by us. The parent applies to the LA and we supply supporting evidence that the learner is on the course.",
+      "title": "Module 2 knowledge check, question 5"
+    },
+    {
+      "kind": "section",
+      "title": "Module 3: The 10 Key Selling Points",
+      "body": "**Learn the 10 headline selling points of PFS — every salesperson must know them cold.**\n\n## 1. Speed of turnaround from booking to exam\n\nExams run 365 days a year, 24 hours a day, so a learner isn't waiting for months for a fixed sitting - useful for anyone working to a schedule\n\n## 2. Speed of results\n\nWe are registered with three major awarding bodies and can pick the fastest. VQA (TQUK) is the quickest, with results in 1–6 working days, and we choose the board that gets the learner their result in time. Results can be in within just 2 working days.\n\n## 3. Track your progress with course access\n\nThe dashboard shows course progress, current level, revision time required, and the steps to becoming 'ExamReady', so learners always know where they stand.\n\n## 4. Ofqual regulated\n\nBecause the qualification is Ofqual regulated, it is accepted by universities, apprenticeships, and employers across the UK.\n\n## 5. Course flexibility — self-paced\n\nOnline with 24/7 access; we recommend around 50 hours of study but it can be done as quickly or slowly as the learner likes, from home.\n\n## 6. Price — lowest cost guaranteed\n\nWe offer the most competitive pricing on a like-for-like service, and significantly less than a real GCSE.\n\n## 7. Free resit — with a premium bundle booking\n\nThe premium bundle includes one free resit (a full resit for math, a single component resit for English); the basic bundle and funded options do not.\n\n## 8. Free demo for course and exam, for those who need it\n\nA demo lets the learner see exactly what they're buying — course features and the exact system — which removed hesitation before they register.\n\n## 9. We work with universities and training providers across multiple sectors\n\nThis direct relationship is reassurance that our qualifications are known and accepted, not an unknown online certificate.\n\n## 10. Pass rates are 93% for those who complete the course\n\nAs long as the learner puts the effort in, they should pass — frame it honestly: the 93% is for learners who finish the course."
+    },
+    {
+      "kind": "question",
+      "question": "How fast can results be and why?",
+      "options": [
+        "Same day, exams are available 365/24/7",
+        "Around 6 weeks, fixed for everyone",
+        "As little as 2 working days, because we are registered with 3 awarding bodies and pick the fastest",
+        "32 working days minimum, because we are registered with 3 awarding bodies and pick the slowest"
+      ],
+      "answer": 2,
+      "feedback": "Selling point 2: we are registered with three boards and we choose the fastest of them - results can be available within 1-6 working days.",
+      "title": "Module 3 knowledge check, question 1"
+    },
+    {
+      "kind": "question",
+      "question": "What is our stated pass rate, and what is the condition?",
+      "options": [
+        "93% for those who complete the course",
+        "100% for everyone who registers",
+        "93% for everyone who registers",
+        "100% for those who complete the course"
+      ],
+      "answer": 0,
+      "feedback": "Selling point 10: a 93% pass rate for learners who complete the course.",
+      "title": "Module 3 knowledge check, question 2"
+    },
+    {
+      "kind": "question",
+      "question": "When is a free resit included?",
+      "options": [
+        "With every booking, including exam only",
+        "With the funded course",
+        "With a premium bundle booking",
+        "Never"
+      ],
+      "answer": 2,
+      "feedback": "Selling point 7: the free resit comes with the premium bundle. Funded options are excluded from this, and the basic bundle does not include a resit.",
+      "title": "Module 3 knowledge check, question 3"
+    },
+    {
+      "kind": "question",
+      "question": "A learner is hesitant, saying she's worried PFS is \"just some unknown online certificate.\" Which selling point best reassures her?",
+      "options": [
+        "Free demo for those who need it",
+        "We work with universities and training providers directly across multiple sectors",
+        "Self-paced course flexibility",
+        "Lowest cost guaranteed"
+      ],
+      "answer": 1,
+      "feedback": "Selling point 9 — our direct relationships with universities and training providers across multiple sectors are exactly what reassures a learner that the qualification is known and trusted, not an unknown online certificate.",
+      "title": "Module 3 knowledge check, question 4"
+    },
+    {
+      "kind": "question",
+      "question": "Which of these is NOT one of the 10 selling points?",
+      "options": [
+        "Speed of results - can be as little as 2 working days",
+        "Free resit with every booking, including exam-only",
+        "Track your progress with course access",
+        "Course flexibility - self paced"
+      ],
+      "answer": 1,
+      "feedback": "The free resit comes only with a premium bundle booking. The 10 selling points are: speed from booking to exam, speed of results, progress tracking, Ofqual regulated, self-paced flexibility, lowest cost guaranteed, free resit with a premium bundle, free demo, working directly with universities and training providers, and a 93% pass rate for those who complete the course.",
+      "title": "Module 3 knowledge check, question 5"
+    },
+    {
+      "kind": "section",
+      "title": "Module 4: How the Course Works",
+      "body": "**The learning journey from Initial Assessment to Mock Exams, and what \"ExamReady\" means.**\n\nAs you work through this module, refer back to the [interactive course demo](https://app.supademo.com/demo/cmd37vg3i3kl9c4kjjvwlgdl3?step=1) to help you visualise the features and sections being discussed.\n\n## 1. Initial Assessment\n\nThis is the learner's starting point — a 30-minute diagnostic mini test that establishes the level they're currently working at and recommends where to begin within the course, so they start at the right point rather than wading through material that's too easy or too hard. It's a guide only, not a fixed judgment, so a learner shouldn't feel boxed in by the result. For a salesperson, this is a useful reassurance point on a call: the learner doesn't need to know their level upfront, the course works it out and starts them in the right place.\n\n## Subject Knowledge Assessment (SKA)\n\nWhere the Initial Assessment finds the overall level, the SKA goes topic by topic — a short test with one question on each topic to pinpoint exactly which areas are strong and which need work. From the results it generates a Personal Learning Plan: a tailored list of recommended topics, shown in the recommended-topics bar and highlighted in purple across the course, each tracked as not started, in progress or completed. The learner can then choose how to use it — work through the entire course for full coverage, or focus only on the recommended topics to save time and target their weak areas. Like the practice questions, each SKA question is marked with both a written and a video solution, so even the diagnostic stage is a learning opportunity.\n\n## Course learning material\n\nThe course is fully comprehensive — every topic that could appear in the exam is covered, so no other revision materials are needed, and learners can work through topics in any order. Each topic has the same three sections: *Revise* (written slides and real expert-tutor videos that get more in-depth as you go, with adjustable speed, captions and unlimited views), *Practice Questions* (multiple choice in easy, medium and hard, every answer marked with written and video solutions whether right or wrong, unlimited attempts), and *Topic Tests* (the step up — multi-part, exam-style questions with typed answers, auto-marked with written and video feedback).\n\n## Mock Exams\n\nBoard-specific papers built to match the question types and structure of the learner's chosen exam, AI-marked by \"Dr Clive\" with instant feedback — marks gained, marks lost and model answers, even for essay-style English. Maths Level 2 has 60 full papers (40 board-specific, 20 general); English Level 2 has 39. There are two modes: *Practice* (no time limit, marked question by question for learning) and *Exam* (timed to the real exam and marked only at the end) — the closest thing to the real sitting.\n\n## ExamReady\n\nThe dashboard's objective signal that a learner is genuinely prepared, rather than a guess. It tracks progress live: course completion, current level and the revision time still needed. A learner is classed as \"ExamReady\" once they've completed the SKA, the Personal Learning Plan, the practice papers and the mocks, and their working level is above 2.5 for Level 2 (above 1.5 for Level 1). A useful reassurance point on a call: proof the learner won't be going in blind.\n\n## Study guidance\n\nWe recommend around 50 hours of study to complete the course, done at the learner's own pace with immediate 24/7 access. When the course is completed, the success rate is 93%.\n\n## Other course features\n\nOur accessibility feature allows a learner to change the view of the course for it to be user-friendly for as many learners as possible. Some examples of what this feature can do (but there are a lot more): change font size, screen color, hide images, add a reader guide, read aloud text to speech features, and more."
+    },
+    {
+      "kind": "question",
+      "question": "Which is the right order for the learning journey?",
+      "options": [
+        "Initial Assessment, Subject Knowledge Assessment (SKA), Personal Learning Plan, Revise/Practice/Topic Tests, Mock Exams, ExamReady",
+        "Subject Knowledge Assessment (SKA), Initial Assessment, Mock Exams, Personal Learning Plan, Revise/Practice/Topic Tests, ExamReady",
+        "Initial Assessment, Mock Exams, Subject Knowledge Assessment (SKA), Revise/Practice/Topic Tests, Personal Learning Plan, ExamReady",
+        "Personal Learning Plan, Initial Assessment, Revise/Practice/Topic Tests, Subject Knowledge Assessment (SKA), ExamReady, Mock Exams"
+      ],
+      "answer": 0,
+      "feedback": "The journey starts with the Initial Assessment, then the SKA, which builds the Personal Learning Plan, then Revise, Practice Questions and Topic Tests, then the mock exams, and finally ExamReady.",
+      "title": "Module 4 knowledge check, question 1"
+    },
+    {
+      "kind": "question",
+      "question": "How many mock papers does the Maths Level 2 course have?",
+      "options": [
+        "39 (9 board-specific, 30 general)",
+        "60 (40 board-specific, 20 general)",
+        "12 (3 board-specific per paper)",
+        "100 (40 board-specific, 60 general)"
+      ],
+      "answer": 1,
+      "feedback": "Maths L2 has 60 full papers - 40 board-specific and 20 general.",
+      "title": "Module 4 knowledge check, question 2"
+    },
+    {
+      "kind": "question",
+      "question": "What is the difference between Practice mode and Exam mode on a mock?",
+      "options": [
+        "Practice mode is timed and marks only at the end; Exam mode has no time limit and marks question by question",
+        "Practice mode has a time limit and marks question by question; Exam mode has no time limit and marks only at the end",
+        "Practice mode has no time limit and marks question by question; Exam mode has a time limit and marks only at the end",
+        "Practice mode doesn't exist in PFS; Exam mode is the closest thing to the real exams and is the default option"
+      ],
+      "answer": 2,
+      "feedback": "Practice mode = untimed, marks as you go; Exam mode = timed like the real exam, marks at the end.",
+      "title": "Module 4 knowledge check, question 3"
+    },
+    {
+      "kind": "question",
+      "question": "Which is part of the \"ExamReady\" criteria for a Level 2 course?",
+      "options": [
+        "Paying in full",
+        "Current level above 1.5, plus SKA, personalised learning plan, practice papers and mocks completed",
+        "Current level above 2.5, plus SKA, personalised learning plan, practice papers and mocks completed",
+        "Enrolling on the course"
+      ],
+      "answer": 2,
+      "feedback": "For Level 2, Exam Ready requires the completed tasks AND a current level above 2.5 (above 1.5 for Level 1).",
+      "title": "Module 4 knowledge check, question 4"
+    },
+    {
+      "kind": "question",
+      "question": "Each topic in the course is split into which three sections?",
+      "options": [
+        "Lecture, seminar, exam",
+        "Reading, writing, speaking",
+        "Easy, medium, hard",
+        "Revision materials, practice questions, topic tests"
+      ],
+      "answer": 3,
+      "feedback": "Every topic has Revise, Practice Questions and Topic Tests.",
+      "title": "Module 4 knowledge check, question 5"
+    },
+    {
+      "kind": "question",
+      "question": "How much study does PFS recommend to complete the course, and what's the success rate on completion?",
+      "options": [
+        "Around 100 hours, with a 75% success rate",
+        "Around 50 hours at the learner's own pace, with a 93% success rate on completion",
+        "A fixed 6-week timetable, with a guaranteed pass",
+        "Around 20 hours, with a 50% success rate"
+      ],
+      "answer": 1,
+      "feedback": "PFS recommends roughly 50 hours of study, done at the learner's own pace with immediate 24/7 access. For learners who complete the course, the success rate is 93% — note it's tied to completing the course, not guaranteed for everyone.",
+      "title": "Module 4 knowledge check, question 6"
+    },
+    {
+      "kind": "question",
+      "question": "What does the course's accessibility feature let a learner do?",
+      "options": [
+        "Change how the course is displayed — font size, screen colour, hiding images, a reader guide, text-to-speech and more",
+        "Book their exam on a different date",
+        "Receive additional credits for completing the course",
+        "Get extra time in the real exam"
+      ],
+      "answer": 0,
+      "feedback": "The accessibility feature changes the view of the course to suit as many learners as possible — font size, screen colour, hiding images, a reader guide, read-aloud text-to-speech and more. Note it adjusts the course display only; exam access arrangements (like extra time) are a separate process handled with the exam board.",
+      "title": "Module 4 knowledge check, question 7"
+    },
+    {
+      "kind": "section",
+      "title": "Module 5: Maths exam - Open Awards",
+      "body": "**How the Open Awards maths exam runs.**\n\n## Open Awards maths exam & rules\n\nThe Open Awards maths exam is a single 2-hour exam, sat online at home with a human invigilator present throughout. It's split into two sections: 30 minutes non-calculator, then 90 minutes with a calculator.\n\nFor the calculator section, the learner can either use their own calculator or the one provided on screen — both are allowed. Throughout the exam they can use pen and paper to work things out, but anything they want marked must be entered on screen; rough workings on paper won't be seen by the examiner. The pass mark is typically around 50–60%.\n\n## Results & invigilation\n\nOpen Awards results take 6–16 working days. That's slower than VQA (TQUK) (1–6 working days), so if a learner is working to a tight deadline, factor this in when choosing a board.\n\nHow the human invigilator works: Open Awards has a real person invigilating live for the whole exam. The learner receives their exam link on the day, joins, and the invigilator supervises them throughout in real time. It's worth flagging to learners who feel reassured by having a person present rather than being recorded."
+    },
+    {
+      "kind": "question",
+      "question": "How long is the Open Awards maths exam and how is it split?",
+      "options": [
+        "2 hours: 90 minutes non-calculator and 30 minutes calculator",
+        "2 hours: 30 minutes non-calculator and 90 minutes calculator",
+        "3 hours: three equal papers",
+        "1 hour, calculator only"
+      ],
+      "answer": 1,
+      "feedback": "It is a 2-hour exam split 30 min non-calculator / 90 min calculator.",
+      "title": "Module 5 knowledge check, question 1"
+    },
+    {
+      "kind": "question",
+      "question": "Can a learner bring their own calculator to the Open Awards maths exam?",
+      "options": [
+        "No, never",
+        "Only a scientific calculator from us",
+        "Only if approved as an access arrangement",
+        "Yes - they may use their own or the on-screen one"
+      ],
+      "answer": 3,
+      "feedback": "Open Awards allows the learner's own calculator or the on-screen one.",
+      "title": "Module 5 knowledge check, question 2"
+    },
+    {
+      "kind": "question",
+      "question": "Who invigilates an Open Awards exam?",
+      "options": [
+        "A human invigilator, present throughout",
+        "An automated invigilator, reviewed afterwards",
+        "No one",
+        "A teacher at a school centre"
+      ],
+      "answer": 0,
+      "feedback": "Open Awards uses a human invigilator throughout.",
+      "title": "Module 5 knowledge check, question 3"
+    },
+    {
+      "kind": "question",
+      "question": "How long do Open Awards results take?",
+      "options": [
+        "6-16 working days",
+        "1-6 working days",
+        "32 working days",
+        "Same day"
+      ],
+      "answer": 0,
+      "feedback": "Open Awards results take 6-16 working days.",
+      "title": "Module 5 knowledge check, question 4"
+    },
+    {
+      "kind": "question",
+      "question": "A learner does their working on paper. What must they do for it to count?",
+      "options": [
+        "Nothing — paper workings are collected and marked",
+        "Enter anything they want marked on screen; paper workings aren't seen",
+        "Photograph the paper and email it in",
+        "Hand the paper to the invigilator afterwards"
+      ],
+      "answer": 1,
+      "feedback": "Pen and paper can be used for working out, but only what's entered on screen is considered for marking.",
+      "title": "Module 5 knowledge check, question 5"
+    },
+    {
+      "kind": "section",
+      "title": "Module 6: Maths exam - VQA (TQUK)",
+      "body": "**How the VQA (TQUK) maths exam runs — our default, fastest board.**\n\n## VQA (TQUK) maths exam & rules\n\nThe VQA (TQUK) maths exam is a single 2-hour exam made up of two sections, one calculator and one non-calculator. Unlike Open Awards, there is no time limit on each individual section, so the learner manages the full two hours across both as they wish. The pass mark is typically around 50–60%.\n\nThe learner cannot bring their own calculator; an on-screen calculator, protractor and ruler are all provided instead. For notes they are allowed just one piece of plain paper, along with an on-screen notes pop-up in the bottom left, which is not marked. Results come back in 1–6 working days, the fastest of any board. There are only three exam papers in a cycle before the next standardisation, so if a learner sits three times and still needs a resit, they either wait for the next cycle or change exam board.\n\n## Invigilation & exam set-up\n\nVQA (TQUK) uses an automated invigilator: the exam is recorded and reviewed afterwards, with no human present during the sitting. The learner receives their login and exam link by email from [exams@tquk.org](mailto:exams@tquk.org), not from us, so it's worth telling them to look out for it and check their spam folder. Chromebooks work fine for VQA (TQUK) exams, but we advise against Macs, which are often unreliable or not compatible."
+    },
+    {
+      "kind": "question",
+      "question": "How is the TQUK maths exam structured?",
+      "options": [
+        "A fixed 30-minute non-calculator and 90-minute calculator split",
+        "Two separate 1-hour papers on different days",
+        "One 2-hour exam with calculator and non-calculator sections, with no time limit on each",
+        "A single 90-minute calculator paper"
+      ],
+      "answer": 2,
+      "feedback": "TQUK maths is one 2-hour exam with two sections and no individual section time limit — unlike Open Awards, which fixes the split at 30/90.",
+      "title": "Module 6 knowledge check, question 1"
+    },
+    {
+      "kind": "question",
+      "question": "How is the TQUK exam invigilated?",
+      "options": [
+        "A human invigilator watches live throughout",
+        "An automated invigilator records the exam for review afterwards, with no human present",
+        "There is no invigilation",
+        "The learner attends a test centre"
+      ],
+      "answer": 1,
+      "feedback": "TQUK uses automated invigilation, recorded and reviewed afterwards — the key contrast with Open Awards' live human invigilator.",
+      "title": "Module 6 knowledge check, question 2"
+    },
+    {
+      "kind": "question",
+      "question": "What calculator can the learner use?",
+      "options": [
+        "No own calculator — an on-screen calculator, protractor and ruler are provided",
+        "Their own calculator only",
+        "Either their own or the on-screen one",
+        "No calculator at all"
+      ],
+      "answer": 0,
+      "feedback": "TQUK does not allow the learner's own calculator; the calculator, protractor and ruler are all on screen. This differs from Open Awards, where a personal calculator is allowed.",
+      "title": "Module 6 knowledge check, question 3"
+    },
+    {
+      "kind": "question",
+      "question": "What can the learner use for notes?",
+      "options": [
+        "Unlimited scrap paper",
+        "Nothing at all",
+        "One piece of plain paper, plus an on-screen notes pop-up that is not marked",
+        "A whiteboard supplied by the invigilator"
+      ],
+      "answer": 2,
+      "feedback": "TQUK allows just one piece of plain paper, plus the bottom-left on-screen notes pop-up, which is not marked.",
+      "title": "Module 6 knowledge check, question 4"
+    },
+    {
+      "kind": "question",
+      "question": "How quickly do TQUK results come back?",
+      "options": [
+        "6–16 working days",
+        "1–6 working days",
+        "Same day",
+        "32 working days"
+      ],
+      "answer": 1,
+      "feedback": "TQUK is the fastest board at 1–6 working days.",
+      "title": "Module 6 knowledge check, question 5"
+    },
+    {
+      "kind": "question",
+      "question": "A learner has sat the TQUK exam three times in a cycle and still needs a resit. What are their options?",
+      "options": [
+        "Resit immediately with TQUK",
+        "Wait for the next cycle or change exam board",
+        "Nothing — they can never resit",
+        "They automatically pass on the fourth attempt"
+      ],
+      "answer": 1,
+      "feedback": "TQUK allows only three papers per cycle before standardisation; after that the learner waits for the next cycle or switches board.",
+      "title": "Module 6 knowledge check, question 6"
+    },
+    {
+      "kind": "section",
+      "title": "Module 7: English Exam - The Three Components",
+      "body": "**Reading, Writing, and SLC: how each runs and the pass marks.**\n\n## The three components and timing\n\nThe PFS English exam is made up of three components: Reading, Writing, and SLC (Speaking, Listening and Communication). Reading and Writing are sat together in a single 2-hour sitting, split as 1 hour of reading and 1 hour of writing. The SLC is sat separately, on its own day, and takes around an hour.\n\n## How the SLC works\n\nThe SLC is a group call. The learner joins up to four other learners, so there are up to five people in total. Beforehand, they choose their own presentation topic and submit it 7 days ahead of the exam, and they also receive an email 7 days before with a set discussion topic that they don't get to choose. On the day, they deliver a 4–7 minute verbal presentation, and everyone else presents too. It works both ways: the learner is asked questions by the other learners, and must put questions to them in return.\n\n## Rules and pass marks\n\nA dictionary is allowed, but only for the reading section. The pass marks differ by component: around 55% for Reading and Writing, and a full 100% (10 out of 10) for the SLC."
+    },
+    {
+      "kind": "question",
+      "question": "What are the three components of the English exam?",
+      "options": [
+        "Reading, Writing and SLC",
+        "Reading, Writing and Listening only",
+        "Calculator, non-calculator and SLC",
+        "Grammar, Spelling and Speaking"
+      ],
+      "answer": 0,
+      "feedback": "English has three components: Reading, Writing and SLC.",
+      "title": "Module 7 knowledge check, question 1"
+    },
+    {
+      "kind": "question",
+      "question": "What pass mark does the SLC require?",
+      "options": [
+        "55%",
+        "50-60%",
+        "75%",
+        "100%"
+      ],
+      "answer": 3,
+      "feedback": "The SLC must be passed at 100% (10/10); reading and writing need ~55%.",
+      "title": "Module 7 knowledge check, question 2"
+    },
+    {
+      "kind": "question",
+      "question": "How long is the SLC presentation, and when is the topic submitted?",
+      "options": [
+        "10 minutes; the learner's own topic is submitted on the day",
+        "4-7 minutes; the learner's own topic is submitted 7 days before",
+        "2 minutes; the topic chosen by the invigilator",
+        "No presentation is required"
+      ],
+      "answer": 1,
+      "feedback": "The presentation is 4-7 minutes and the learner's chosen topic is submitted 7 days ahead.",
+      "title": "Module 7 knowledge check, question 3"
+    },
+    {
+      "kind": "question",
+      "question": "How are reading and writing scheduled?",
+      "options": [
+        "One 2-hour sitting - 1 hour reading, 1 hour writing",
+        "Two separate days - 1 hour reading, 1 hour writing",
+        "Combined with the SLC on one day",
+        "A 4-hour single paper"
+      ],
+      "answer": 0,
+      "feedback": "Reading and writing are one 2-hour sitting (1 hr each); the SLC is a separate day.",
+      "title": "Module 7 knowledge check, question 4"
+    },
+    {
+      "kind": "question",
+      "question": "When is a dictionary allowed in the English exam?",
+      "options": [
+        "Never",
+        "For the reading section only",
+        "For every section",
+        "For the writing section only"
+      ],
+      "answer": 1,
+      "feedback": "A dictionary is allowed, but only for the reading section.",
+      "title": "Module 7 knowledge check, question 5"
+    },
+    {
+      "kind": "section",
+      "title": "Module 8: English Exam - Board Differences",
+      "body": "**Where Open Awards and TQUK differ on the SLC, dictionaries, paper, and results.**\n\n## Exam boards\n\nFor PFS English, we work with two exam boards: **Open Awards** and VQA (TQUK). A learner sits the same qualification either way, but the practical details differ between the two, and those details are exactly what customers ask about.\n\n## SLC day and time\n\nWith Open Awards the Level 2 SLC runs at 09:30 Monday to Friday. With VQA (TQUK) it runs later in the day, at 12:30, but only on Wednesdays and Fridays, and only subject to availability. So Open Awards gives the learner far more scheduling flexibility.\n\n## Dictionaries\n\nOpen Awards allows a standard Oxford dictionary for the reading section only — not a thesaurus and not a bilingual dictionary. TQUK also allows a dictionary for the reading section.\n\n## Paper and notes\n\nAn Open Awards learner can bring scrap paper. A VQA (TQUK) learner cannot do the same: they get one piece of plain paper for maths only, and none at all for English. In the TQUK English exam there's an on-screen notes pop-up instead, but anything written there is not marked.\n\n## Results\n\nOpen Awards takes 6 to 16 working days, counted after each component is sat. VQA (TQUK) is much quicker, returning results in 1 to 6 working days."
+    },
+    {
+      "kind": "question",
+      "question": "When does the Open Awards Level 2 SLC run?",
+      "options": [
+        "09:30, Monday to Friday",
+        "12:30 on Wednesdays and Fridays",
+        "Tuesdays and Thursdays",
+        "Weekends only"
+      ],
+      "answer": 0,
+      "feedback": "Open Awards Level 2 SLC runs 09:30 Mon-Fri; TQUK runs Wed & Fri 12:30.",
+      "title": "Module 8 knowledge check, question 1"
+    },
+    {
+      "kind": "question",
+      "question": "What dictionary does Open Awards permit, and where?",
+      "options": [
+        "A bilingual dictionary for writing",
+        "A standard Oxford dictionary, reading section only - no thesaurus or bilingual dictionary",
+        "Any dictionary, any section",
+        "No dictionary at all"
+      ],
+      "answer": 1,
+      "feedback": "OA allows a standard Oxford dictionary for reading only - not thesaurus or bilingual.",
+      "title": "Module 8 knowledge check, question 2"
+    },
+    {
+      "kind": "question",
+      "question": "What can a learner bring for notes in a TQUK English exam?",
+      "options": [
+        "One piece of plain paper",
+        "A printed dictionary",
+        "As much scrap paper as they like",
+        "No paper at all - only the on-screen notes pop-up, which is not marked"
+      ],
+      "answer": 3,
+      "feedback": "TQUK allows no paper for English; only the unmarked on-screen notes pop-up.",
+      "title": "Module 8 knowledge check, question 3"
+    },
+    {
+      "kind": "question",
+      "question": "Which board can a learner bring scrap paper to?",
+      "options": [
+        "Both",
+        "Neither",
+        "Open Awards",
+        "TQUK"
+      ],
+      "answer": 2,
+      "feedback": "Open Awards allows scrap paper, TQUK is far more restricted.",
+      "title": "Module 8 knowledge check, question 4"
+    },
+    {
+      "kind": "question",
+      "question": "A learner needs results fast. Which board should you recommend, based on timing alone?",
+      "options": [
+        "TQUK - 1-6 working days",
+        "Open Awards - 6-16 working days",
+        "Either - they're equivalent",
+        "Recommend Pass My GCSE (PMG) instead"
+      ],
+      "answer": 0,
+      "feedback": "TQUK results (1-6 working days) are faster than Open Awards (6-16 working days).",
+      "title": "Module 8 knowledge check, question 5"
+    },
+    {
+      "kind": "section",
+      "title": "Module 9: City & Guilds",
+      "body": "**When (rarely) to use City & Guilds, and why we advise against it.**\n\n## City & Guilds\n\nAlongside Open Awards and VQA (TQUK), we are also registered with a third board for PFS: City & Guilds. The important thing to know up front is that we advise against using it. We only put a learner with City & Guilds if they specifically need it or ask for it by name — otherwise Open Awards or VQA (TQUK) will almost always serve them better.\n\n## Why we advise against it\n\nTwo reasons we steer away. First, the tech test: before sitting the exam the learner must book and pass a separate tech test (downloading software), then wait at least five working days, which delays everything. Second, results take up to 32 working days — far longer than Open Awards (6–16) or VQA (TQUK) (1–6).\n\n## Exam set-up\n\nA few facts for when a learner does choose it. Chromebooks cannot be used and dictionaries are not allowed; however, they can use their own scrap paper. The SLC has three tasks: a presentation on a familiar topic (own topic, signed off by admin), a discussion on an unfamiliar topic (given three options, chosen on the day), and a discussion in response to a short video. The SLC information is sent in an email 7 days before."
+    },
+    {
+      "kind": "question",
+      "question": "What must a learner do before sitting a City & Guilds exam?",
+      "options": [
+        "Book and pass a tech test, then wait at least 5 working days before the exam",
+        "Nothing extra",
+        "Submit their discussion 32 days before their SLC",
+        "Sit a mock at an approved exam centre"
+      ],
+      "answer": 0,
+      "feedback": "C&G requires a passed tech test, then wait at least 5 days before the exam.",
+      "title": "Module 9 knowledge check, question 1"
+    },
+    {
+      "kind": "question",
+      "question": "How long do City & Guilds results take?",
+      "options": [
+        "1-6 working days",
+        "6-16 working days",
+        "Up to 32 working days",
+        "Up to 23 working days"
+      ],
+      "answer": 2,
+      "feedback": "C&G results take up to 32 working days - much longer than the other boards.",
+      "title": "Module 9 knowledge check, question 2"
+    },
+    {
+      "kind": "question",
+      "question": "How many tasks are there in the City & Guilds SLC?",
+      "options": [
+        "1 - familiar-topic presentation",
+        "2 - unfamiliar topic discussion, and a discussion on a short video",
+        "3 - familiar-topic presentation, unfamiliar topic discussion, and a discussion on a short video",
+        "4 - familiar-topic presentation, unfamiliar topic discussion, dictionary test, and a discussion on a short video"
+      ],
+      "answer": 2,
+      "feedback": "The C&G SLC has 3 tasks: familiar-topic presentation, unfamiliar topic discussion, and a discussion on a short video.",
+      "title": "Module 9 knowledge check, question 3"
+    },
+    {
+      "kind": "question",
+      "question": "What is our default stance on City & Guilds?",
+      "options": [
+        "Advise against it; use only if the learner specifically needs or requests it",
+        "Always recommend it for nurses; it's the preferred pathway",
+        "It is our default board",
+        "Recommend it as the cheapest option"
+      ],
+      "answer": 0,
+      "feedback": "We advise against C&G because of the tech test and slow results.",
+      "title": "Module 9 knowledge check, question 4"
+    },
+    {
+      "kind": "section",
+      "title": "Module 10: Access Arrangements",
+      "body": "**Where evidence goes, how long each board needs, what each grants, and SLC exemption.**\n\n## How it works\n\nWe can apply directly with the exam board for extra requirements such as extra time, a reader, or a scribe. What is available differs by board. After booking, the learner sends their evidence to the exams team at [help@passfunctionalskills.co.uk](mailto:help@passfunctionalskills.co.uk) — for example a diagnostic letter, a doctor's letter, or an EHCP. The boards each need time to grant and apply the arrangements before the exam. VQA (TQUK) needs 6 working days and grants only 25% extra time. Open Awards needs 10 working days and offers all access arrangements. City & Guilds needs 20 working days and grants only 25% extra time.\n\n## SLC exemption (English)\n\nIn extreme circumstances a learner can be made exempt from the SLC component — for reasons beyond typical access arrangements, such as the learner being mute. This requires full medical evidence: a doctor's note is not accepted, but an EHCP is a good option. If approved, the certificate will state that the SLC element was not completed. We cannot guarantee that universities or courses will accept this, as it is decided case by case, though we have not yet had one refused."
+    },
+    {
+      "kind": "question",
+      "question": "Where does a learner send access-arrangement evidence?",
+      "options": [
+        "help@passfunctionalskills.co.uk",
+        "exams@tquk.org",
+        "The exam board directly",
+        "They don't need to submit evidence"
+      ],
+      "answer": 0,
+      "feedback": "Evidence goes to the exams team at help@passfunctionalskills.co.uk.",
+      "title": "Module 10 knowledge check, question 1"
+    },
+    {
+      "kind": "question",
+      "question": "How long does Open Awards need, and what can it grant?",
+      "options": [
+        "1 working day; 25% extra time and SLC exemption",
+        "6 working days; 25% extra time only",
+        "10 working days; all access arrangements",
+        "20 working days; 25% extra time only"
+      ],
+      "answer": 2,
+      "feedback": "OA needs 10 working days and can grant all arrangements (unlike TQUK/C&G, which give 25% extra time only).",
+      "title": "Module 10 knowledge check, question 2"
+    },
+    {
+      "kind": "question",
+      "question": "Which evidence is acceptable for an SLC exemption?",
+      "options": [
+        "Any doctor's note",
+        "A self-declaration",
+        "A diagnostic letter only",
+        "Full medical evidence such as an EHCP - a doctor's note is not accepted"
+      ],
+      "answer": 3,
+      "feedback": "SLC exemption needs full medical evidence (EHCP); a doctor's note is not accepted.",
+      "title": "Module 10 knowledge check, question 3"
+    },
+    {
+      "kind": "question",
+      "question": "TQUK and City & Guilds both grant which access arrangement only?",
+      "options": [
+        "25% extra time",
+        "A reader and scribe",
+        "Rest breaks",
+        "All arrangements"
+      ],
+      "answer": 0,
+      "feedback": "TQUK and C&G grant only 25% extra time; OA grants all.",
+      "title": "Module 10 knowledge check, question 4"
+    },
+    {
+      "kind": "question",
+      "question": "If an SLC exemption is approved, what happens on the certificate?",
+      "options": [
+        "The whole qualification is voided",
+        "It guarantees university acceptance",
+        "It states the SLC element was not completed; acceptance is case-by-case",
+        "Nothing is added"
+      ],
+      "answer": 2,
+      "feedback": "The certificate notes the SLC was not completed; acceptance by uni/course is case-by-case.",
+      "title": "Module 10 knowledge check, question 5"
+    },
+    {
+      "kind": "section",
+      "title": "Module 11: Exam Boards Comparison Table",
+      "body": "**This is one of the most common knowledge gaps — learn it cold.**\n\n| Open Awards | VQA (TQUK) | City & Guilds |\n| --- | --- | --- |\n| 6–16 working day results | 6 working day results | 32 working day results |\n| Can bring own calculator | Can't bring own calculator | Can't bring own calculator |\n| Can use Chromebooks and Macs, but need to let admin know first | Can use Chromebooks, but typically not Macs | Can't use Chromebooks |\n| Human invigilator | Non-human invigilator | Human invigilator |\n| Link on the day of the exam | Link as soon as admin has registered the learner | Link any time up to 30 minutes before the exam |\n| Can bring scrap paper | Can only bring 1 piece of plain paper to a maths exam. None at all for English | Can use own scrap paper |\n| SLC human assessed, over Zoom | SLC human assessed, over Zoom | SLC human assessed, over Zoom |\n| Level 2 SLC run at 09:30 Monday to Friday | SLCs run on Wednesdays and Fridays at 12:30, depending on availability | SLCs run on Tuesdays and Thursdays, depending on availability |\n| Can use a dictionary for reading only | Can use a dictionary for reading | Can't use a dictionary |\n| All available access arrangements: 10 working days for approval | Only 25% extra time: 6 working days for approval | Only 25% extra time: 20 working days for approval |"
+    },
+    {
+      "kind": "question",
+      "question": "Which board allows the learner to bring their own calculator?",
+      "options": [
+        "Open Awards",
+        "TQUK",
+        "City & Guilds",
+        "Open Awards & TQUK"
+      ],
+      "answer": 0,
+      "feedback": "Only Open Awards allows the learner's own calculator.",
+      "title": "Module 11 knowledge check, question 1"
+    },
+    {
+      "kind": "question",
+      "question": "Which board uses a non-human (automated) invigilator?",
+      "options": [
+        "Open Awards",
+        "TQUK",
+        "City & Guilds",
+        "None"
+      ],
+      "answer": 1,
+      "feedback": "TQUK uses a non-human invigilator; OA and C&G use human invigilators.",
+      "title": "Module 11 knowledge check, question 2"
+    },
+    {
+      "kind": "question",
+      "question": "Which board cannot use a Chromebook?",
+      "options": [
+        "Open Awards",
+        "TQUK",
+        "City & Guilds",
+        "All three"
+      ],
+      "answer": 2,
+      "feedback": "C&G can't use Chromebooks: OA and TQUK can (OA with notice to admin for Chromebooks and Macs; TQUK typically cannot use Macs).",
+      "title": "Module 11 knowledge check, question 3"
+    },
+    {
+      "kind": "question",
+      "question": "On Open Awards, when is the exam link available?",
+      "options": [
+        "Up to 30 minutes before",
+        "On the day of the exam",
+        "7 days before",
+        "As soon as admin register the learner"
+      ],
+      "answer": 1,
+      "feedback": "OA provides the link on the day; TQUK as soon as registered; C&G up to 30 minutes before.",
+      "title": "Module 11 knowledge check, question 4"
+    },
+    {
+      "kind": "question",
+      "question": "Which board allows no dictionary at all?",
+      "options": [
+        "Open Awards",
+        "TQUK",
+        "City & Guilds",
+        "None - all allow one"
+      ],
+      "answer": 2,
+      "feedback": "C&G allows no dictionary; OA and TQUK allow one for reading.",
+      "title": "Module 11 knowledge check, question 5"
+    },
+    {
+      "kind": "question",
+      "question": "What are the correct access arrangement approval times?",
+      "options": [
+        "OA 10 working days, TQUK 6, C&G 20",
+        "OA 6 working days, TQUK 10, C&G 20",
+        "OA 20 working days, TQUK 6, C&G 10",
+        "OA 20 working days, TQUK 10, C&G 6"
+      ],
+      "answer": 0,
+      "feedback": "OA 10 days (all arrangements), TQUK 6 days (25% only), C&G 20 days (25% only).",
+      "title": "Module 11 knowledge check, question 6"
+    },
+    {
+      "kind": "question",
+      "question": "What paper can a learner bring to a TQUK maths exam?",
+      "options": [
+        "Unlimited scrap paper",
+        "One piece of plain paper (and none at all for English)",
+        "A printed dictionary",
+        "Their own notes"
+      ],
+      "answer": 1,
+      "feedback": "TQUK maths allows one piece of plain paper; English allows none.",
+      "title": "Module 11 knowledge check, question 7"
+    },
+    {
+      "kind": "question",
+      "question": "Which board runs the SLC on Tuesdays and Thursdays only?",
+      "options": [
+        "Open Awards",
+        "TQUK",
+        "City & Guilds",
+        "None run on weekdays"
+      ],
+      "answer": 2,
+      "feedback": "C&G runs SLC Tues & Thurs; OA Mon-Fri 09:30; TQUK Wed & Fri 12:30.",
+      "title": "Module 11 knowledge check, question 8"
+    },
+    {
+      "kind": "section",
+      "title": "Module 12: Resits",
+      "body": "**Cycle limits per board, component resits, credit transfer, and the supportive resit-call script and tone.**\n\n## Resits\n\nA learner can retake an exam at any point once they have the results from their previous attempt. How many times they can resit depends on the board. With VQA (TQUK) a learner can resit three times before the next cycle, while Open Awards and City & Guilds allow up to five attempts. After reaching that limit, the learner would need to change exam board if they wanted to retake again within that cycle.\n\n## Component resits\n\nWhat a learner has to resit depends on the subject. For maths, the learner must sit the whole exam again. For English, they only need to resit the components they have failed — they do not have to redo all three.\n\nEnglish also allows resit components to be taken with different boards, and we can organise a credit transfer to bring them together. The qualification is issued by whichever board holds the majority of the components. For example, if someone passed two components with Open Awards and one with City & Guilds, their qualification would come from Open Awards. One thing to watch: VQA (TQUK) will not issue a component certificate, and will only complete a credit transfer if they hold the majority, meaning two of the three components.\n\n## Resit-call tone\n\nThe tone of a resit call matters just as much as the timing. Resit calls are supportive, not salesy. Start by establishing the learner's situation and deadline, reassure them, and lead with support rather than a pitch. The learner has usually just had a setback, so the goal is to help them feel looked after, not sold to.\n\nIf a learner needs their results by a certain date, ask what that date is and work back from it, choosing a board whose result turnaround fits the deadline."
+    },
+    {
+      "kind": "question",
+      "question": "When can a learner book a resit?",
+      "options": [
+        "They can resit at any point once they have the results from their previous exam.",
+        "They must wait until the next exam cycle begins.",
+        "They can only resit after 30 days have passed."
+      ],
+      "answer": 0,
+      "feedback": "A learner can retake an exam at any point after receiving the results of their previous attempt.",
+      "title": "Module 12 knowledge check, question 1"
+    },
+    {
+      "kind": "question",
+      "question": "How many times can a learner resit with each board before needing to switch?",
+      "options": [
+        "Three times with all three boards",
+        "Five times with all three boards",
+        "Three times with TQUK, and up to five times with Open Awards or City & Guilds",
+        "Unlimited attempts with any board"
+      ],
+      "answer": 2,
+      "feedback": "TQUK allows three resits before the next cycle; Open Awards and City & Guilds allow up to five, after which the learner must change board.",
+      "title": "Module 12 knowledge check, question 2"
+    },
+    {
+      "kind": "question",
+      "question": "What does a learner have to resit if they fail?",
+      "options": [
+        "For both maths and English, they must redo the whole exam",
+        "For maths they resit the whole exam; for English they resit only the components they failed",
+        "For English they redo everything; for maths only the failed section",
+        "They only ever resit the components they got wrong"
+      ],
+      "answer": 1,
+      "feedback": "Maths requires sitting the whole exam again, whereas English only requires resitting the components that were failed.",
+      "title": "Module 12 knowledge check, question 3"
+    },
+    {
+      "kind": "question",
+      "question": "A learner passed two English components with Open Awards and one with City & Guilds. Which board issues their qualification?",
+      "options": [
+        "City & Guilds, because they sat the most recent component there",
+        "Open Awards, because it holds the majority of the components",
+        "Neither — they must redo all three with one board",
+        "Both boards issue a joint certificate"
+      ],
+      "answer": 1,
+      "feedback": "The qualification comes from the board holding the majority of components, which here is Open Awards. A credit transfer brings the components together.",
+      "title": "Module 12 knowledge check, question 4"
+    },
+    {
+      "kind": "question",
+      "question": "What is the right tone for a resit call?",
+      "options": [
+        "Lead with a strong sales pitch to secure the rebooking quickly",
+        "Keep it brief and transactional, focused only on payment",
+        "Be supportive, not salesy — establish the situation and deadline, reassure the learner, and lead with support",
+        "Avoid discussing the learner's previous result"
+      ],
+      "answer": 2,
+      "feedback": "Resit calls are supportive rather than salesy: establish the learner's situation and deadline, reassure them, and lead with support before any pitch.",
+      "title": "Module 12 knowledge check, question 5"
+    },
+    {
+      "kind": "section",
+      "title": "Module 13: Entry Level 3 and Digital Skills",
+      "body": "**What each is, when a learner needs it, and how they sit alongside FS Level 2.**\n\n## Entry Level 3\n\nEntry Level 3 sits below Functional Skills Level 1, and we do not offer it unless a learner specifically asks for it. The courses and exam set-up work in exactly the same way as the standard FS courses. It is available with Open Awards only. The English exam runs as 45 minutes of reading and 50 minutes of writing, and the maths exam is 30 minutes non-calculator followed by 1 hour 15 minutes with a calculator.\n\n## Digital Skills\n\nDigital Functional Skills is a Level 1 course only, and there is no exam to offer with it. It builds practical digital skills for work, study, and everyday life, and it works like the maths and English courses. The learner starts with a Subject Knowledge Assessment, and each topic then has three sections: Revise (interactive walkthroughs and written slides), Practice Questions (multiple choice), and Topic Tests (written answers, AI-marked with feedback and a model answer). There is one full mock paper, which is multiple choice plus written and marked by the Dr Clive AI. Progress tracking shows course progress, current level, and scores, but there is no \"Exam Ready\" status, because there is no exam.\n\n## Digital Skills pricing\n\nDigital Skills is sold at £99. It can be offered at £49 only if agreed by management beforehand. There is no exam fee, as it is a course only."
+    },
+    {
+      "kind": "question",
+      "question": "Which board offers Entry Level 3?",
+      "options": [
+        "Open Awards only",
+        "TQUK only",
+        "City & Guilds only",
+        "All three"
+      ],
+      "answer": 0,
+      "feedback": "Entry Level 3 is available with Open Awards only.",
+      "title": "Module 13 knowledge check, question 1"
+    },
+    {
+      "kind": "question",
+      "question": "When do we offer Entry Level 3?",
+      "options": [
+        "As the default for every learner",
+        "For all nursing applicants",
+        "Only if a learner specifically asks for it",
+        "Whenever a learner fails Level 2"
+      ],
+      "answer": 2,
+      "feedback": "Entry Level 3 sits below FS L1 and is offered only on specific request.",
+      "title": "Module 13 knowledge check, question 2"
+    },
+    {
+      "kind": "question",
+      "question": "Is there an exam for Digital Skills?",
+      "options": [
+        "Yes, with TQUK",
+        "Yes, with Open Awards",
+        "Yes, but only in November",
+        "No - it is a course only"
+      ],
+      "answer": 3,
+      "feedback": "Digital Skills has no exam; it is a course-only product.",
+      "title": "Module 13 knowledge check, question 3"
+    },
+    {
+      "kind": "question",
+      "question": "What is the standard price for the Digital Skills course?",
+      "options": [
+        "£99 (£49 with management approval)",
+        "£284 (10% off with management approval)",
+        "£499; no discounts are permitted",
+        "£49 (50% off with management approval)"
+      ],
+      "answer": 0,
+      "feedback": "Digital Skills is £99; £49 only if management approves it first.",
+      "title": "Module 13 knowledge check, question 4"
+    },
+    {
+      "kind": "question",
+      "question": "How is the Digital Skills course structured?",
+      "options": [
+        "It is exam-led, with no practice questions or topic tests.",
+        "It is a single mock paper with no other content.",
+        "It starts with a Subject Knowledge Assessment, then each topic has Revise, Practice Questions, and Topic Tests, with one full mock paper marked by the Dr Clive AI."
+      ],
+      "answer": 2,
+      "feedback": "Digital Skills opens with a Subject Knowledge Assessment, then each topic runs through Revise, Practice Questions, and Topic Tests, finishing with one full mock paper (multiple choice plus written) marked by the Dr Clive AI — but with no exam and so no \"Exam Ready\" status.",
+      "title": "Module 13 knowledge check, question 5"
+    },
+    {
+      "kind": "section",
+      "title": "End of course assessment",
+      "body": "Three parts, A to C, covering the whole course. Take your time: each question has feedback once you answer."
+    },
+    {
+      "kind": "question",
+      "question": "A university applicant asks how their Functional Skills Level 2 will be read against GCSEs. What do you tell them?",
+      "options": [
+        "It is recognised as equivalent to a GCSE grade C (grade 4)",
+        "It counts as a grade A",
+        "It counts as a grade 9",
+        "It counts as a grade 1"
+      ],
+      "answer": 0,
+      "feedback": "FS Level 2 is equivalent to GCSE grade C (grade 4).",
+      "title": "End of course assessment, part A, question 1"
+    },
+    {
+      "kind": "question",
+      "question": "A learner has a tight deadline and asks which board will get their result back quickest. What do you recommend?",
+      "options": [
+        "Open Awards",
+        "TQUK",
+        "City & Guilds",
+        "It makes no difference which board they use"
+      ],
+      "answer": 1,
+      "feedback": "TQUK is the default and fastest board (1-6 working days); Open Awards takes 6-16 days, and City & Guilds can take up to 32 days.",
+      "title": "End of course assessment, part A, question 2"
+    },
+    {
+      "kind": "question",
+      "question": "A nurse needs Level 2 maths fast and can study from home. Which is the best fit?",
+      "options": [
+        "Pass My GCSE",
+        "A Star Equivalency",
+        "PFS - nursing is our biggest sector and FS is fast, online and affordable",
+        "No qualification is needed; don't mis-sell"
+      ],
+      "answer": 2,
+      "feedback": "Nurses are the biggest PFS audience; FS fits the need for a fast, home-based Level 2.",
+      "title": "End of course assessment, part A, question 3"
+    },
+    {
+      "kind": "question",
+      "question": "Which board lets a learner bring their own calculator?",
+      "options": [
+        "Open Awards",
+        "TQUK",
+        "City & Guilds",
+        "All three"
+      ],
+      "answer": 0,
+      "feedback": "Only Open Awards permits the learner's own calculator.",
+      "title": "End of course assessment, part A, question 4"
+    },
+    {
+      "kind": "question",
+      "question": "A learner is worried about the speaking component and asks what percentage they need to pass. What's accurate?",
+      "options": [
+        "48%",
+        "50%",
+        "55%",
+        "100%"
+      ],
+      "answer": 3,
+      "feedback": "The SLC requires 100%; reading and writing need ~55%.",
+      "title": "End of course assessment, part A, question 5"
+    },
+    {
+      "kind": "question",
+      "question": "A learner asks what happens after they complete the Subject Knowledge Assessment. What do you tell them?",
+      "options": [
+        "It issues their completion certificate",
+        "It produces a discount code for future courses",
+        "It generates a Personal Learning Plan to target their weaker areas",
+        "It releases their exam link as they are \"ExamReady\""
+      ],
+      "answer": 2,
+      "feedback": "The SKA builds their personal learning plan.",
+      "title": "End of course assessment, part A, question 6"
+    },
+    {
+      "kind": "question",
+      "question": "How many mock papers does the Maths Level 2 course include?",
+      "options": [
+        "12 (9 board-specific, 3 general)",
+        "30 (20 board-specific, 10 general)",
+        "39 (9 board-specific, 30 general)",
+        "60 (40 board-specific, 20 general)"
+      ],
+      "answer": 3,
+      "feedback": "Maths L2 has 60 full papers.",
+      "title": "End of course assessment, part A, question 7"
+    },
+    {
+      "kind": "question",
+      "question": "Which of these is one of the 10 selling points?",
+      "options": [
+        "Low cost guaranteed",
+        "Free university place",
+        "Guaranteed grade 9",
+        "In-person classes"
+      ],
+      "answer": 0,
+      "feedback": "\"Price - lowest cost guaranteed\" is selling point 6.",
+      "title": "End of course assessment, part A, question 8"
+    },
+    {
+      "kind": "question",
+      "question": "A learner passed reading and writing but failed the SLC. What do they need to resit?",
+      "options": [
+        "All three English components",
+        "The whole qualification",
+        "Only the failed component — the SLC",
+        "Reading and writing as well"
+      ],
+      "answer": 2,
+      "feedback": "English resits are component-by-component, so only the failed part is retaken.",
+      "title": "End of course assessment, part B, question 1"
+    },
+    {
+      "kind": "question",
+      "question": "A learner asks what the speaking assessment actually involves on the day. What's accurate?",
+      "options": [
+        "A short presentation of around 4–7 minutes, plus discussion, in a group call of up to 5 learners, on a separate day from reading and writing",
+        "A written essay submitted online",
+        "A one-to-one interview lasting an hour",
+        "A multiple-choice test taken at home"
+      ],
+      "answer": 0,
+      "feedback": "The SLC is a separate sitting — a group call of up to 5 learners with a 4–7 minute presentation, with the topic given 7 days' notice.",
+      "title": "End of course assessment, part B, question 2"
+    },
+    {
+      "kind": "question",
+      "question": "A learner wants to know how reading and writing are scheduled and what they need to pass. What do you tell them?",
+      "options": [
+        "They are sat on separate days, each needing 100%",
+        "Reading and writing are sat together in one 2-hour sitting, with a pass mark of around 55%",
+        "They are taken at home with no time limit, the learner can retry until they pass",
+        "They are combined with the SLC into one session; each component must be passed at 70%"
+      ],
+      "answer": 1,
+      "feedback": "Reading and writing are one 2-hour sitting at roughly 55%; the SLC is separate and needs 100%.",
+      "title": "End of course assessment, part B, question 3"
+    },
+    {
+      "kind": "question",
+      "question": "A career changer is weighing up their options. What is usually their main buying motivation?",
+      "options": [
+        "Sitting the exam in person at a school",
+        "Earning a guaranteed grade 9",
+        "Avoiding any online study",
+        "Getting a maths or English qualification quickly so they can move into a new role"
+      ],
+      "answer": 3,
+      "feedback": "Career changers typically need maths or English fast to unlock a new role — speed is the motivation.",
+      "title": "End of course assessment, part B, question 4"
+    },
+    {
+      "kind": "question",
+      "question": "A learner has used all three of their TQUK attempts and still wants to try again that cycle. What happens next?",
+      "options": [
+        "They can keep resitting with TQUK indefinitely",
+        "They must change to a different exam board to keep going",
+        "They automatically get a free pass",
+        "They can never sit the exam again"
+      ],
+      "answer": 1,
+      "feedback": "TQUK allows three attempts before the cycle resets; Open Awards and City & Guilds allow up to five, after which the learner must switch board.",
+      "title": "End of course assessment, part B, question 5"
+    },
+    {
+      "kind": "question",
+      "question": "A learner failed their maths exam and asks what they have to redo. What's correct?",
+      "options": [
+        "Only the calculator paper",
+        "Only the questions they got wrong",
+        "The whole maths exam must be sat again",
+        "Nothing — the previous score carries over"
+      ],
+      "answer": 2,
+      "feedback": "Unlike English, maths has no component resits — the whole exam is retaken.",
+      "title": "End of course assessment, part B, question 6"
+    },
+    {
+      "kind": "question",
+      "question": "A learner needs a scribe arranged. Which board can grant the full range of access arrangements, and how long does it need?",
+      "options": [
+        "Open Awards — it offers all access arrangements and needs 10 working days",
+        "TQUK — it offers all arrangements and needs 6 working days",
+        "City & Guilds — it offers all arrangements and needs 20 working days",
+        "Any board can grant a scribe instantly"
+      ],
+      "answer": 0,
+      "feedback": "Only Open Awards offers the full set of arrangements (10 working days); TQUK and City & Guilds grant 25% extra time only.",
+      "title": "End of course assessment, part B, question 7"
+    },
+    {
+      "kind": "question",
+      "question": "A learner who is unable to speak asks about being exempt from the SLC. What evidence is needed?",
+      "options": [
+        "Full medical evidence such as an EHCP — a doctor's note alone is not accepted",
+        "A doctor's note is enough on its own",
+        "No evidence is required, we've never had a problem with it",
+        "A diagnostic letter from a tutor"
+      ],
+      "answer": 0,
+      "feedback": "An SLC exemption needs full medical evidence; an EHCP is a good option, but a doctor's note is not accepted.",
+      "title": "End of course assessment, part B, question 8"
+    },
+    {
+      "kind": "question",
+      "question": "If an SLC exemption is approved, what should the salesperson make clear to the learner?",
+      "options": [
+        "The certificate will look identical to a full pass",
+        "Every university is guaranteed to accept it",
+        "The certificate will state the SLC element was not completed, and acceptance by a university or course cannot be guaranteed",
+        "No university will ever accept it"
+      ],
+      "answer": 2,
+      "feedback": "The certificate notes the SLC was not completed; acceptance is case-by-case, though none has been refused so far.",
+      "title": "End of course assessment, part C, question 1"
+    },
+    {
+      "kind": "question",
+      "question": "A learner wants to know the difference between Practice mode and Exam mode on a mock paper. What's the point of Exam mode?",
+      "options": [
+        "It gives the answers as you go, designed to optimise comprehension",
+        "It is the only mode that is marked automatically; practice mode is provided with mark schemes",
+        "It simulates real exam conditions, so the learner experiences timing and format as they will on the day",
+        "It removes the time limit; learners can read revision materials as they work through the exam"
+      ],
+      "answer": 2,
+      "feedback": "Exam mode replicates real conditions; Practice mode is for learning with support.",
+      "title": "End of course assessment, part C, question 2"
+    },
+    {
+      "kind": "question",
+      "question": "A new learner asks where they should begin. What is the correct first step in the learning journey?",
+      "options": [
+        "The Initial Assessment, followed by the Subject Knowledge Assessment and Personal Learning Plan",
+        "Booking the exam straight away",
+        "Sitting a full mock first",
+        "Requesting their certificate"
+      ],
+      "answer": 0,
+      "feedback": "The journey starts with the Initial Assessment, then SKA and PLP, before revise/practice/tests and mocks.",
+      "title": "End of course assessment, part C, question 3"
+    },
+    {
+      "kind": "question",
+      "question": "A learner is nervous about their chances. What can you accurately say about the pass rate?",
+      "options": [
+        "We have a 93% pass rate, provided the learner completes the course and is Exam Ready",
+        "We guarantee a 100% pass for everyone",
+        "We have a 93% pass rate for maths, we don't have a pass rate for English",
+        "There is no measured pass rate for any subject"
+      ],
+      "answer": 0,
+      "feedback": "The 93% pass rate is conditional on completing the course and reaching Exam Ready.",
+      "title": "End of course assessment, part C, question 4"
+    },
+    {
+      "kind": "question",
+      "question": "A learner doesn't own a calculator and is worried about the maths exam. Which board removes that problem, and how?",
+      "options": [
+        "Open Awards, which lends out calculators",
+        "City & Guilds, which has no calculator section",
+        "TQUK, which provides on-screen tools rather than allowing the learner's own calculator",
+        "None — a personal calculator is always required"
+      ],
+      "answer": 2,
+      "feedback": "TQUK supplies on-screen tools and does not permit a personal calculator, so the learner needs nothing of their own.",
+      "title": "End of course assessment, part C, question 5"
+    },
+    {
+      "kind": "question",
+      "question": "A learner has a tech test booked for Monday and wants to sit the City & Guilds exam on Wednesday the same week. What do you tell them?",
+      "options": [
+        "That's too long — they must sit the exam within 5 working days after passing the tech test",
+        "That's too soon — they must leave at least 5 working days after passing the tech test before sitting the exam",
+        "That's fine, the exam can follow the next day",
+        "The tech test and exam must be on the same day"
+      ],
+      "answer": 1,
+      "feedback": "City & Guilds requires a passed tech test, then a minimum 5-working-day gap before the exam.",
+      "title": "End of course assessment, part C, question 6"
+    },
+    {
+      "kind": "question",
+      "question": "A learner asks how their Digital Skills work is marked and whether there's a final exam. What's accurate?",
+      "options": [
+        "Topic tests and the single mock are AI-marked (Dr Clive) with feedback and a model answer, and there is no exam, so no \"Exam Ready\" status",
+        "It is marked by a human examiner and ends in a TQUK exam",
+        "It is not marked at all",
+        "It uses the same exam as FS maths"
+      ],
+      "answer": 0,
+      "feedback": "Digital Skills is course-only and AI-marked; with no exam there is no \"Exam Ready\" status.",
+      "title": "End of course assessment, part C, question 7"
+    },
+    {
+      "kind": "question",
+      "question": "A learner says they'll be using a Chromebook to study and sit the exam. Which board should you steer them away from?",
+      "options": [
+        "Open Awards, because it bans Chromebooks",
+        "TQUK, because it requires a Chromebook",
+        "City & Guilds, because Chromebooks cannot be used",
+        "None — all boards accept Chromebooks"
+      ],
+      "answer": 2,
+      "feedback": "City & Guilds does not allow Chromebooks; this is another reason we advise against it.",
+      "title": "End of course assessment, part C, question 8"
+    }
+  ]
+}
