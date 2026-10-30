@@ -66,6 +66,26 @@ export function knowledgeRoutes(db) {
     res.json({ services: SERVICES, sections: SECTIONS, pages: db.prepare(PAGE_LIST).all() });
   });
 
+  /**
+   * Every page of one service or section, in order, with its text, so the
+   * whole service reads as one long page with a jump list at the top. Each
+   * page is still its own record underneath: edited, versioned and checked
+   * on its own.
+   */
+  router.get('/all/:key', (req, res) => {
+    const key = req.params.key;
+    const item = SERVICES.find((s) => s.key === key) || SECTIONS.find((s) => s.key === key);
+    if (!item) return res.status(404).json({ error: 'No such service.' });
+    const pages = db.prepare(`
+      SELECT p.slug, p.title, p.service, p.section, p.position, p.body, p.source, p.updated_at, p.checked_at,
+             c.name AS checked_by_name, u.name AS updated_by_name,
+             (SELECT COUNT(*) FROM kb_suggestions s WHERE s.page_id = p.id AND s.status = 'pending') AS pending_suggestions
+        FROM kb_pages p LEFT JOIN people c ON c.id = p.checked_by LEFT JOIN people u ON u.id = p.updated_by
+       WHERE p.service = ? OR p.section = ?
+       ORDER BY p.position, p.title`).all(key, key);
+    res.json({ item, pages });
+  });
+
   router.get('/search', (req, res) => {
     const q = String(req.query.q || '').trim();
     if (q.length < 2) return res.json({ q, results: [] });

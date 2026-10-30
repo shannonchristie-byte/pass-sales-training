@@ -179,3 +179,23 @@ test('markdown lists nest one level and callouts render', () => {
   assert.match(out, /<div class="callout"><p><strong>To check:<\/strong> this<\/p><\/div>/);
   assert.match(renderMarkdown('> "Hi, is that Sam?"'), /<div class="quote">/, 'a line to say on a call is a quote, not a warning');
 });
+
+test('a whole service comes back as one page, in order, for everyone', async () => {
+  const t = await withPages();
+  try {
+    const exec = t.person('Exec A');
+    const res = await t.call('/api/knowledge/all/pfs', { as: exec.token });
+    assert.equal(res.status, 200);
+    const { item, pages } = await res.json();
+    assert.equal(item.key, 'pfs');
+    assert.ok(pages.length >= 11);
+    assert.ok(pages.every((p) => p.service === 'pfs' && typeof p.body === 'string'));
+    const positions = pages.map((p) => p.position);
+    assert.deepEqual(positions, [...positions].sort((a, b) => a - b), 'in page order');
+
+    const section = await (await t.call('/api/knowledge/all/objections', { as: exec.token })).json();
+    assert.ok(section.pages.length >= 9, 'sections work the same way');
+    assert.equal((await t.call('/api/knowledge/all/mme', { as: exec.token })).status, 404);
+    assert.equal((await t.call('/api/knowledge/all/pfs')).status, 401, 'signed in only');
+  } finally { await t.close(); }
+});

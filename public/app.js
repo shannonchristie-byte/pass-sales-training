@@ -252,27 +252,92 @@ async function kbHome(main) {
     </div>`;
 }
 
-/** A service's or section's list of pages. */
+/**
+ * A whole service (or section) on one page: a jump list at the top, then
+ * every part in order. Each part keeps its own Edit, History and "checked"
+ * mark, because underneath it's still a page of its own.
+ */
 async function kbService(main, { params }) {
-  const kb = await kbIndex();
   const key = params.get('key');
-  const item = kb.services.find((s) => s.key === key) || kb.sections.find((s) => s.key === key);
-  if (!item) throw new Error('No such service.');
-  const pages = kb.pages.filter((p) => p.service === key || p.section === key);
+  const { item, pages } = await get(`/knowledge/all/${encodeURIComponent(key)}`);
+  const at = params.get('at');
+
   main.innerHTML = html`
     <p class="crumbs"><a href="#/kb">Knowledge base</a></p>
-    <h1>${item.name}</h1>
+    <h1 id="kb-top">${item.name}</h1>
     ${pages.length ? html`
-      <div class="page-list">
-        ${pages.map((p) => html`
-          <a class="page-row" href="#/kb/p?slug=${p.slug}">
-            <span class="page-title">${p.title}</span>
-            ${checkedBadge(p)}
-          </a>`)}
-      </div>` : html`<div class="card empty"><p>These pages haven't been moved across from the Google Docs yet.</p></div>`}`;
+      <nav class="card jump-list" aria-label="On this page">
+        <div class="muted small">Jump to</div>
+        <ol>${pages.map((p) => html`
+          <li><a href="#/kb/s?key=${key}&at=${p.slug}" data-action="jump" data-slug="${p.slug}">${p.title}</a>${p.checked_at ? '' : html` <span class="badge warn">Not checked</span>`}</li>`)}
+        </ol>
+      </nav>
+      ${pages.map((p) => html`
+        <section class="kb-part" id="part-${p.slug}">
+          <div class="page-head">
+            <h2>${p.title}</h2>
+            <div class="page-actions">
+              ${isManager() ? html`<a class="btn small" href="#/kb/edit?slug=${p.slug}">${raw(icon('file-text', { size: 'sm' }))} Edit</a>` : ''}
+              ${isTrainer() && !isManager() ? html`<a class="btn small" href="#/kb/edit?slug=${p.slug}">${raw(icon('message-circle', { size: 'sm' }))} Suggest a change</a>` : ''}
+              ${isTrainer() ? html`<button class="btn small" data-action="checked" data-slug="${p.slug}">${raw(icon('check-circle', { size: 'sm' }))} Mark as checked</button>` : ''}
+            </div>
+          </div>
+          <p class="page-meta muted small">
+            ${p.checked_at ? html`Checked by ${p.checked_by_name} on ${fmtDate(p.checked_at)}.` : html`<span class="badge warn">Not checked yet</span> John or Lucy to check against how things work now.`}
+            Last changed ${fmtDate(p.updated_at)}${p.updated_by_name ? html` by ${p.updated_by_name}` : ''}.
+            ${isTrainer() ? html`<a href="#/kb/history?slug=${p.slug}">History</a>` : ''}
+            ${isManager() && p.pending_suggestions ? html` · <a href="#/kb/suggestions">${p.pending_suggestions} suggested change${p.pending_suggestions === 1 ? '' : 's'} waiting</a>` : ''}
+          </p>
+          <article class="prose">${raw(renderMarkdown(p.body))}</article>
+          ${p.source ? html`<p class="muted small source">Moved across from: ${p.source}</p>` : ''}
+          <p class="to-top small"><a href="#/kb/s?key=${key}" data-action="top">Back to the top</a></p>
+        </section>`)}` : html`<div class="card empty"><p>These pages haven't been moved across from the Google Docs yet.</p></div>`}`;
+
+  /* Jumping moves down the page without redrawing it, and keeps the address
+     pointing at the part, so a copied link or a refresh lands in the same place. */
+  const goTo = (slug) => {
+    const el = document.getElementById(`part-${slug}`);
+    if (!el) return;
+    el.scrollIntoView({ block: 'start' });
+    history.replaceState(null, '', `#/kb/s?key=${key}&at=${slug}`);
+  };
+  /* Straight away rather than on the next frame: a page in a background tab
+     doesn't get frames, and would be left where the last page was scrolled. */
+  if (at) goTo(at);
+  else window.scrollTo(0, 0);
+
+  bind(main, {
+    jump: (el) => goTo(el.dataset.slug),
+    top: () => {
+      document.getElementById('kb-top')?.scrollIntoView({ block: 'start' });
+      history.replaceState(null, '', `#/kb/s?key=${key}`);
+    },
+    checked: async (el) => {
+      try {
+        await post(`/knowledge/pages/${el.dataset.slug}/checked`);
+        await kbIndex({ fresh: true });
+        toast('Marked as checked.');
+        kbService(main, { params: new URLSearchParams(`key=${key}&at=${el.dataset.slug}`) }).catch(notifyError);
+      } catch (err) { notifyError(err); }
+    },
+  });
 }
 
+/**
+ * A single page's address (from search, a link inside another page, or an
+ * old bookmark) opens its service's page at that part.
+ */
 async function kbArticle(main, { params }) {
+  const kb = await kbIndex();
+  const page = kb.pages.find((p) => p.slug === params.get('slug'));
+  if (page) {
+    location.replace(`#/kb/s?key=${page.service || page.section}&at=${page.slug}`);
+    return;
+  }
+  return kbArticleAlone(main, { params });
+}
+
+async function kbArticleAlone(main, { params }) {
   const kb = await kbIndex();
   const { page, pendingSuggestions } = await get(`/knowledge/pages/${encodeURIComponent(params.get('slug'))}`);
   const parent = kb.services.find((s) => s.key === page.service) || kb.sections.find((s) => s.key === page.section);
