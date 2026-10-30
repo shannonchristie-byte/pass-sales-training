@@ -79,9 +79,16 @@ its second tab).
   ahead in opening hours): `training-link` merged into bonus-app's main
   (f327025) and Render redeployed it; offline for under a minute, back at
   4:28pm, health check fine, and the link answers "not set up" as it should
-  until stage 4. Next: stage 4, once Alex OKs the cost: Shannon creates this
-  service from `render.yaml` in Pass Team, then adds HANDOFF_KEY (copied from
-  this service's Environment tab) and TRAINING_RETURN_URL to the B2C Sales app.
+  until stage 4. Stage 4 done 29 to 30 Oct (Alex OK'd the cost): Render
+  service `sales-training` in Pass Team (Frankfurt, 1 GB disk, Blueprint
+  managed), live at https://sales-training-69fi.onrender.com
+  (sales-training.onrender.com is someone else's site). The B2C Sales app has
+  HANDOFF_KEY and TRAINING_RETURN_URL; Shannon signed in through it on 30 Oct
+  and arrived as manager, and team figures came through (2 teams, 13 people).
+  Pushing to this repo's main redeploys the live app.
+- **Live since 30 Oct 2026.** Next: stage 5 (Poppy, John and Lucy sign in;
+  John and Lucy check the 30 "To check" notes and approve the 58 quiz
+  questions in the first week) and stage 6 (launch message to the team).
   Content added to `content\` or `training\` after a database exists only reaches it if new;
   additions to existing pages (such as the online exams links added to the
   Pass GCSE and A Level "at a glance" pages) need making in the app.
